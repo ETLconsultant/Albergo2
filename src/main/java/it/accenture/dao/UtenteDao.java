@@ -1,7 +1,6 @@
 package it.accenture.dao;
 
 import java.util.List;
-
 import exceptions.DAOException;
 import it.accenture.model.Utente;
 //ugiuh

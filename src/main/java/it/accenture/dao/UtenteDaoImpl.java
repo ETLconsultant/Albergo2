@@ -13,7 +13,7 @@ import exceptions.ConnessioneException;
 import exceptions.DAOException;
 import it.accenture.model.Utente;
 import java.sql.ResultSet;
-//jhhjjk
+
 public class UtenteDaoImpl implements UtenteDao {
 
 	private Connection connection;
