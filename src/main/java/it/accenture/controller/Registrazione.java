@@ -28,10 +28,12 @@ public class Registrazione extends HttpServlet {
 		
 		if(lista.size()!=0){
 			req.setAttribute("lista", lista );
+			System.out.println(lista);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/registrazione.jsp").forward(req, resp);
+			return;
 		}
 		
-		String idUtente =req.getParameter("idUtente");
+//		String idUtente =req.getParameter("idUtente");
 		String nome = req.getParameter("nome");
 		String cognome = req.getParameter("cognome");
 		String username = req.getParameter("username");
@@ -41,12 +43,12 @@ public class Registrazione extends HttpServlet {
 		utente.setCognome(cognome);
 		utente.setUsername(username);
 		utente.setPassword(password);
-		System.out.println(utente);
 		UtenteDaoImpl utenteService = null;
 		try {
 			utenteService = new UtenteDaoImpl();
 			utenteService.insertUtente(utente);
-			
+			System.out.println(utente);
+
 		} catch (ConnessioneException e) {
 			e.printStackTrace();
 		} catch (DAOException e) {
