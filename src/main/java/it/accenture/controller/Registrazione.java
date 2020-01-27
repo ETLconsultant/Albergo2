@@ -25,10 +25,12 @@ public class Registrazione extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<ErroreValidazione> lista = Validatore.validazioneUtente(req);
+		
 		if(lista.size()!=0){
 			req.setAttribute("lista", lista );
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/registrazione.jsp").forward(req, resp);
 		}
+		
 		String idUtente =req.getParameter("idUtente");
 		String nome = req.getParameter("nome");
 		String cognome = req.getParameter("cognome");
