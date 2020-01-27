@@ -13,12 +13,13 @@ public class SingletonConnection {
 	private static String stringConnection = rb.getString("jdbc.stringConnection");
 	private static String idConnection=rb.getString("jdbc.username");
 	private static String passConnection=rb.getString("jdbc.password");
+	private static String driverClassName= rb.getString("driverClassName");
 	
 	
 	private SingletonConnection() throws ConnessioneException{
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");  
+			Class.forName(driverClassName);  
 			
 			conn = DriverManager.getConnection(stringConnection,idConnection,passConnection);
 		} catch (Exception e) {
