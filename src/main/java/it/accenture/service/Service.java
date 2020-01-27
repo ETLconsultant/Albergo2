@@ -12,7 +12,7 @@ import it.accenture.model.Periodo;
 import it.accenture.model.Prenotazione;
 import it.accenture.model.Stanza;
 import it.accenture.model.Utente;
-
+//volevo risolvere 
 public class Service {
 	private PrenotazioneDaoImpl pdao = new PrenotazioneDaoImpl();
 	private StanzaDaoImpl sdao = new StanzaDaoImpl();
@@ -21,8 +21,17 @@ public class Service {
 	//METODI DI PRENOTAZIONE DAO
 
 	public void insertPrenotazione(Prenotazione prenotazione) {
-		pdao.insertPrenotazione(prenotazione);
-	}
+		try {
+			if(prenotazione.getIdUtente()==0) {
+				throw new DAOException("Prenotazione senza utente");
+			}
+			pdao.insertPrenotazione(prenotazione);
+			}
+			catch (DAOException e){
+				e.printStackTrace();
+			}
+		}
+	
 	//Ho cambiato il nome in getPrenotazioniByUtente da getAll che non si capiva
 	public ArrayList<Prenotazione> getPrenotazioniByUtente(int idUtente){
 		return pdao.getAllByUtente(idUtente);
@@ -67,8 +76,10 @@ public class Service {
 	}
 	//METODI DI UTENTE DAO
 	
-public void insertUtente(Utente utente) throws DAOException{
+public void insertUtente(Utente utente) {
+
 	udao.insertUtente(utente);
+
 }
 	
 	public Utente getByUsernameAndPassword(String username, 

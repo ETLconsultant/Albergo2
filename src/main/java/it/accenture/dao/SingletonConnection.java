@@ -16,7 +16,7 @@ public class SingletonConnection {
 	private static String driverClassName= rb.getString("driverClassName");
 	
 	
-	private SingletonConnection() throws ConnessioneException{
+	private SingletonConnection() {
 		
 		try {
 			Class.forName(driverClassName);  
@@ -24,7 +24,15 @@ public class SingletonConnection {
 			conn = DriverManager.getConnection(stringConnection,idConnection,passConnection);
 		} catch (Exception e) {
 			e.printStackTrace();			
-			throw new ConnessioneException(e.getMessage());
+			try {
+				throw new ConnessioneException(e.getMessage());
+			}
+			catch(ConnessioneException e1){
+				e1.getMessage();
+				e1.printStackTrace();
+				System.out.println("CONNESSIONE FALLITA???");
+				//Eventualmente aggiungere il log???
+			}
 		}
 	}
 	
