@@ -4,7 +4,7 @@ import java.util.List;
 
 import exceptions.DAOException;
 import it.accenture.model.Utente;
-
+//ugiuh
 public interface UtenteDao {
 
 	public void insertUtente(Utente utente) throws DAOException;
