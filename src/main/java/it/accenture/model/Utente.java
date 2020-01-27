@@ -1,7 +1,6 @@
 package it.accenture.model;
 
 import java.io.Serializable;
-
 public class Utente implements Serializable {
 
 	
