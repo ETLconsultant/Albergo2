@@ -1,6 +1,7 @@
 package it.accenture.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import exceptions.DAOException;
@@ -23,7 +24,7 @@ public class Service {
 		pdao.insertPrenotazione(prenotazione);
 	}
 	//Ho cambiato il nome in getPrenotazioniByUtente da getAll che non si capiva
-	public List<Prenotazione> getPrenotazioniByUtente(int idUtente){
+	public ArrayList<Prenotazione> getPrenotazioniByUtente(int idUtente){
 		return pdao.getAllByUtente(idUtente);
 	}
 	//tutti i close si chiamano con la loro lettera davanti sennò davano problemi che sono tutti void
@@ -31,7 +32,7 @@ public class Service {
 		pdao.close();
 	}
 
-	public List<Periodo> getPeriodiByStanza(int numeroStanza){
+	public ArrayList<Periodo> getPeriodiByStanza(int numeroStanza){
 		return pdao.getPeriodiByStanza(numeroStanza);
 
 	}
@@ -40,14 +41,14 @@ public class Service {
 		return pdao.controlloDate(dataInizio, dataFine, numeroStanza);
 
 	}
-	public void controlloDisponibilitaQuotidiana(List<Stanza> listaStanze) {
+	public void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze) {
 		pdao.controlloDisponibilitaQuotidiana(listaStanze);
 	}
 
 	//METODI DI STANZA DAO
 
 	//Ho cambiato in getAllStanze al posto di getAll che non si capiva
-	public List<Stanza> getAllStanze(){
+	public ArrayList<Stanza> getAllStanze(){
 		return sdao.getAll();
 	}
 
