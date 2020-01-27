@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import exceptions.ConnessioneException;
 import exceptions.DAOException;
 import it.accenture.model.Utente;
@@ -24,56 +23,125 @@ public class UtenteDaoImpl implements UtenteDao {
 	}
 
 	@Override
-	public void insertUtente(Utente utente) throws DAOException {
-		String query = "insert into utente (nome,username,password)"
-				+ " values ( ?, ?, ?)";
-		try {
+	public void insertUtente(Utente utente) throws DAOException, SQLException {
+		String query = "insert into utente (nome,cognome,username,password)"
+				+ " values ( ?, ?, ?,?)";
+
 			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
 			prepared.setString(1, utente.getNome());
-			prepared.setString(2, utente.getUsername());
-			prepared.setString(3, utente.getPassword());
+			prepared.setString(2, utente.getCognome());
+			prepared.setString(3, utente.getUsername());
+			prepared.setString(4, utente.getPassword());
 			prepared.executeUpdate();
 			ResultSet rs = prepared.getGeneratedKeys();
 			if (rs.next()) {
 				System.out.println("Auto Generated Primary Key " + rs.getInt(1));
-				utente.setId(rs.getInt(1));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new DAOException(e.getMessage());
-				}
+				utente.setIdUtente(rs.getInt(1));
+			}		
+		
+	}
+
+
+
+	@Override
+	public Utente getByUsernameAndPassword(String username, String password) throws SQLException {
+		
+		String query ="select * from utente where username=? and password=?";
+		Utente utente = new Utente();
+
+			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			 
+		
+			 prepared.setString(1, username);
+			 prepared.setString(2, password);
+			 
+			 ResultSet rs = prepared.getGeneratedKeys();
+			 rs= prepared.executeQuery();
+		
+			 
+			 System.out.println(prepared + " resultset: " + rs);
+			 while(rs.next()) {
+			 
+			 utente.setIdUtente(rs.getInt("id_utente"));
+			 utente.setNome(rs.getString("nome"));
+			 utente.setCognome(rs.getString("cognome"));
+			 utente.setUsername(rs.getString("username"));
+			 utente.setPassword(rs.getString("password"));
+		
+
+			 }
+			 System.out.println(utente + "prima del close");
+			 close();	
+			 System.out.println(utente);
+			 return utente;
+			 
 			
-		
-	}
 
-	@Override
-	public Utente getByUsernameAndPassword(String username, String password) {
-		
-		return null;
-		
 		
 	}
+		
+		
 
 	
 	
 
 	@Override
-	public void updateUtente(Utente utente) {
-		// TODO Auto-generated method stub
-		
+	public void updateUtente(Utente utente) throws SQLException {
+		String query="update utente set nome = ? , cognome = ?, username = ?, password = ? where id_utente=?";
+	
+			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			 
+			
+			 prepared.setString(1, utente.getNome());
+			 prepared.setString(2, utente.getCognome());
+			 prepared.setString(3, utente.getUsername());
+			 prepared.setString(4, utente.getPassword());
+			 prepared.setInt(5, utente.getIdUtente());
+			 prepared.executeUpdate();
+			 ResultSet rs = prepared.getGeneratedKeys();
+			
+	
+			 close();			 
+		 
 	}
+	
 
 	@Override
-	public void deleteteUtenteById(int idutente) {
-		// TODO Auto-generated method stub
+	public void deleteteUtenteById(int idUtente) throws SQLException {
+
+		String query = "delete from utente where id_utente = ?";
 		
+			
+			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			 prepared.setInt(1, idUtente);
+			 
+			int num = prepared.executeUpdate();
+			 
+		
+			if(num>0) {
+				System.out.println("DAO delete done");
+			}
+			close();
+	
 	}
+	
 	@Override
 	public void close() {
+		 if(prepared != null)
+			 try {
+				 prepared.close();
+			 } catch (SQLException e) {
+				 e.printStackTrace();
+			 }
+		 if(prepared != null)
+			 try {
+				 prepared.close();
+			 } catch (SQLException e) {
+				 e.printStackTrace();
 		if (connection != null) {
 			try {
 				connection.close();
-			} catch (SQLException e) {
+			} catch (SQLException e1) {
 				e.printStackTrace();
 			}
 		
@@ -81,5 +149,6 @@ public class UtenteDaoImpl implements UtenteDao {
      }
 		
 	}
-}	
+	}
+	}	
 	
