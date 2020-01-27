@@ -1,6 +1,7 @@
 package it.accenture.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -35,7 +36,7 @@ public class Registrazione extends HttpServlet {
 		String password = req.getParameter("password");
 		Utente utente = new Utente();
 		utente.setNome(nome);
-//		utente.setCognome(cognome); setCognome da mettere in Utente
+		utente.setCognome(cognome);
 		utente.setUsername(username);
 		utente.setPassword(password);
 		System.out.println(utente);
@@ -47,6 +48,8 @@ public class Registrazione extends HttpServlet {
 		} catch (ConnessioneException e) {
 			e.printStackTrace();
 		} catch (DAOException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 //		utenteService.close(); Il close() viene chiamato da insertUtente
