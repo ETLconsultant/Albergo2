@@ -78,7 +78,13 @@ public class Service {
 	
 public void insertUtente(Utente utente) {
 
-	udao.insertUtente(utente);
+	try {
+		udao.insertUtente(utente);
+	} catch (DAOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.out.println(e.getMessage());
+	}
 
 }
 	
