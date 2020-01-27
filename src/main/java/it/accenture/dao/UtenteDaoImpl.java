@@ -14,6 +14,7 @@ import exceptions.DAOException;
 import it.accenture.model.Utente;
 import java.sql.ResultSet;
 
+
 public class UtenteDaoImpl implements UtenteDao {
 
 	private Connection connection;
@@ -24,6 +25,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	public UtenteDaoImpl() throws ConnessioneException {
 		connection = SingletonConnection.getInstance();
 	}
+	
 
 	@Override
 	public void insertUtente(Utente utente) throws DAOException {
