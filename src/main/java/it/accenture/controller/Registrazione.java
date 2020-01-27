@@ -28,7 +28,7 @@ public class Registrazione extends HttpServlet {
 			req.setAttribute("lista", lista );
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/registrazione.jsp").forward(req, resp);
 		}
-		String idUtente = req.getParameter("idUtente");
+		String idUtente =req.getParameter("idUtente");
 		String nome = req.getParameter("nome");
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
