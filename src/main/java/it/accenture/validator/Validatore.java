@@ -30,7 +30,7 @@ public class Validatore{
 		String atLeastOneNumberExpression = "^(?=.*[0-9])$";
 		String atLeastOneSmallLetterExpression = "^(?=.*[a-z])$";
 		String atLeastOneBigLetterExpression = "^(?=.*[A-Z])$";
-		String noSpacesException = "^(?=\\\\S+$)$";
+		String noSpacesException = "^(?=\\S+$)$";
 		
 		if(password == null || password.length()==0)
 			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.required")));
