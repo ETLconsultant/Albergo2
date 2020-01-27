@@ -8,17 +8,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import exceptions.ConnessioneException;
 import exceptions.DAOException;
 import it.accenture.model.Utente;
 import java.sql.ResultSet;
 
 public class UtenteDaoImpl implements UtenteDao {
-	
+
 	private Connection connection;
 	private PreparedStatement prepared;
 	private Statement statement;
-	
+	ResultSet rs=null;
+
 	public UtenteDaoImpl() throws ConnessioneException {
 		connection = SingletonConnection.getInstance();
 	}
@@ -41,32 +43,152 @@ public class UtenteDaoImpl implements UtenteDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DAOException(e.getMessage());
+		}
+
+
+	}
+
+	@Override
+	public Utente getByUsernameAndPassword(String username, String password) throws ConnessioneException {
+
+		String query= "select * from Utente where username=? and password=?";
+		Utente u=new Utente();
+
+
+		try {
+			connection= SingletonConnection.getInstance();
+			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			prepared.setString(1, username);
+			prepared.setString(2, password);
+			ResultSet rs = prepared.executeQuery();
+
+			while (rs.next()) {
+				u.setId(rs.getInt("idUtente"));
+				u.setUsername(rs.getString("username"));
+				u.setPassword(rs.getString("pwd"));
+				u.setNome(rs.getString("nome"));
+
+			}
+			return u;
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+
+		}catch(NullPointerException e) {
+			e.printStackTrace();
+
+		}finally {
+			if(prepared!=null)
+				try {
+					prepared.close();
+
+				}catch (SQLException e) {
+					e.printStackTrace();
 				}
-			
-		
+
+			if(rs!=null)
+				try {
+					rs.close();
+
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if(connection!=null)
+				try {
+					connection.close();
+
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+		}
+		return u;	
+	}
+
+
+
+
+
+	@Override
+	public void updateUtente(Utente utente) throws ConnessioneException {
+		String query="update Utente set password=?,nome=?, where username=? and idUtente=?";
+		try {
+			connection= SingletonConnection.getInstance();
+			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			prepared.setString(1, utente.getPassword());
+			prepared.setString(2, utente.getNome());
+			prepared.setString(3, utente.getUsername());
+			prepared.setInt(4, utente.getId());
+			ResultSet rs = prepared.executeQuery();
+			prepared.executeUpdate();
+			System.out.println("profilo aggiornato");
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(prepared!=null)
+				try {
+					prepared.close();
+
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if(rs!=null)
+				try {
+					rs.close();
+
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if(connection!=null)
+				try {
+					connection.close();
+
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+
 	}
 
 	@Override
-	public Utente getByUsernameAndPassword(String username, String password) {
-		
-		return null;
-		
-		
-	}
+	public void deleteteUtenteById(int idutente) throws ConnessioneException {
+		String query="delete from Utente where idUtente=?";
+		try {
+			connection= SingletonConnection.getInstance();
+			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			prepared.setInt(1, idutente);
+			ResultSet rs = prepared.executeQuery();
+			prepared.executeUpdate();
 
-	
-	
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(prepared!=null)
+				try {
+					prepared.close();
 
-	@Override
-	public void updateUtente(Utente utente) {
-		// TODO Auto-generated method stub
-		
-	}
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if(rs!=null)
+				try {
+					rs.close();
 
-	@Override
-	public void deleteteUtenteById(int idutente) {
-		// TODO Auto-generated method stub
-		
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if(connection!=null)
+				try {
+					connection.close();
+
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+
+
+
 	}
 	@Override
 	public void close() {
@@ -76,10 +198,10 @@ public class UtenteDaoImpl implements UtenteDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
 
-     }
-		
+
+		}
+
 	}
 }	
-	
+
