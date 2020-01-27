@@ -12,7 +12,7 @@ public enum Formula {
 		this.percentualeIncrementoPrezzo = percentualeIncrementoPrezzo;
 	}
 
-	public  int getPercentualeIncrementoPrezzo() {
+	public   int getPercentualeIncrementoPrezzo() {
 		return percentualeIncrementoPrezzo;
 	}
 
