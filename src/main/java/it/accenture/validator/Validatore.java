@@ -20,16 +20,38 @@ public class Validatore{
 	public static List<ErroreValidazione> validazioneUtente(HttpServletRequest request){
 		List<ErroreValidazione> lista = new ArrayList<>();
 		
-		String idUtente = request.getParameter("idUtente");
-		if(idUtente == null || idUtente.length()==0)
-			lista.add(new ErroreValidazione("idUtente", "idUtente " + bundle.getString("error.required")));
+		String username = request.getParameter("username");
+		if(username == null || username.length()==0)
+			lista.add(new ErroreValidazione("username", "username " + bundle.getString("error.required")));
 
 		String password = request.getParameter("password");
+//		String passwordExpression = "(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%*^&+=])(?=\\S+$)$";
+		String specialCharacterExpression = "^(?=.*[@#$%*^&+=])$";
+		String atLeastOneNumberExpression = "^(?=.*[0-9])$";
+		String atLeastOneSmallLetterExpression = "^(?=.*[a-z])$";
+		String atLeastOneBigLetterExpression = "^(?=.*[A-Z])$";
+		String noSpacesException = "^(?=\\\\S+$)$";
+		
 		if(password == null || password.length()==0)
 			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.required")));
 		else if(password.length()<8)
-				//il controllo viene fatto solo se la password è stata inserita
-				lista.add(new ErroreValidazione("password", bundle.getString("error.minlength") + " 8"));
+			//il controllo viene fatto solo se la password è stata inserita
+			lista.add(new ErroreValidazione("password", bundle.getString("error.minlength") + " 8"));
+		
+		else if(!password.matches(specialCharacterExpression))
+			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.specialcharacter")));
+		
+		else if(!password.matches(atLeastOneNumberExpression))
+			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.atleastonenumber")));
+		
+		else if(!password.matches(atLeastOneSmallLetterExpression))
+			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.atleastonesmall")));
+		
+		else if(!password.matches(atLeastOneBigLetterExpression))
+			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.atleastonebig")));
+		else if(!password.matches(noSpacesException))
+			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.nospaces")));
+					
 		
 		//TODO: continuare con gli eventuali controlli di validità che si ritiene necessari
 		

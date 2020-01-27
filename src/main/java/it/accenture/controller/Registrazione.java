@@ -30,10 +30,12 @@ public class Registrazione extends HttpServlet {
 		}
 		String idUtente =req.getParameter("idUtente");
 		String nome = req.getParameter("nome");
+		String cognome = req.getParameter("cognome");
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		Utente utente = new Utente();
 		utente.setNome(nome);
+//		utente.setCognome(cognome); setCognome da mettere in Utente
 		utente.setUsername(username);
 		utente.setPassword(password);
 		System.out.println(utente);
@@ -45,10 +47,9 @@ public class Registrazione extends HttpServlet {
 		} catch (ConnessioneException e) {
 			e.printStackTrace();
 		} catch (DAOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		utenteService.close();
+//		utenteService.close(); Il close() viene chiamato da insertUtente
 		System.out.println("utente inserito");
 		req.setAttribute("username", username);
 		RequestDispatcher dispatcher = 
