@@ -14,7 +14,19 @@
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <style>
 
-.button {
+input[type=text]{
+border: 2px solid black;
+border-radius: 4px;
+width: 100%;
+}
+
+input[type=password]{
+border: 2px solid black;
+border-radius: 4px;
+width: 100%;
+}
+
+.button { 
 	background-color: white;
 	border: 2px solid #008CBA;
 	color: black;

@@ -8,10 +8,14 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
+<%@include file="Header.jsp"%>
 </head>
 <body>
+<form action="Prenota" method="post">
 
 
+</form>
 
+	<%@include file="Footer.jsp"%>
 </body>
 </html>

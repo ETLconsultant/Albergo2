@@ -99,27 +99,27 @@
   <div class="row text-center">
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="image/a.jpg" alt="Paris" width="400" height="300">
+        <img src="image/a.jpg" alt="Accenture" width="400" height="300">
         <p><strong>Accenture</strong></p>
         <p>Sponsor ufficiale del progetto</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="image/j.png" alt="New York" width="400" height="300">
-        <p><strong>New York</strong></p>
-        <p>We built New York</p>
+        <img src="image/j.png" alt="Javani Gruppo 1" width="400" height="300">
+        <p><strong>Javani Gruppo 1</strong></p>
+        <p>Lucia, Nicola, Marco, Simone & Sara</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-        <p><strong>San Francisco</strong></p>
-        <p>Yes, San Fran is ours</p>
+        <img src="image/r.png" alt="Javani Resort" width="400" height="300">
+        <p><strong>Javani Resort</strong></p>
+        <p>Soddisfatti...o soddisfatti</p>
       </div>
     </div>
   </div>
-  </div>
+  </div> 
 
 	<%@include file="Footer.jsp"%>
 

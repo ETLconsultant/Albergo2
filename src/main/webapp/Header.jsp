@@ -40,7 +40,7 @@
         <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
-  </div>
+  </div> 
 </nav>
 </body>
 </html>
