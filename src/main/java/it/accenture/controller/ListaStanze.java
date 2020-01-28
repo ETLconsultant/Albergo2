@@ -32,7 +32,7 @@ public class ListaStanze extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		HttpSession session = req.getSession();
+		HttpSession session=req.getSession();
 		
 //		String tipoStanza = req.getParameter("tipo_stanza");
 //		String postiLetto= (String)req.getParameter("posti_letto");
