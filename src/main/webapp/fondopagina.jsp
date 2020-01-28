@@ -29,10 +29,10 @@ a.active{
 <body>
 <div class="topnav">
 
-<p> Tel. (+39 234235346363) </p>
-<p> Email: gruppo2@gruppo2.it </p>
-<p> indirizzo: </p>
-<p> privacy </p>
+<p> Tel. (+39 234235346363) </p><th>
+<p> Email: gruppo2@gruppo2.it </p><th>
+<p> indirizzo: </p><th>
+<p> privacy </p><th>
 
 </div>
 
