@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@include file="Header.jsp"%>
 <meta charset="ISO-8859-1">
 <title>Bootstrap Theme Company Page</title>
   <meta charset="utf-8">
@@ -136,5 +137,7 @@
     </div>
   </div>
 </div>
+
+	<%@include file="Footer.jsp"%>
 </body>
 </html>
