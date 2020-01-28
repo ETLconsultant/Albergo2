@@ -18,6 +18,7 @@ public class Service {
 	private StanzaDaoImpl sdao = new StanzaDaoImpl();
 	private UtenteDaoImpl udao = new UtenteDaoImpl();
 
+	
 	//METODI DI PRENOTAZIONE DAO
 
 	public void insertPrenotazione(Prenotazione prenotazione) {
