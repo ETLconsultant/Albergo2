@@ -5,7 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
+<meta name="description" content="Hotel Gruppo2"/>
 </head>
+
 <body>
 
 </body>
