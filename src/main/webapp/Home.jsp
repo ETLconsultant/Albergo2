@@ -45,6 +45,22 @@
     height: 100%;
     margin-bottom: 10px;
   }
+  
+  .container {
+	padding: 80px 120px;
+}
+
+.person {
+	border: 10px solid transparent;
+	margin-bottom: 25px;
+	width: 80%;
+	height: 80%;
+	opacity: 0.7;
+}
+
+.person:hover {
+	border-color: #f1f1f1;
+}
 </style>
 <title>Home</title>
 </head>
@@ -121,6 +137,56 @@
   </div>
   </div> 
 
+<div class="container text-center">
+		<h3>I nostri servizi:</h3>
+
+		<br>
+		<div class="row">
+			<div class="col-sm-4">
+				<p class="text-center">
+					<strong>Bar</strong>
+				</p>
+				<br> <a href="#demo" data-toggle="collapse"> <img
+					src="image/bar.jpg" class="img-circle person"
+					alt="Random Name" width="255" height="255">
+				</a>
+				<div id="demo" class="collapse">
+					<p>Servizio Free drink</p>
+					<p>Orario bar serale:</p>
+					<p>20.00 - 02.00 </p>
+				</div>
+			</div> 
+			<div class="col-sm-4">
+				<p class="text-center">
+					<strong>Lavanderia</strong>
+				</p>
+				<br> <a href="#demo2" data-toggle="collapse"> <img
+					src="image/lavanderia.jpg" class="img-circle person" alt="Random Name"
+					width="255" height="255">
+				</a>
+				<div id="demo2" class="collapse">
+					<p>Ritiro della biancheria sporca presso la sede del cliente,</p>
+					<p>lavaggio restituzione che, come per il prelievo, verra'
+						effettuata</p>
+					<p>direttamente nella sede del cliente</p>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<p class="text-center">
+					<strong>Centro Benessere</strong>
+				</p>
+				<br> <a href="#demo3" data-toggle="collapse"> <img
+					src="image/spa.jpg" class="img-circle person" alt="Random Name"
+					width="255" height="255">
+				</a>
+				<div id="demo3" class="collapse">
+					<p>Con accesso a palestra,</p>
+					<p>piscina coperta 25 metri,</p>
+					<p>area Tropicale e grotte.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<%@include file="Footer.jsp"%>
 
 </body>
