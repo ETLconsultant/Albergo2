@@ -54,7 +54,6 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DAOException(e.getMessage());
 				}
 		
 	}
@@ -290,6 +289,13 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				}
 		}
 			
+	}
+
+
+	@Override
+	public void controlloDisponibilitaQuotidiana(List<Stanza> listaStanze) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 	
