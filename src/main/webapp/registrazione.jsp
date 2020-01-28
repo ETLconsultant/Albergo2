@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -13,20 +14,19 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <style>
-
-input[type=text]{
-border: 2px solid black;
-border-radius: 4px;
-width: 100%;
+input[type=text] {
+	border: 2px solid black;
+	border-radius: 4px;
+	width: 100%;
 }
 
-input[type=password]{
-border: 2px solid black;
-border-radius: 4px;
-width: 100%;
+input[type=password] {
+	border: 2px solid black;
+	border-radius: 4px;
+	width: 100%;
 }
 
-.button { 
+.button {
 	background-color: white;
 	border: 2px solid #008CBA;
 	color: black;
@@ -38,57 +38,63 @@ width: 100%;
 	margin: 4px 2px;
 	cursor: pointer;
 }
- 
+
 .button:hover {
 	background-color: #008B8B;
 	color: white;
-} 
+}
 </style>
 </head>
 <body>
-<form action="registrazione" method="post">
-	<table align="center">
-	  
-		<tr height="50" align="center">
-			<th colspan="6" valign="middle">REGISTRAZIONE UTENTE</th>
-		</tr>
+	<form action="registrazione" method="post">
+		<table align="center">
 
-		<tr height="50" >
-			<td width="20%">Nome</td>
-			<td width="40%"><input type="text" id="nome" name="nome"></td>
-			<td width="40%"><c:forEach items="${lista}" var="errore">
-								<c:if test="${errore.campoValidato=='nome'}" > ${errore.descrizioneErrore}</c:if>
-							</c:forEach>
-		</tr>
-		
-		<tr height="50" >
-			<td width="20%">Cognome</td>
-			<td width="40%"><input type="text" id="cognome" name="cognome"></td>
-			<td width="40%"><c:forEach items="${lista}" var="errore">
-								<c:if test="${errore.campoValidato=='cognome'}" > ${errore.descrizioneErrore}</c:if>
-							</c:forEach>
-		</tr>
-		<tr height="50" >
-			<td width="20%">Username</td>
-			<td width="40%"><input type="text" id="username" name="username"></td>
-			<td width="40%"><c:forEach items="${lista}" var="errore">
-								<c:if test="${errore.campoValidato=='username'}" > ${errore.descrizioneErrore}</c:if>
-							</c:forEach>
-		</tr>
-		<tr height="50" >
-			<td width="20%">Password</td>
-			<td width="40%"><input type="password" id="password" name="password"></td>
-			<td width="40%"><c:forEach items="${lista}" var="errore">
-								<c:if test="${errore.campoValidato=='password'}" > ${errore.descrizioneErrore}</c:if>
-							</c:forEach>
-		</tr>
-		<br> <br>
-		<tr height="50">
-			<th colspan="6" valign="middle"><input type="submit" value="registra" class="button" ><br></th>
-		</tr>
-	</table>
-   </form>
-   <br> <br> <br>
-<%@include file="Footer.jsp"%>
+			<tr height="50" align="center">
+				<th colspan="6" valign="middle">REGISTRAZIONE UTENTE</th>
+			</tr>
+
+			<tr height="50">
+				<td width="20%">Nome</td>
+				<td width="40%"><input type="text" id="nome" name="nome"></td>
+				<td width="40%"><c:forEach items="${lista}" var="errore">
+						<c:if test="${errore.campoValidato=='nome'}"> ${errore.descrizioneErrore}</c:if>
+					</c:forEach>
+			</tr>
+
+			<tr height="50">
+				<td width="20%">Cognome</td>
+				<td width="40%"><input type="text" id="cognome" name="cognome"></td>
+				<td width="40%"><c:forEach items="${lista}" var="errore">
+						<c:if test="${errore.campoValidato=='cognome'}"> ${errore.descrizioneErrore}</c:if>
+					</c:forEach>
+			</tr>
+			<tr height="50">
+				<td width="20%">Username</td>
+				<td width="40%"><input type="text" id="username"
+					name="username"></td>
+				<td width="40%"><c:forEach items="${lista}" var="errore">
+						<c:if test="${errore.campoValidato=='username'}"> ${errore.descrizioneErrore}</c:if>
+					</c:forEach>
+			</tr>
+			<tr height="50">
+				<td width="20%">Password</td>
+				<td width="40%"><input type="password" id="password"
+					name="password"></td>
+				<td width="40%"><c:forEach items="${lista}" var="errore">
+						<c:if test="${errore.campoValidato=='password'}"> ${errore.descrizioneErrore}</c:if>
+					</c:forEach>
+			</tr>
+			<br>
+			<br>
+			<tr height="50">
+				<th colspan="6" valign="middle"><input type="submit"
+					value="registra" class="button"><br></th>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<br>
+	<br>
+	<%@include file="Footer.jsp"%>
 </body>
 </html>
