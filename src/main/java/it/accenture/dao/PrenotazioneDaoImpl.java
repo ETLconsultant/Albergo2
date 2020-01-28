@@ -188,7 +188,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	//miiii
    //bordello sto metodo
 	@Override
-	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine, int numeroStanza) throws ConnessioneException {
+	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine, int numeroStanza){
 		// TODO Auto-generated method stub
 		//che si fa?????????????????
 		String query= "select count* from stanza s,prenotazione p where p.numero_stanza=s.numero_stanza and s.disponibile= and data_inizio>=? and data_fine<=?"; 
