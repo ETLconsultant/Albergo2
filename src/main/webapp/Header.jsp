@@ -34,7 +34,7 @@
         <li class="active"><a href="#">Chi Siamo</a></li>
         <li><a href="listaStanze.jsp">Camere&Suite</a></li>
         <li><a href="#">Benessere&Spa</a></li>
-        <li><a href="#">Contatti</a></li>
+        <li><a href="Contatti.jsp">Contatti</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
