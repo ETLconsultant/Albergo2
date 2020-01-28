@@ -36,8 +36,10 @@ public class SingletonConnection {
 		}
 	}
 	
-	public static Connection getInstance()throws ConnessioneException{
+	public static Connection getInstance()/*throws ConnessioneException*/{
+		
 		if(conn==null)
+			
 			new SingletonConnection();
 		
 		return conn; 
