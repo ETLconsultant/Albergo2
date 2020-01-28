@@ -14,21 +14,25 @@ import exceptions.ConnessioneException;
 import exceptions.DAOException;
 import it.accenture.dao.UtenteDaoImpl;
 import it.accenture.model.Utente;
+import it.accenture.service.Service;
 import it.accenture.validator.ErroreValidazione;
 import it.accenture.validator.Validatore;
-;
+
 
 @WebServlet("/registrazione")
 public class Registrazione extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private Service service= new Service();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<ErroreValidazione> lista = Validatore.validazioneUtente(req);
 		if(lista.size()!=0){
 			req.setAttribute("lista", lista );
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/registrazione.jsp").forward(req, resp);
-		}
-		String idUtente = req.getParameter("idUtente");
+			RequestDispatcher rd= req.getRequestDispatcher("registrazione.jsp");
+			rd.forward(req, resp);
+		}else {
+		String idUtente;
 		String nome = req.getParameter("nome");
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
@@ -37,23 +41,29 @@ public class Registrazione extends HttpServlet {
 		utente.setUsername(username);
 		utente.setPassword(password);
 		System.out.println(utente);
-		UtenteDaoImpl utenteService = null;
-		try {
-			utenteService = new UtenteDaoImpl();
-			utenteService.insertUtente(utente);
-			
-		} catch (ConnessioneException e) {
-			e.printStackTrace();
-		} catch (DAOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		utenteService.close();
-		System.out.println("utente inserito");
+//		UtenteDaoImpl utenteService = null;
+//		try {
+//			utenteService = new UtenteDaoImpl();
+//			utenteService.insertUtente(utente);
+//			
+//		} catch (ConnessioneException e) {
+//			e.printStackTrace();
+//		} catch (DAOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		utenteService.close();
+//		System.out.println("utente inserito");
+//		req.setAttribute("username", username);
+//		RequestDispatcher dispatcher = 
+//				req.getRequestDispatcher("login.jsp");
+//		dispatcher.forward(req, resp);
+		service.insertUtente(utente);
+		service.uclose();
 		req.setAttribute("username", username);
-		RequestDispatcher dispatcher = 
-				req.getRequestDispatcher("login.jsp");
-		dispatcher.forward(req, resp);
+		RequestDispatcher rd= req.getRequestDispatcher("successo.jsp");
+		rd.forward(req, resp);
+		}
 	}
 	
 }
