@@ -11,6 +11,7 @@ import it.accenture.dao.UtenteDaoImpl;
 import it.accenture.model.Periodo;
 import it.accenture.model.Prenotazione;
 import it.accenture.model.Stanza;
+import it.accenture.model.TipoStanza;
 import it.accenture.model.Utente;
 //volevo risolvere 
 public class Service {
@@ -69,6 +70,10 @@ public class Service {
 	public Stanza getStanzaById(int numeroStanza) {
 		return sdao.getStanzaById(numeroStanza);
 
+	}
+	
+	public ArrayList<TipoStanza> getTipoStanza(){
+		return sdao.getTipoStanza();
 	}
 
 	public void sclose() {
