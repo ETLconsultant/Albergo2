@@ -224,7 +224,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		
 		resultset=prepared.executeQuery();
 		
-		
+		//commento
 		while(resultset.next()) {
 			
 //			Stanza s=new Stanza();
