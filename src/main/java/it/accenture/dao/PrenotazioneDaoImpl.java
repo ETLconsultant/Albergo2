@@ -39,6 +39,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		String query= "insert into prenotazione (numero_giorni,data_inizio,data_fine,formula,prezzo_totale,id_utente,numero_stanza) values (?,?,?,?,?,?,?)";
 		
 		prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+	//	PreparedStatement prepared1= connection.prepareStatement(query);
 		prepared.setInt(1,prenotazione.getNumeroGiorni());
 		prepared.setDate(2,Date.valueOf(prenotazione.getDataInizio()));
 		prepared.setDate(3,Date.valueOf(prenotazione.getDataFine()));
@@ -47,16 +48,17 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		prepared.setInt(6,prenotazione.getIdUtente());
 		prepared.setInt(7,prenotazione.getNumeroStanza());
 		
-		System.out.println(prepared);
-		
+	
+	
 		prepared.executeUpdate();
-		
+//		System.out.println(prepared.RETURN_GENERATED_KEYS);
+//		System.out.println(prepared.getGeneratedKeys());
 
 //		System.out.println(prepared.getGeneratedKeys());
-//				
+//		ResultSet rs = prepared.getGeneratedKeys();
 //				prepared.getGeneratedKeys();
 //		if (rs.next()) {
-//			System.out.println("Auto Generated Primary Key " + rs.getInt(1));
+//			System.out.println("Auto Generated Primary Key " + rs.getInt("id_prenotazione"));
 //			prenotazione.setIdPrenotazione(rs.getInt(1));
 //		}
 		
@@ -69,14 +71,17 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	
 		String query="select * from prenotazione p where  p.id_utente=?";
 		
-		
 		prepared=connection.prepareStatement(query);
+		
+		prepared.setInt(1,idUtente);
+		
 		ResultSet rs= prepared.executeQuery();
 		ArrayList<Prenotazione> elencoPrenotazioni= new ArrayList<Prenotazione>();
 		
+		Formula f = Formula.BB;
+		
 		while(rs.next()) {
-		Object sqlDate;
-		Prenotazione bean=new Prenotazione(rs.getInt("numero_giorni"), rs.getDate("data_inizio").toLocalDate(),rs.getDate("data_fine").toLocalDate(),(Formula) rs.getObject("formula"),rs.getInt("id_utente"),rs.getInt("numero_stanza"));
+		Prenotazione bean=new Prenotazione(rs.getInt("numero_giorni"), rs.getDate("data_inizio").toLocalDate(),rs.getDate("data_fine").toLocalDate(), Formula.valueOf(rs.getString("formula")), rs.getInt("id_utente"), rs.getInt("numero_stanza"));
 		elencoPrenotazioni.add(bean);
 		}
 		
@@ -96,6 +101,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		
 		
 		prepared=connection.prepareStatement(query);
+		prepared.setInt(1,numeroStanza);
 		ResultSet rs= prepared.executeQuery();
 		ArrayList<Periodo> periodi_pren= new ArrayList<Periodo>();
 		
@@ -138,9 +144,9 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 			
 		if(s.getNumeroStanza()==rs.getInt("numero_stanza")) {
 			
-		
 		if(rs.getDate("data_Inizio")==null)
 			System.out.println("la stanza"+ rs.getInt("numero_stanza")+ " è disponibile");	
+		
 		else if (LocalDate.now().isBefore(rs.getDate("data_Inizio").toLocalDate()))	
 			System.out.println("la stanza"+ rs.getInt("numero_stanza")+ " è disponibile");	
 		}
