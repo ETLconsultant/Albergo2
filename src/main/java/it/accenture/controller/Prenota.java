@@ -1,6 +1,7 @@
 package it.accenture.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import exceptions.ConnessioneException;
+import exceptions.DAOException;
 import it.accenture.dao.PrenotazioneDaoImpl;
 import it.accenture.dao.StanzaDaoImpl;
 import it.accenture.model.Formula;
@@ -37,7 +39,23 @@ public class Prenota extends HttpServlet {
 		
 		PrenotazioneService prenotazioneService = new PrenotazioneService();
 		Prenotazione prenotazioneBean =new Prenotazione();
-		Stanza stanzaBean = stanzaBean.getStanzaById((int) req.getAttribute("id_stanza"));
+		StanzaService stanzaService = new StanzaService();
+		Stanza stanzaBean = new Stanza();
+		try {
+			stanzaBean = stanzaService.getStanzaById(Integer.parseInt(req.getParameter("numero_stanza")));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ConnessioneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		LocalDate dataInizio = LocalDate.parse(req.getParameter("dataInizio"));
 		LocalDate dataFine = LocalDate.parse(req.getParameter("dataFine"));
@@ -47,7 +65,8 @@ public class Prenota extends HttpServlet {
 		double prezzoTotale = (prezzoNotte*numeroGiorni*stanzaBean.getPostiLetto());
 		int numeroStanza = stanzaBean.getNumeroStanza();
 		String messagePrenotazione = " ";
-		if(controlloDate(dataInizio, dataFine, req.getParameter("numero_stanza")) && numeroGiorni>0){
+		
+		if(numeroGiorni>0 && prenotazioneService.controlloDate(dataInizio, dataFine, Integer.parseInt(req.getParameter("numero_stanza"))) ){
 			
 			prenotazioneBean.setDataFine(dataFine);
 			prenotazioneBean.setDataInizio(dataInizio);
