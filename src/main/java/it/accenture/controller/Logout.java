@@ -20,4 +20,5 @@ public class Logout extends HttpServlet {
 		resp.sendRedirect("Home.jsp");
 	}
 	//uih
+	//jonjho
 }
