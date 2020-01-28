@@ -23,7 +23,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 30% !important;
+  width: 100% !important;
   height: 30% !important;
 }
   .container-fluid {
