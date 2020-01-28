@@ -79,7 +79,7 @@ public class StanzaDaoImpl implements StanzaDao {
 
 			prepared=connection.prepareStatement(query);
 			prepared.setInt(1, numeroStanza);
-			ResultSet rs =prepared.executeQuery();
+			ResultSet rs = prepared.executeQuery();
 			
 			while (rs.next()) {
 			s.setNumeroStanza(rs.getInt("numero_stanza"));
@@ -104,7 +104,6 @@ public class StanzaDaoImpl implements StanzaDao {
 		ResultSet rs =prepared.executeQuery();
 		
 		while (rs.next()) {
-//			Stanza s = new Stanza();
 			tipoStanze.add(TipoStanza.valueOf(rs.getString("tipo_stanza")));
 			
 		}

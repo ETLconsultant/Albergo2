@@ -41,7 +41,7 @@ public class ListaStanze extends HttpServlet {
 		
 		try {
 			
-			stanzaService.getAllStanza();
+			stanzaService.getAllTipoStanza();
 			RequestDispatcher rd =req.getRequestDispatcher("/listaStanze.jsp"); 
 			rd.forward(req, resp);
 //			session.setAttribute(tipoStanza, "tipostanza");
@@ -49,7 +49,7 @@ public class ListaStanze extends HttpServlet {
 //			session.setAttribute(prezzoNotte, "prezzonotte");
 //			session.setAttribute(disponibilità, "disponibilità");
 			
-		} catch (DAOException | ConnessioneException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		

@@ -7,6 +7,7 @@ import exceptions.ConnessioneException;
 import exceptions.DAOException;
 import it.accenture.dao.StanzaDaoImpl;
 import it.accenture.model.Stanza;
+import it.accenture.model.TipoStanza;
 
 public class StanzaService {
 	
@@ -25,6 +26,8 @@ public class StanzaService {
 		return stanzaDao.getStanzaById(numeroStanza);
 	}
 	
-	
+	public ArrayList<TipoStanza> getAllTipoStanza() throws SQLException {
+		return stanzaDao.getAllTipoStanza();
+	}
 
 }
