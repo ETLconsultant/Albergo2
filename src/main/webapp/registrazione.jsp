@@ -7,10 +7,31 @@
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <head>
+<%@include file="Header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registrazione</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
+<style>
+
+.button {
+	background-color: white;
+	border: 2px solid #008CBA;
+	color: black;
+	padding: 12px 28px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #008B8B;
+	color: white;
+}
+</style>
 </head>
 <body>
 <form action="registrazione" method="post">
@@ -49,12 +70,13 @@
 								<c:if test="${errore.campoValidato=='password'}" > ${errore.descrizioneErrore}</c:if>
 							</c:forEach>
 		</tr>
-		
+		<br> <br>
 		<tr height="50">
-			<th colspan="6" valign="middle"><input type="submit" value="registra" ><br></th>
+			<th colspan="6" valign="middle"><input type="submit" value="registra" class="button" ><br></th>
 		</tr>
 	</table>
    </form>
-
+   <br> <br> <br>
+<%@include file="Footer.jsp"%>
 </body>
 </html>
