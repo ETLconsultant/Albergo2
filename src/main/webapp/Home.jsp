@@ -25,6 +25,17 @@
 		display: none;
 	}
 } 
+.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+ 
 </style>
 <title>Home</title>
 </head>
@@ -101,6 +112,8 @@
 		</div>
 	</div>
 	<br>
+	
+
 
 	<%@include file="Footer.jsp"%>
 
