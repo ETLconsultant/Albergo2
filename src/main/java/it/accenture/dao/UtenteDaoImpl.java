@@ -22,7 +22,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	private Statement statement;
 	ResultSet rs=null;
 
-	public UtenteDaoImpl() throws ConnessioneException {
+	public UtenteDaoImpl() {
 		connection = SingletonConnection.getInstance();
 	}
 	

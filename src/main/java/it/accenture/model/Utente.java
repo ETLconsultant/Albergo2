@@ -8,6 +8,10 @@ public class Utente implements Serializable {
 	private String nome;
 	private String username;
 	private String password;
+	
+	public Utente() {
+		
+	}
 
 	public int getId() {
 		return idUtente;
