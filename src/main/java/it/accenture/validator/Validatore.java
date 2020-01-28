@@ -20,9 +20,9 @@ public class Validatore{
 	public static List<ErroreValidazione> validazioneUtente(HttpServletRequest request){
 		List<ErroreValidazione> lista = new ArrayList<>();
 		
-		String idUtente = request.getParameter("idUtente");
-		if(idUtente == null || idUtente.length()==0)
-			lista.add(new ErroreValidazione("idUtente", "idUtente " + bundle.getString("error.required")));
+		String username = request.getParameter("username");
+		if(username == null || username.length()==0)
+			lista.add(new ErroreValidazione("username", "username " + bundle.getString("error.required")));
 
 		String password = request.getParameter("password");
 		if(password == null || password.length()==0)
