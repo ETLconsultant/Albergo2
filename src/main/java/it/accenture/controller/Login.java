@@ -41,19 +41,20 @@ public class Login extends HttpServlet {
 				session.setAttribute("password", password );
 				session.setAttribute("idUtente", u.getId());
 				session.setAttribute("nome", u.getNome());
-					RequestDispatcher rd= req.getRequestDispatcher("/login.jsp");
-					rd.forward(req, resp);
+				req.setAttribute("messaggio", "Accesso consentito! Benvenuto nella tua area personale!");
+				RequestDispatcher rd= req.getRequestDispatcher("listaPresentazioni.jsp");
+				rd.forward(req, resp);
 			}
 			else{
 				String messaggio="password errata";
-				req.setAttribute("msg", messaggio);
-				RequestDispatcher rd= req.getRequestDispatcher("/index.jsp");
+				req.setAttribute("messaggio", messaggio);
+				RequestDispatcher rd= req.getRequestDispatcher("Home.jsp");
 				rd.include(req, resp);
 			}
 		}else {
 			String messaggio="utente inesistente";
-			req.setAttribute("msg", messaggio);
-			RequestDispatcher rd= req.getRequestDispatcher("/index.jsp");
+			req.setAttribute("messaggio", messaggio);
+			RequestDispatcher rd= req.getRequestDispatcher("Home.jsp");
 			rd.include(req, resp);
 			
 		}
