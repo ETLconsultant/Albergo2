@@ -18,7 +18,7 @@ public class StanzaDaoImpl implements StanzaDao {
 	private PreparedStatement prepared;
 	private ResultSet resultset;
 	
-	public StanzaDaoImpl() throws ConnessioneException {
+	public StanzaDaoImpl() {
 		connection = SingletonConnection.getInstance();
 	}
 
