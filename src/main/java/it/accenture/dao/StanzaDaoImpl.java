@@ -23,7 +23,7 @@ public class StanzaDaoImpl implements StanzaDao {
 	private PreparedStatement prepared;
 
 	
-	public StanzaDaoImpl() {
+	public StanzaDaoImpl () {
 		try {
 			connection = SingletonConnection.getInstance();
 		} catch (ConnessioneException e) {
