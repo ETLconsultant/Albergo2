@@ -10,21 +10,25 @@
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 </head>
 <body>
+<% 
+int idUtente=(int)session.getAttribute("idUtente");
+String username=(String)session.getAttribute("username");
+String nome=(String)session.getAttribute("nome");
+%>
 <br>Inserisci i dati per la prenotazione:<br>
 <form name="FormPrenota" action="Prenota" method="post">
-<input type="hidden" required minlenght="4" maxlength="30" name="idUtente" value=<%= idUtente%>><br>
- <p class="messaggi" id="idUtente"></p>
+<input type="hidden"  name="idUtente" value=<%= idUtente%>><br>
+<input type="hidden"  name="username" value=<%= username%>><br>
+<input type="hidden"  name="nome" value=<%= nome%>><br>
+ <p class="messaggi" id="utente"></p>
   DATA INIZIO:<br>
-  <input type="date" name="dataInizio" value=<%= dataInizio%>><br>
+  <input type="date" name="dataInizio" ><br>
    <p class="messaggi" id="dataInizio"></p>
    DATA FINE:<br>
-  <input type="date" name="dataFine" value=<%= dataFine%>><br>
+  <input type="date" name="dataFine" ><br>
    <p class="messaggi" id="dataFine"></p>
-  NOME:<br>
-  <input type="text" name="nome" value=<%= nome%> ><br>
-   <p class="messaggi" id="nome"></p>
   NUMERO STANZA:<br>
-  <input type="number" name="numeroStanza" value="<%= numeroStanza%>"><br>
+  <input type="number" name="numeroStanza"><br>
   <p class="messaggi" id="numeroStanza"></p>
   
   <input type="submit" name="prenota" value="prenota">

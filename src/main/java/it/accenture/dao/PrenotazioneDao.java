@@ -22,7 +22,8 @@ public interface PrenotazioneDao {
 	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine,
 			int numeroStanza);
 	
-	public void controlloDisponibilitaQuotidiana(List<Stanza> listaStanze);
 
-	void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze);
+	public void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze);
+
+	
 }
