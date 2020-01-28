@@ -66,28 +66,33 @@ public class Prenota extends HttpServlet {
 		int numeroStanza = stanzaBean.getNumeroStanza();
 		String messagePrenotazione = " ";
 		
-		if(numeroGiorni>0 && prenotazioneService.controlloDate(dataInizio, dataFine, Integer.parseInt(req.getParameter("numero_stanza"))) ){
-			
-			prenotazioneBean.setDataFine(dataFine);
-			prenotazioneBean.setDataInizio(dataInizio);
-			prenotazioneBean.setFormula(formula);
-			prenotazioneBean.setIdUtente(Integer.parseInt((String) session.getAttribute("id_utente")));
-			prenotazioneBean.setNumeroGiorni(numeroGiorni);
-			prenotazioneBean.setPrezzoTotale(prezzoTotale);
-			prenotazioneBean.setNumeroStanza(numeroStanza);
-			
-			prenotazioneService.insertPrenotazione(prenotazioneBean);
-			
-			messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
-			session.setAttribute("messagePrenotazione", messagePrenotazione);
-			RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
-			rd.forward(req, resp);
-		}
-		else {
-			messagePrenotazione = "Errore! Stanza non disponibile nel periodo selezionato. Riprova con altre date.";
-			session.setAttribute("messagePrenotazione", messagePrenotazione);
-			RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
-			rd.forward(req, resp);
+		try {
+			if(numeroGiorni>0 && prenotazioneService.controlloDate(dataInizio, dataFine, Integer.parseInt(req.getParameter("numero_stanza"))) ){
+				
+				prenotazioneBean.setDataFine(dataFine);
+				prenotazioneBean.setDataInizio(dataInizio);
+				prenotazioneBean.setFormula(formula);
+				prenotazioneBean.setIdUtente(Integer.parseInt((String) session.getAttribute("id_utente")));
+				prenotazioneBean.setNumeroGiorni(numeroGiorni);
+				prenotazioneBean.setPrezzoTotale(prezzoTotale);
+				prenotazioneBean.setNumeroStanza(numeroStanza);
+				
+				prenotazioneService.insertPrenotazione(prenotazioneBean);
+				
+				messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
+				session.setAttribute("messagePrenotazione", messagePrenotazione);
+				RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
+				rd.forward(req, resp);
+			}
+			else {
+				messagePrenotazione = "Errore! Stanza non disponibile nel periodo selezionato. Riprova con altre date.";
+				session.setAttribute("messagePrenotazione", messagePrenotazione);
+				RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
+				rd.forward(req, resp);
+			}
+		} catch (NumberFormatException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}

@@ -1,6 +1,7 @@
 package it.accenture.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,12 @@ public class ListaPrenotazioni extends HttpServlet {
 	
 		PrenotazioneService prenot = new PrenotazioneService();
 		
-		prenot.getAllByUtente(u1.getIdUtente());
+		try {
+			prenot.getAllByUtente(u1.getIdUtente());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		messagePrenot = ("Gentile "+ u1.getNome() + " " + u1.getCognome() + ", questa e' la tua "
 				+ "lista di prenotazioni effettuate: ");
