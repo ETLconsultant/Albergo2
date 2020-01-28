@@ -24,7 +24,7 @@
 	.carousel-caption {
 		display: none;
 	}
-}
+} 
 </style>
 <title>Home</title>
 </head>

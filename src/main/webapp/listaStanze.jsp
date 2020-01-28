@@ -136,7 +136,7 @@
 					<p>Orario bar serale:</p>
 					<p>20.00 - 02.00 </p>
 				</div>
-			</div>
+			</div> 
 			<div class="col-sm-4">
 				<p class="text-center">
 					<strong>Lavanderia</strong>

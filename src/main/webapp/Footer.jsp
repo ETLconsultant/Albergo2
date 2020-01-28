@@ -17,7 +17,7 @@
 @import
 	url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css)
 	;
-
+ 
 footer-social-icons {
 	position: fixed;
 	bottom: 0;

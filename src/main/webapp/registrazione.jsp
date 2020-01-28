@@ -26,11 +26,11 @@
 	margin: 4px 2px;
 	cursor: pointer;
 }
-
+ 
 .button:hover {
 	background-color: #008B8B;
 	color: white;
-}
+} 
 </style>
 </head>
 <body>
