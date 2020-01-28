@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import exceptions.ConnessioneException;
@@ -85,9 +86,6 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				a.add(p);
 			}}catch (SQLException e) {
 				e.printStackTrace();
-			} catch (ConnessioneException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}finally {
 				if(prepared!=null)
 					try {
@@ -156,9 +154,6 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				a.add(p);
 			}}catch (SQLException e) {
 				e.printStackTrace();
-			} catch (ConnessioneException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}finally {
 				if(prepared!=null)
 					try {
@@ -190,28 +185,77 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	@Override
 	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine, int numeroStanza){
 		// TODO Auto-generated method stub
-		//che si fa?????????????????
-		String query= "select count* from stanza s,prenotazione p where p.numero_stanza=s.numero_stanza and s.disponibile= and data_inizio>=? and data_fine<=?"; 
-		connection=SingletonConnection.getInstance();
-		prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
-		prepared.setInt(1, numeroStanza);
-		resultset=prepared.executeQuery();
-		ResultSet rs = prepared.getGeneratedKeys();
-		
-		if (numeroStanza.getPeriodoByStanza().getdataInizio<dataInizio && numeroStanza.getPeriodoByStanza().getdataFine>dataFine)
-		return false;
+		ArrayList<Periodo> periodiPrenotati=getPeriodiByStanza(numeroStanza);
+		for(Periodo periodo:periodiPrenotati) {
+			if(isInRange(dataInizio,dataFine,periodo)==true) {
+				return false;
+			}
+		}
+		return true;
 	}
+		
+
+	public boolean isInRange(LocalDate dataInizio,LocalDate dataFine,Periodo periodo) {
+		boolean a= !(dataInizio.isBefore(periodo.getDataInizio()) || dataInizio.isAfter(periodo.getDataFine()));
+		boolean b= !(dataFine.isBefore(periodo.getDataInizio()) || dataFine.isAfter(periodo.getDataFine()));
+		if(a&&b) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+
 
 	@Override
-	public void controlloDisponibilitaQuotidiana(List<Stanza> listaStanze) {
+	public void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze) {
 		// TODO Auto-generated method stub
+		Stanza s=new Stanza();
+		Prenotazione p=new Prenotazione();
+		GregorianCalendar gc = new GregorianCalendar();
+		String query= "select * from Stanza s where left join prenotazione on prenotazione.numero_stanza=s.numero_stanza";
+		try {	
 		connection=SingletonConnection.getInstance();
-		prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
-		prepared.setInt(1, numeroStanza);
+		prepared = connection.prepareStatement(query);
+		prepared.setInt(1, disponibile);
 		resultset=prepared.executeQuery();
-		ResultSet rs = prepared.getGeneratedKeys();
+		boolean a= !(dataInizio.isBefore(p.getDataInizio()) || dataInizio.isAfter(periodo.getDataFine()));
+		boolean b= !(dataFine.isBefore(periodo.getDataInizio()) || dataFine.isAfter(periodo.getDataFine()));
+		if(s.isDisponibile()==true) {
+			listaStanze.add(s);
+			
+		}
+		return listaStanze;
+		
+	}catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		if(prepared!=null)
+			try {
+				prepared.close();
+
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		if(resultset!=null)
+			try {
+				resultset.close();
+
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		if(connection!=null)
+			try {
+				connection.close();
+
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
 		
 	}
-
-
 }
+	
+
+
