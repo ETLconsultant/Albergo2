@@ -12,7 +12,6 @@ import it.accenture.model.Stanza;
 import it.accenture.model.TipoStanza;
 
 
-
 public class StanzaDaoImpl implements StanzaDao {
 	
 	private Connection connection;

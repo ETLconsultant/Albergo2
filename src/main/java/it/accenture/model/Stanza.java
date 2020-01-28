@@ -48,7 +48,6 @@ public class Stanza {
 		this.disponibile = disponibile;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -14,5 +14,4 @@ public interface StanzaDao {
 	public Stanza getStanzaById(int numeroStanza);
 	
 	public void close();
-	
 }
