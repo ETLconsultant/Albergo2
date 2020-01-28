@@ -16,6 +16,7 @@ import it.accenture.model.Formula;
 import it.accenture.model.Periodo;
 import it.accenture.model.Prenotazione;
 import it.accenture.model.Stanza;
+import it.accenture.model.TipoStanza;
 
 
 public class PrenotazioneDaoImpl implements PrenotazioneDao {
@@ -75,14 +76,14 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 			
 			while(resultset.next()) {
 				Prenotazione p=new Prenotazione();
-				p.setIdPrenotazione(resultset.getInt("IdPrenotazione"));
-				p.setNumeroGiorni(resultset.getInt("NumeroGiorni"));
-				p.setDataInizio(resultset.getDate("DataInizio").toLocalDate());
-				p.setDataFine(resultset.getDate("DataFine").toLocalDate());
-				p.setFormula(Formula.valueOf(resultset.getString("Formula")));
-				p.setPrezzoTotale(resultset.getDouble("PrezzoTotale"));
-				p.setIdUtente(resultset.getInt("IdUtente"));
-				p.setNumeroStanza(resultset.getInt("NumeroStanza"));
+				p.setIdPrenotazione(resultset.getInt("id_prenotazione"));
+				p.setNumeroGiorni(resultset.getInt("numero_giorni"));
+				p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
+				p.setDataFine(resultset.getDate("data_fine").toLocalDate());
+				p.setFormula(Formula.valueOf(resultset.getString("formula")));
+				p.setPrezzoTotale(resultset.getDouble("prezzo_totale"));
+				p.setIdUtente(resultset.getInt("id_utente"));
+				p.setNumeroStanza(resultset.getInt("numero_stanza"));
 				a.add(p);
 			}}catch (SQLException e) {
 				e.printStackTrace();
@@ -145,8 +146,8 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				Periodo p=new Periodo();
 //				p.setIdPrenotazione(resultset.getInt("IdPrenotazione"));
 //				p.setNumeroGiorni(resultset.getInt("NumeroGiorni"));
-				p.setDataInizio(resultset.getDate("DataInizio").toLocalDate());
-				p.setDataFine(resultset.getDate("DataFine").toLocalDate());
+				p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
+				p.setDataFine(resultset.getDate("data_fine").toLocalDate());
 //				p.setFormula(Formula.valueOf(resultset.getString("Formula")));
 //				p.setPrezzoTotale(resultset.getDouble("PrezzoTotale"));
 //				p.setIdUtente(resultset.getInt("IdUtente"));
@@ -211,49 +212,84 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	@Override
 	public void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze) {
 		// TODO Auto-generated method stub
-		Stanza s=new Stanza();
-		Prenotazione p=new Prenotazione();
-		GregorianCalendar gc = new GregorianCalendar();
-		String query= "select * from Stanza s where left join prenotazione on prenotazione.numero_stanza=s.numero_stanza";
+		
+		ArrayList<Prenotazione> a=new ArrayList<Prenotazione>();
+		
+		
+		
+		String query= "select * from Stanza s left join prenotazione on prenotazione.numero_stanza=s.numero_stanza";
 		try {	
 		connection=SingletonConnection.getInstance();
 		prepared = connection.prepareStatement(query);
-		prepared.setInt(1, disponibile);
+		
 		resultset=prepared.executeQuery();
-		boolean a= !(dataInizio.isBefore(p.getDataInizio()) || dataInizio.isAfter(periodo.getDataFine()));
-		boolean b= !(dataFine.isBefore(periodo.getDataInizio()) || dataFine.isAfter(periodo.getDataFine()));
-		if(s.isDisponibile()==true) {
-			listaStanze.add(s);
+		
+		
+		while(resultset.next()) {
 			
+//			Stanza s=new Stanza();
+			Prenotazione p=new Prenotazione();
+//			s.setNumeroStanza(resultset.getInt("numero_stanza"));
+//			s.setTipoStanza(TipoStanza.valueOf(resultset.getString("tipo_stanza")));
+//			s.setPostiLetto(resultset.getInt("posti_letto"));
+//			s.setPrezzoNotte(resultset.getDouble("prezzo_notte"));
+//			s.setDisponibile(resultset.getBoolean("disponibile"));
+//			listaStanze.add(s);
+			p.setIdPrenotazione(resultset.getInt("id_prenotazione"));
+			p.setNumeroGiorni(resultset.getInt("numero_giorni"));
+			p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
+			p.setDataFine(resultset.getDate("data_fine").toLocalDate());
+			p.setFormula(Formula.valueOf(resultset.getString("formula")));
+			p.setPrezzoTotale(resultset.getDouble("prezzo_totale"));
+			p.setIdUtente(resultset.getInt("id_utente"));
+			p.setNumeroStanza(resultset.getInt("numero_stanza"));
+			a.add(p);
 		}
-		return listaStanze;
-		
-	}catch (SQLException e) {
-		e.printStackTrace();
-	}finally {
-		if(prepared!=null)
-			try {
-				prepared.close();
-
-			}catch (SQLException e) {
-				e.printStackTrace();
+			
+			for (Stanza line: listaStanze){
+				if(line.isDisponibile()==false) {
+					for (Prenotazione prenotate: a) {
+						if (line.getNumeroStanza()==prenotate.getNumeroStanza()) {
+							if (!(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine())) &&
+								 !(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine()))) {
+								System.out.println("tutte prenotate mi spiace");
+							}
+							else {
+								System.out.println("libera solo per oggi: " + line.getNumeroStanza());
+							}
+						}
+					}
+						
+			}else {
+				System.out.println("libera: " + line.getNumeroStanza());
 			}
-		if(resultset!=null)
-			try {
-				resultset.close();
-
-			}catch (SQLException e) {
-				e.printStackTrace();
 			}
-		if(connection!=null)
-			try {
-				connection.close();
-
-			}catch (SQLException e) {
-				e.printStackTrace();
-			}
-	}
-		
+		}catch (SQLException e) {
+						e.printStackTrace();
+				}finally {
+			if(prepared!=null)
+				try {
+					prepared.close();
+	
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if(resultset!=null)
+				try {
+					resultset.close();
+	
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if(connection!=null)
+				try {
+					connection.close();
+	
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+			
 	}
 }
 	
