@@ -51,7 +51,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	}
 
 	@Override
-	public Utente getByUsernameAndPassword(String username, String password) throws ConnessioneException {
+	public Utente getByUsernameAndPassword(String username, String password) {
 
 		String query= "select * from Utente where username=? and password=?";
 		Utente u=new Utente();
@@ -112,7 +112,7 @@ public class UtenteDaoImpl implements UtenteDao {
 
 
 	@Override
-	public void updateUtente(Utente utente) throws ConnessioneException {
+	public void updateUtente(Utente utente) {
 		String query="update Utente set password=?,nome=?, where username=? and idUtente=?";
 		try {
 			connection= SingletonConnection.getInstance();
@@ -154,7 +154,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	}
 
 	@Override
-	public void deleteteUtenteById(int idutente) throws ConnessioneException {
+	public void deleteteUtenteById(int idutente) {
 		String query="delete from Utente where idUtente=?";
 		try {
 			connection= SingletonConnection.getInstance();
