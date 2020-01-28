@@ -22,7 +22,7 @@ import it.accenture.service.Service;
 @WebServlet("/listaStanze")
 public class ListaStanze extends HttpServlet {
 
-	public ListaStanze() {
+	public ListaStanze(){
 		super();
 	        // TODO Auto-generated constructor stub
 	}
