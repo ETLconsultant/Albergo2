@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.accenture.model.Stanza;
+import it.accenture.model.TipoStanza;
 
 public interface StanzaDao {
 
@@ -12,6 +13,8 @@ public interface StanzaDao {
 	public void updateDisponibile(boolean disponibile, int numeroStanza);
 	
 	public Stanza getStanzaById(int numeroStanza);
+	
+	public ArrayList<TipoStanza> getTipoStanza();
 	
 	public void close();
 }

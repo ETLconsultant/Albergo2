@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import exceptions.ConnessioneException;
 import it.accenture.model.Stanza;
 import it.accenture.model.TipoStanza;
@@ -99,6 +97,31 @@ public class StanzaDaoImpl implements StanzaDao {
 		}
 		return stanza;
 	}
+	
+	@Override
+	public ArrayList<TipoStanza> getTipoStanza() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<TipoStanza> tipoStanze = new ArrayList<TipoStanza>();
+		String query = "select DISTINCT tipo_stanza from stanza";
+		
+		try {
+			prepared = connection.prepareStatement(query);
+			resultset = prepared.executeQuery();
+			
+			while(resultset.next()) {
+				tipoStanze.add(TipoStanza.valueOf(resultset.getString("tipo_stanza")));
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return tipoStanze;
+	}
+	
 
 	@Override
 	public void close() {
