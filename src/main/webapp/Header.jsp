@@ -31,7 +31,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Chi Siamo</a></li>
+        <li><a href="#">Chi Siamo</a></li>
         <li><a href="listaStanze.jsp">Camere&Suite</a></li>
         <li><a href="#">Benessere&Spa</a></li>
         <li><a href="Contatti.jsp">Contatti</a></li>
