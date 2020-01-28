@@ -27,7 +27,7 @@ public class StanzaDaoImpl implements StanzaDao {
 		try {
 			connection = SingletonConnection.getInstance();
 		} catch (ConnessioneException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -36,7 +36,7 @@ public class StanzaDaoImpl implements StanzaDao {
 	public ArrayList<Stanza> getAll() throws DAOException, ConnessioneException, SQLException {
 		ArrayList<Stanza> s = new ArrayList<Stanza>();
 		String query = "select * from stanza ";
-//			connection=SingletonConnection.getInstance();
+
 			prepared=connection.prepareStatement(query);
 			ResultSet rs =prepared.executeQuery();
 			
@@ -60,7 +60,7 @@ public class StanzaDaoImpl implements StanzaDao {
 	public void updateDisponibile(boolean disponibile, int numeroStanza) throws DAOException, ConnessioneException, SQLException {
 		String query = "update stanza set disponibile=?  where numero_stanza=?";
 		
-//			connection=SingletonConnection.getInstance();
+
 			prepared=connection.prepareStatement(query);
 			
 			prepared.setBoolean(1, disponibile);
@@ -76,12 +76,10 @@ public class StanzaDaoImpl implements StanzaDao {
 		Stanza s = new Stanza();
 		String query = "select * from stanza where numero_stanza=? ";
 		
-//			connection=SingletonConnection.getInstance();
+
 			prepared=connection.prepareStatement(query);
 			prepared.setInt(1, numeroStanza);
 			ResultSet rs =prepared.executeQuery();
-			
-			
 			
 			while (rs.next()) {
 			s.setNumeroStanza(rs.getInt("numero_stanza"));
@@ -96,6 +94,23 @@ public class StanzaDaoImpl implements StanzaDao {
 			return s;
 		
 		
+	}
+	
+	@Override
+	public ArrayList<TipoStanza> getAllTipoStanza() throws SQLException {
+		ArrayList<TipoStanza> tipoStanze = new ArrayList<TipoStanza>();
+		String query = "select distinct tipo_stanza from stanza";
+		prepared=connection.prepareStatement(query);
+		ResultSet rs =prepared.executeQuery();
+		
+		while (rs.next()) {
+//			Stanza s = new Stanza();
+			tipoStanze.add(TipoStanza.valueOf(rs.getString("tipo_stanza")));
+			
+		}
+		close();
+		
+		return tipoStanze;
 	}
 
 	@Override
@@ -115,6 +130,8 @@ public class StanzaDaoImpl implements StanzaDao {
 		
 	    }
 	}
+
+	
 
 
 	
