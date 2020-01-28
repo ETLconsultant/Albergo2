@@ -1,6 +1,7 @@
 package it.accenture.dao;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import it.accenture.model.Periodo;
@@ -21,4 +22,6 @@ public interface PrenotazioneDao {
 			int numeroStanza);
 	
 	public void controlloDisponibilitaQuotidiana(List<Stanza> listaStanze);
+
+	void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze);
 }
