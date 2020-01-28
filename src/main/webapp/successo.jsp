@@ -12,5 +12,6 @@
 <body>
 Bravo 
 <% String username = (String)request.getAttribute("username"); %>
+<%=username %>
 </body>
 </html>

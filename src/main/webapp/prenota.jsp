@@ -10,6 +10,26 @@
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 </head>
 <body>
+<br>Inserisci i dati per la prenotazione:<br>
+<form name="FormPrenota" action="Prenota" method="post">
+<input type="hidden" required minlenght="4" maxlength="30" name="idUtente" value=<%= idUtente%>><br>
+ <p class="messaggi" id="idUtente"></p>
+  DATA INIZIO:<br>
+  <input type="date" name="dataInizio" value=<%= dataInizio%>><br>
+   <p class="messaggi" id="dataInizio"></p>
+   DATA FINE:<br>
+  <input type="date" name="dataFine" value=<%= dataFine%>><br>
+   <p class="messaggi" id="dataFine"></p>
+  NOME:<br>
+  <input type="text" name="nome" value=<%= nome%> ><br>
+   <p class="messaggi" id="nome"></p>
+  NUMERO STANZA:<br>
+  <input type="number" name="numeroStanza" value="<%= numeroStanza%>"><br>
+  <p class="messaggi" id="numeroStanza"></p>
+  
+  <input type="submit" name="prenota" value="prenota">
+  
+</form> 
 
 
 
