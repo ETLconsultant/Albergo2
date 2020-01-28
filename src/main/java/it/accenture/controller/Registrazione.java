@@ -50,8 +50,6 @@ public class Registrazione extends HttpServlet {
 			utenteService.insertUtente(utente);
 			System.out.println(utente);
 
-		} catch (ConnessioneException e) {
-			e.printStackTrace();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
