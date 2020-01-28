@@ -22,7 +22,7 @@ import it.accenture.service.Service;
 @WebServlet("/listaStanze")
 public class ListaStanze extends HttpServlet {
 
-	public ListaStanze() {
+	public ListaStanze(){
 		super();
 	        // TODO Auto-generated constructor stub
 	}
@@ -30,9 +30,8 @@ public class ListaStanze extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Service stanzaService = new Service();
-		ArrayList<Stanza> listaStanze = stanzaService.getAllStanze();
+		stanzaService.getTipoStanza();
 		RequestDispatcher rd = request.getRequestDispatcher("/listaStanze.jsp");	
 		rd.forward(request, response);
 	}
-
 }
