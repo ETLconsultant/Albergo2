@@ -23,7 +23,7 @@ public class StanzaService {
 	}
 	
 	public Stanza getStanzaById(int numeroStanza) throws DAOException, ConnessioneException, SQLException {
-		System.out.println("");
+		System.out.println("a");
 		return stanzaDao.getStanzaById(numeroStanza);
 		
 	}
