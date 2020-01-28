@@ -83,6 +83,12 @@ public class Prenota extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
 			rd.forward(req, resp);
 		}
+		else {
+			messagePrenotazione = "Errore! Stanza non disponibile nel periodo selezionato. Riprova con altre date.";
+			session.setAttribute("messagePrenotazione", messagePrenotazione);
+			RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
+			rd.forward(req, resp);
+		}
 		
 	}
 	
