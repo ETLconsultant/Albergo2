@@ -35,7 +35,16 @@
     height: 100%;
     margin-bottom: 10px;
   }
- 
+ .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
 </style>
 <title>Home</title>
 </head>
@@ -82,38 +91,35 @@
 		aria-hidden="true"></span> <span class="sr-only">Next</span>
 	</a>
 	</div>
-
-	<div class="container text-center">
-		<h3>Javani Resort e' il vostro paradiso, <br>
-		 l incanto di un giardino privato a pochi passi dal vivace viavai di Milano.</h3>
-		<br>
-		<div class="row">
-			<div class="col-sm-4">
-				<img src="image/a.jpg"
-					class="img-responsive" style="width: 100%" alt="Image">
-				<p>Sponsor ufficiale: Accenture S.p.A.</p>
-			</div>
-			<div class="col-sm-4">
-				<img src="image/j.png"
-					class="img-responsive" style="width: 100%" alt="Image">
-				<p>Javani Gruppo 1</p>
-			</div>
-			<div class="col-sm-4">
-				<div class="well">
-					<p>Entrando nella nostra Spa, alleviate le tensioni e inspirate immensa beatitudine! <br>
-					Un profondo senso di conforto calma la mente e rilassa i muscoli.
-				
-				</div>
-				<div class="well">
-					<p>Infine, rilassatevi nella nostra avvolgente zona comfort con vista sulle Alpi. <br>
-					 Avevate dimenticato di potervi sentire “fra le nuvole”.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br>
 	
-  
+  <!-- Container (Javani Resort) -->
+<div class="container-fluid text-center bg-grey">
+  <h2>Javani Resort e' il vostro paradiso</h2><br>
+  <h4>l incanto di un giardino privato a pochi passi dal vivace viavai di Milano.</h4>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="image/a.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Accenture</strong></p>
+        <p>Sponsor ufficiale del progetto</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="image/j.png" alt="New York" width="400" height="300">
+        <p><strong>New York</strong></p>
+        <p>We built New York</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
+        <p><strong>San Francisco</strong></p>
+        <p>Yes, San Fran is ours</p>
+      </div>
+    </div>
+  </div>
+  </div>
 
 	<%@include file="Footer.jsp"%>
 
