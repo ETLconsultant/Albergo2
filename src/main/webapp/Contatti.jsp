@@ -114,7 +114,7 @@
   <div class="row">
     <div class="col-sm-5">
       <p>Contact us and we'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Javani Report</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Javani Resort</p>
       <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
       <p><span class="glyphicon glyphicon-envelope"></span> javani@gruppo1.it</p>
     </div>
