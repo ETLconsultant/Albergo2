@@ -27,10 +27,13 @@ public class Validatore{
 		}
 		else if(username.length() > 20) {
 			lista.add(new ErroreValidazione("username", "username " + bundle.getString("error.maxlength") + " 20"));
+			System.out.println();
 			System.out.println("username.length() < 20");
+			System.out.println();
+
 		}
 		String password = request.getParameter("password");
-		String passwordExpression = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%*^&+=])(?=\\S+$).{8,16}$";
+		String passwordExpression = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%*^&+=])(?=\\S+$).{8,20}$";
 //		String specialCharacterExpression = "^(?=.*[@#$%*^&+=])$";
 //		String atLeastOneNumberExpression = "^(?=.*[0-9])$";
 //		String atLeastOneSmallLetterExpression = "^(?=.*[a-z])$";
@@ -72,13 +75,13 @@ public class Validatore{
 		
 		if(nome == null || nome.length() == 0)
 			lista.add(new ErroreValidazione("nome", "nome " + bundle.getString("error.required")));
-		else if(nome.length() >= 20)
+		else if(nome.length() > 20)
 			lista.add(new ErroreValidazione("nome", "nome " + bundle.getString("error.maxlength") + " 20"));			
 		
 		String cognome = request.getParameter("cognome");
 		if(cognome == null || cognome.length() == 0)
 			lista.add(new ErroreValidazione("cognome", "cognome " + bundle.getString("error.required")));
-		else if(cognome.length() >= 20)
+		else if(cognome.length() > 20)
 			lista.add(new ErroreValidazione("cognome", "cognome" + bundle.getString("error.maxlength") + " 20"));			
 		
 		//TODO: continuare con gli eventuali controlli di validità che si ritiene necessari

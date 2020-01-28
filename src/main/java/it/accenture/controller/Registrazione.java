@@ -30,7 +30,7 @@ public class Registrazione extends HttpServlet {
 		if(lista.size()!=0){
 			req.setAttribute("lista", lista );
 			System.out.println(lista);
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/registrazione.jsp").forward(req, resp);
+			getServletContext().getRequestDispatcher("/registrazione.jsp").forward(req, resp);
 			return;
 		}
 		
