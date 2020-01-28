@@ -19,5 +19,5 @@ public class Logout extends HttpServlet {
 		System.out.println("logout effettuato");
 		resp.sendRedirect("Home.jsp");
 	}
-	
+	//uih
 }
