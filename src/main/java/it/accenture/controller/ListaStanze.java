@@ -17,16 +17,22 @@ import it.accenture.dao.PrenotazioneDaoImpl;
 import it.accenture.dao.StanzaDaoImpl;
 import it.accenture.model.Periodo;
 import it.accenture.model.Stanza;
+import it.accenture.service.Service;
 
 @WebServlet("/listaStanze")
 public class ListaStanze extends HttpServlet {
 
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	public ListaStanze() {
+		super();
+	        // TODO Auto-generated constructor stub
 	}
-	
-	
-	
+	  
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Service stanzaService = new Service();
+		ArrayList<Stanza> listaStanze = stanzaService.getAllStanze();
+		RequestDispatcher rd = request.getRequestDispatcher("/listaStanze.jsp");	
+		rd.forward(request, response);
+	}
+
 }
