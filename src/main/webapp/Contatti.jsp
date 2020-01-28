@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <%@include file="Header.jsp"%>
 <meta charset="ISO-8859-1">
 <title>Contatti</title>
@@ -12,7 +13,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-  
+  .google-maps {
+  position: relative;
+  padding-bottom: 75%; 
+  height: 0;
+  overflow: hidden;
+}
+.google-maps > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30% !important;
+  height: 30% !important;
+}
   .container-fluid {
     padding: 60px 50px;
   }
@@ -133,6 +146,12 @@
     </div>
   </div>
 </div>
+
+
+<div class="google-maps" >
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.5253539961473!2d9.225212215027524!3d45.49950207910138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c71b08aa44cd%3A0x6482f12f79a92325!2sVia%20Valtorta%2C%2048%2C%2020127%20Milano%20MI!5e0!3m2!1sit!2sit!4v1580223664672!5m2!1sit!2sit" width="400" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>
+
 
 	<%@include file="Footer.jsp"%>
 </body>
