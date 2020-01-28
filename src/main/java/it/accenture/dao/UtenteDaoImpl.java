@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+
+
 import exceptions.ConnessioneException;
 import exceptions.DAOException;
 import it.accenture.model.Utente;
@@ -18,8 +21,42 @@ public class UtenteDaoImpl implements UtenteDao {
 	private PreparedStatement prepared;
 	private Statement statement;
 	
-	public UtenteDaoImpl() throws ConnessioneException {
-		connection = SingletonConnection.getInstance();
+	
+	
+
+	public boolean   loginControl(String username, String passwordInserita) throws SQLException {
+	
+	
+		String query="select password from utente where username = ?";
+		
+			
+			 prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			 prepared = connection.prepareStatement(query);
+			 prepared.setString(1, username);
+//			 ResultSet rs = prepared.getGeneratedKeys();
+			 ResultSet rs =  prepared.executeQuery();
+			 
+			 rs.next();
+			 
+			 System.out.println(username + passwordInserita);
+			 
+			 System.out.println(rs.getString("password"));
+			 
+			 if(passwordInserita.equals(rs.getString("password")) ) {
+			
+			 return true;
+			 
+			 }
+			 else return false;
+	}
+	public UtenteDaoImpl() {
+		try {
+			connection = SingletonConnection.getInstance();
+		} catch (ConnessioneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
