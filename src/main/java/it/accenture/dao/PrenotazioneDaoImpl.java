@@ -23,7 +23,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	private PreparedStatement prepared;
 	private ResultSet resultset; 
 	  
-	public PrenotazioneDaoImpl() throws ConnessioneException {
+	public PrenotazioneDaoImpl() {
 		connection = SingletonConnection.getInstance();
 	}
 	
