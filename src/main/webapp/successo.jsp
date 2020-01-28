@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-
+Bravo 
+<% String username = (String)request.getAttribute("username"); %>
 </body>
 </html>
