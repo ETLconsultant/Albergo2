@@ -31,8 +31,8 @@ a.active{
 <div class="topnav">
 <a class="active" href="login.jsp">Login</a>
 <a class="active" href="Home.jsp">Home</a>
-<p> Tel. (+39 234235346363) </p>
-<p> Email: gruppo2@gruppo2.it </p>
+<p> Tel. (+39 234235346363) </p><th>
+<p> Email: gruppo2@gruppo2.it </p><th>
 
 </div>
 
