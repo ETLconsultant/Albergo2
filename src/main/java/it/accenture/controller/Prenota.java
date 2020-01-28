@@ -37,7 +37,7 @@ public class Prenota extends HttpServlet {
 		
 		PrenotazioneService prenotazioneService = new PrenotazioneService();
 		Prenotazione prenotazioneBean =new Prenotazione();
-		Stanza stanzaBean = req.getParameter("numero_stanza").;
+		Stanza stanzaBean = stanzaBean.getStanzaById((int) req.getAttribute("id_stanza"));
 		
 		LocalDate dataInizio = LocalDate.parse(req.getParameter("dataInizio"));
 		LocalDate dataFine = LocalDate.parse(req.getParameter("dataFine"));

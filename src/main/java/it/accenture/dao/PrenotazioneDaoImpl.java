@@ -21,8 +21,13 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	private Connection connection;
 	private PreparedStatement prepared;
 	
-	public PrenotazioneDaoImpl() throws ConnessioneException {
-		connection = SingletonConnection.getInstance();
+	public PrenotazioneDaoImpl(){
+		try {
+			connection = SingletonConnection.getInstance();
+		} catch (ConnessioneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
