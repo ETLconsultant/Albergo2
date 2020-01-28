@@ -53,8 +53,9 @@ public class Login extends HttpServlet {
 		
 		session.setAttribute("messageArea", messageArea);
 		session.setAttribute("messageLogin", messageLogin);
-		
+		System.out.println("strunz" );
 		try {
+			System.out.println(" ma davvero?" + userservice.loginControl(username, password));
 			if(userservice.loginControl(username, password)== false) {
 				System.out.println("errore nel if del try");
 				messageLogin="Username o password errati";
