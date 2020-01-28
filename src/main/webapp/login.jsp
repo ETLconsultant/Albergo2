@@ -5,11 +5,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<title>Accedi</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 </head>
 <body>
-
+	<%
+			String messaggio = (String) request.getAttribute("messaggio");
+			if (messaggio != null) {
+				out.println(messaggio);
+			}
+		%>
+		<br>
+		<form action="login" method="post">
+			<p>
+				<b>Inserisci i tuoi dati:</b>
+			</p>
+			<br>
+			<p>
+				Username: <input type="text" name="username" size="16 px" required>
+			<p id="username"></p>
+			</p>
+			<p>
+				Password: <input type="password" name="password" size="16 px"
+					required>
+			<p id="psd"></p>
+			</p>
+			<input type="submit" name="bottone" value="Accedi">
+		</form>
+		<br>
+		<p>
+			Non sei registrato? <a href="registrazione.jsp"> Registrati< </a>
+		</p>
+	</div>
 </body>
 </html>

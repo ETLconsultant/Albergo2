@@ -12,6 +12,6 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="registrazione.jsp"/>
+<jsp:include page="Home.jsp"/>
 </body>
 </html>
