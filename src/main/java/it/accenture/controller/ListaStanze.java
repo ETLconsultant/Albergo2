@@ -26,6 +26,7 @@ public class ListaStanze extends HttpServlet {
 		super();
 	        // TODO Auto-generated constructor stub
 	}
+	  
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Service stanzaService = new Service();
