@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import exceptions.ConnessioneException;
 import exceptions.DAOException;
@@ -59,6 +60,11 @@ public class Registrazione extends HttpServlet {
 //		utenteService.close(); Il close() viene chiamato da insertUtente
 		System.out.println("utente inserito");
 		req.setAttribute("username", username);
+		
+//		HttpSession session = req.getSession();
+//		session.setAttribute("utente", utente);
+		
+		
 		RequestDispatcher dispatcher = 
 				req.getRequestDispatcher("login.jsp");
 		dispatcher.forward(req, resp);
