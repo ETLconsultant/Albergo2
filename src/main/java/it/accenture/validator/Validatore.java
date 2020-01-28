@@ -48,8 +48,8 @@ public class Validatore{
 			System.out.println("password.length()<8");
 		}
 		else if(!isPasswordValid) {
-			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.specialcharacter")));
-			System.out.println("!password.matches(specialCharacterExpression)");
+			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.password")));
+			System.out.println("!password.matches(isPasswordValid)");
 		}
 //		else if(!password.matches(atLeastOneNumberExpression)) {
 //			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.atleastonenumber")));
