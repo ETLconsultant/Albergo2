@@ -41,16 +41,22 @@ width: 30%;
 }
 </style>
 </head>
+<% String messageLogin = (String)session.getAttribute("messageLogin");%>
+
 <body>
 	<div align="center">
-
+<%if (messageLogin!=null ){%>
+<%=messageLogin %>
+<%} %>
 		<h2>Benvenuto! Inserisci Username e Password</h2>
 		<form action="Login" method="post">
 			<h3>Utente</h3>
 			<input type="text" name="username" size="20 px">
 			<h3>Password</h3>
 			<input type="password" name="password" size="20 px"> <br> <br>
-			<input type="submit" name="submit" value="Invia" class="button">
+			<input type="hidden" name="nome" value="nome" size="20 px"> 
+			<input type="hidden" name="cognome" value="cognome" size="20 px"> 
+			<input type="submit" name="submit" value="Invia" class="button">	
 		</form>
 
 		<br> <br> <br>
