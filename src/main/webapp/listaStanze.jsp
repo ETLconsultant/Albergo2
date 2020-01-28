@@ -134,7 +134,7 @@
 				<div id="demo" class="collapse">
 					<p>Servizio Free drink</p>
 					<p>Orario bar serale:</p>
-					<p>20.00 - 02.00</p>
+					<p>20.00 - 02.00 </p>
 				</div>
 			</div>
 			<div class="col-sm-4">
