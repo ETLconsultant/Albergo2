@@ -64,9 +64,12 @@
 </style>
 <title>Home</title>
 </head>
+<% String messageArea = (String)session.getAttribute("messageArea");%>
 <body>
 
-
+<%if (messageArea!=null ){%>
+<%=messageArea %>
+<%} %>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
