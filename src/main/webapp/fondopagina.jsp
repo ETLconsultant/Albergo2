@@ -9,7 +9,7 @@
 <style>
 
 .topnav{
-	background-color:#8a1616;
+	background-color:#f27e0a;
 	overflow:hidden;
 	z-index:1000;
 }
@@ -20,9 +20,10 @@ a.active{
 	display:block;
 	padding:8px;
 	color:white;
-	background-color: #340087;
+	background-color: #636166;
 	display:block;
 }
+
 
 </style>
 </head>
@@ -30,12 +31,10 @@ a.active{
 <nav>
 <div class="topnav">
 
-<div> Tel. (+39 234235346363) </div>
-<div> Email: gruppo2@gruppo2.it </div>
-<div> indirizzo: </div>
-<div> privacy </div>
-
+<div class="w3-row">
+Tel. (+39 234235346363)   Email:gruppo2@gruppo2.it  indirizzo:  privacy </div> 
 </div>
+
 </nav>
 </body>
 </html>
