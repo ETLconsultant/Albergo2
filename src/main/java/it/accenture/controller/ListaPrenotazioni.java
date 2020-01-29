@@ -15,14 +15,22 @@ import javax.servlet.http.HttpSession;
 import exceptions.ConnessioneException;
 import it.accenture.dao.PrenotazioneDaoImpl;
 import it.accenture.model.Prenotazione;
+import it.accenture.model.Stanza;
 import it.accenture.model.Utente;
+import it.accenture.service.Service;
 
 @WebServlet("/listaPrenotazioni")
 public class ListaPrenotazioni extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		HttpSession sessione=request.getSession();
+		
+		String tipoStanza=request.getParameter("tipoStanza");
+		
+		Service stanzaService = new Service();
+		Stanza s=new Stanza();
+		ArrayList<Stanza> listaStanze=new ArrayList<Stanza>();
 	
   }
 	
