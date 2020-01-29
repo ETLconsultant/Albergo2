@@ -32,7 +32,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="#">Chi Siamo</a></li>
-        <li><a href="listaStanze.jsp">Camere&Suite</a></li>
+        <li><form action="ListaStanze">
+        <input type ="submit" name ="submit" value="Camere&Suite"></form>Camere&Suite</li>
         <li><a href="#">Benessere&Spa</a></li>
         <li><a href="Contatti.jsp">Contatti</a></li>
       </ul>
