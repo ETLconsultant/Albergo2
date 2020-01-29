@@ -48,9 +48,11 @@
 								class="button1">
 					</form></li>
 					<% } %>
-					
+					<% if(session.getAttribute("utente")==null)  {
+					%>
 					<li><a href="login.jsp"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+								<% } %>
 				</ul>
 			</div>
 		</div>
