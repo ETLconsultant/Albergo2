@@ -33,7 +33,7 @@ public class Validatore{
 
 		}
 		String password = request.getParameter("password");
-		String passwordExpression = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%*^&+=])(?=\\S+$).{8,20}$";
+		String passwordExpression = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%*^&+=])(?=\\S+$).{8,20}$";
 //		String specialCharacterExpression = "^(?=.*[@#$%*^&+=])$";
 //		String atLeastOneNumberExpression = "^(?=.*[0-9])$";
 //		String atLeastOneSmallLetterExpression = "^(?=.*[a-z])$";
