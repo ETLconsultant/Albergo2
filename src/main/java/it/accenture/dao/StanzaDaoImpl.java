@@ -108,7 +108,7 @@ public class StanzaDaoImpl implements StanzaDao {
 			
 		try {
 			prepared = connection.prepareStatement(query);
-			prepared.setString(1, String.valueOf(tipoStanza));
+			prepared.setString(1, tipoStanza.name());
 				
 			resultset = prepared.executeQuery();
 		
