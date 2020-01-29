@@ -37,6 +37,10 @@ float: right;
 </head>
 <body>
 
+<%
+String username = (String)session.getAttribute("username");
+%>
+
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<!-- Brand -->
 		<a class="navbar-brand" href="Home.jsp">HOME</a>
@@ -60,11 +64,21 @@ float: right;
 						action="listaStanze" name="suite" href="listaStanze">Suite</a>
 				</div></li>
 
-			<li class="nav-item"><a class="nav-link"
-				href="listaPrenotazioni">Lista prenotazioni</a></li>
 
+
+			<li class="nav-item"><a class="nav-link"
+			<%if (username !=null) {%>
+				href="listaPrenotazioni">Lista prenotazioni</a>
+				<%} %>
+				</li>
+
+			
 			<li class="nav-login">
+			<%if (username != null) {%>
+				<a class="nav-link" href="login.jsp"><%=username.toUpperCase() %></a>
+			<%} else { %>
 				<a class="nav-link" href="login.jsp">LOGIN</a>
+				<%} %>
 			</li>
 		</ul>
 	</nav>
