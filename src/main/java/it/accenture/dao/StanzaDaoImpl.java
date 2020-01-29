@@ -23,7 +23,6 @@ public class StanzaDaoImpl implements StanzaDao {
 	@Override	//Visualizzo tutte le stanze
 	public ArrayList<Stanza> getAll() {
 		// TODO Auto-generated method stub		
-		
 		ArrayList<Stanza> listaStanze = new ArrayList<Stanza>();
 		
 		String query = "select * from stanza";

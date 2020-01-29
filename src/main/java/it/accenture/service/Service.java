@@ -109,6 +109,5 @@ public void insertUtente(Utente utente) {
 	
 	public void uclose() {
 		udao.close();
-		
 	}
 }
