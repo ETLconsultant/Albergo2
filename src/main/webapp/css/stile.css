@@ -13,3 +13,7 @@ input[type=radio] {
 	width: 30px;
 	margin: 11px 0;
 }*/
+
+nav-link {
+	position: right;
+}
