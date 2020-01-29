@@ -16,6 +16,7 @@ padding : 0;
 box-sizing: border-box;
 }
 
+
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar {
   background-color: #333;
