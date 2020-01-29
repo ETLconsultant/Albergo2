@@ -1,0 +1,20 @@
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+/*Bottone all'interno della navbar*/
+.button1 {
+	color: gray;
+	padding: 15px 28px;
+	text-align: center;
+	font-size: 15px;
+	border: none;
+	background: none;
+}
+
+.button1:hover {
+	color: white;
+} 
+    

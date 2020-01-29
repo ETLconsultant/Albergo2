@@ -2,15 +2,12 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<meta charset="utf-8">
+<<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/stile.css" type="text/css">
+  <link rel="stylesheet" href="css/header.css" type="text/css">
 </head>
 <body> 
 	<nav class="navbar navbar-inverse">
@@ -32,7 +29,16 @@
 						</form></li>
 					<li><a href="#">Benessere&Spa</a></li>
 					<li><a href="Contatti.jsp">Contatti</a></li>
-				</ul>
+				
+				<% if(session.getAttribute("username")!=null)  {
+					%>
+					<li><form action="ListaPrenotazioni">
+					
+							<input type="submit" name="submit" value="Lista Prenotazioni"
+								class="button1">
+						</form></li>
+					<% } %>
+					</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="login.jsp"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
