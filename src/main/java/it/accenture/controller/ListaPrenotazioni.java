@@ -16,6 +16,7 @@ import exceptions.ConnessioneException;
 import it.accenture.dao.PrenotazioneDaoImpl;
 import it.accenture.model.Prenotazione;
 import it.accenture.model.Stanza;
+import it.accenture.model.TipoStanza;
 import it.accenture.model.Utente;
 import it.accenture.service.Service;
 
@@ -24,14 +25,20 @@ public class ListaPrenotazioni extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession sessione=request.getSession();
-		
-		String tipoStanza=request.getParameter("tipoStanza");
-		
-		Service stanzaService = new Service();
+		HttpSession sessione=req.getSession();
+		ArrayList<Prenotazione> listaPrenotazioni=new ArrayList<Prenotazione>();
 		Stanza s=new Stanza();
-		ArrayList<Stanza> listaStanze=new ArrayList<Stanza>();
+		Service PrenotazioneService = new Service();
+		String submit=req.getParameter("prenota");
+		Integer idUtente=(Integer) sessione.getAttribute("idUtente");
+		
+		if (submit.equalsIgnoreCase("listaPrenotazioni")) {
+		listaPrenotazioni=PrenotazioneService.getPrenotazioniByUtente(idUtente);
+		sessione.setAttribute("listaPrenotazione", listaPrenotazioni );
+		RequestDispatcher rd= req.getRequestDispatcher("/listaPrenotazioni.jsp");
+		rd.forward(req, resp);
+		}
+		}
+	}
 	
-  }
-	
-}
+
