@@ -86,7 +86,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	@Override
 	public void updateUtente(Utente utente) {
 		//non updata ma ne crea uno nuovo
-		String query="update utente set password=?,nome=?, where username=? and id_utente=?";
+		String query="update utente set password=?,nome=? where username=? and id_utente=?";
 		try {
 			prepared = connection.prepareStatement(query);
 			prepared.setString(1, utente.getPassword());
@@ -116,7 +116,7 @@ public class UtenteDaoImpl implements UtenteDao {
 			
 			int numeroRighe = prepared.executeUpdate();
 			if(numeroRighe>0) {
-				System.out.println("Utente aggiornato");
+				System.out.println("Utente cancellato");
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
