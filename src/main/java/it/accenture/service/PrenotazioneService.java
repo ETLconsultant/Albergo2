@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
+import exceptions.ConnessioneException;
 import it.accenture.dao.PrenotazioneDaoImpl;
 import it.accenture.model.Periodo;
 import it.accenture.model.Prenotazione;
@@ -16,7 +17,7 @@ public class PrenotazioneService {
 	
 	private PrenotazioneDaoImpl PrenotazioneDao = new PrenotazioneDaoImpl();
 	
-	public void insertPrenotazione(Prenotazione prenotazione) throws SQLException {
+	public void insertPrenotazione(Prenotazione prenotazione) throws SQLException, ConnessioneException {
 		PrenotazioneDao.insertPrenotazione(prenotazione);
 	}
 	
