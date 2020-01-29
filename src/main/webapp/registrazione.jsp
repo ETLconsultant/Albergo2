@@ -46,7 +46,7 @@ input[type=password] {
 </style>
 </head>
 <body>
-	<form action="registrazione" method="post">
+	<form name="myForm" action="registrazione" method="post" onsubmit="return fieldValidation()">
 		<table align="center">
 
 			<tr height="50" align="center">
@@ -56,9 +56,10 @@ input[type=password] {
 			<tr height="50">
 				<td width="20%">Nome</td>
 				<td width="40%"><input type="text" id="nome" name="nome"></td>
-				<td width="40%"><c:forEach items="${lista}" var="errore">
+				<td width="40%" id="nome2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='nome'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach>
+					</td>
 			</tr>
 
 			<tr height="50">
@@ -66,7 +67,7 @@ input[type=password] {
 				<td width="40%"><input type="text" id="cognome" name="cognome"></td>
 				<td width="40%"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='cognome'}"> ${errore.descrizioneErrore}</c:if>
-					</c:forEach>
+					</c:forEach></td>
 			</tr>
 			<tr height="50">
 				<td width="20%">Username</td>
@@ -74,7 +75,7 @@ input[type=password] {
 					name="username"></td>
 				<td width="40%"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='username'}"> ${errore.descrizioneErrore}</c:if>
-					</c:forEach>
+					</c:forEach></td>
 			</tr>
 			<tr height="50">
 				<td width="20%">Password</td>
@@ -82,7 +83,7 @@ input[type=password] {
 					name="password"></td>
 				<td width="40%"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='password'}"> ${errore.descrizioneErrore}</c:if>
-					</c:forEach>
+					</c:forEach></td>
 			</tr>
 			<br>
 			<br>
