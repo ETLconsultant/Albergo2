@@ -14,7 +14,7 @@ padding : 0;
 box-sizing: border-box;
 }
 
-.navbar navbar-expand-sm bg-dark navbar-dark, ul,  li {
+.navbar navbar-expand-sm bg-dark navbar-dark, ul,  li , a{
 font-size: 20px;
 }
 
@@ -37,42 +37,37 @@ float: right;
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="Home.jsp">HOME</a>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="Home.jsp">HOME</a>
 
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#">About us</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">altro link</a>
-    </li>
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">altro link</a>
+			</li>
 
-    <!-- Dropdown -->
-    <li class="nav-item dropdown" name="tipoStanza" >
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Tipi stanze
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" action="listaStanze" name="tipoStanza" value= "standard" >Standard</a>
-        <a class="dropdown-item" action="listaStanze" name="tipoStanza" value= "family">Family</a>
-        <a class="dropdown-item" action="listaStanze" name="tipoStanza"value= "business">Business</a>
-          <a class="dropdown-item" action="listaStanze" name="tipoStanza"value= "suite">Suite</a>
-      </div>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-link" href="listaPrenotazioni">Lista prenotazioni</a>
-    </li>
-    
-    <li class="nav-login">
-      <a class="nav-link" href="login.jsp">LOGIN</a>
-    </li>
-  </ul>
-</nav>
-<br>
+			<!-- Dropdown -->
+			<li class="nav-item dropdown" ><a
+				class="nav-link dropdown-toggle" href="#" id="navbardrop"
+				data-toggle="dropdown"> Tipi stanze </a>
+				<div class="dropdown-menu" name="tipoStanza" >
+					<a class="dropdown-item" action="listaStanze" name="tipoStanza"
+						value="standard">Standard</a> <a class="dropdown-item"
+						action="listaStanze" name="tipoStanza" value="family">Family</a> <a
+						class="dropdown-item" action="listaStanze" name="tipoStanza"
+						value="business">Business</a> <a class="dropdown-item"
+						action="listaStanze" name="tipoStanza" value="suite">Suite</a>
+				</div></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="listaPrenotazioni">Lista prenotazioni</a></li>
+
+			<li class="nav-login"><a class="nav-link" href="login.jsp">LOGIN</a>
+			</li>
+		</ul>
+	</nav>
+	<br>
   
 
 </body>
