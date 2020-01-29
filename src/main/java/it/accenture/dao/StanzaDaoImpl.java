@@ -9,7 +9,7 @@ import exceptions.ConnessioneException;
 import it.accenture.model.Stanza;
 import it.accenture.model.TipoStanza;
 
-
+//QUALCOSA NON VA CON LE CONNESSIONI MARONN!
 public class StanzaDaoImpl implements StanzaDao {
 	
 	private Connection connection;
@@ -53,9 +53,16 @@ public class StanzaDaoImpl implements StanzaDao {
 	public void updateDisponibile(boolean disponibile, int numeroStanza) {
 		// TODO Auto-generated method stub
 		String query = "update stanza set disponibile=? where numero_stanza=?";
+//		Stanza s = getStanzaById(numeroStanza);
+//		System.out.println(s.toString());
 		
 		try {
+		
 			prepared = connection.prepareStatement(query);
+//			System.out.println("misono connesso");
+//			prepared.setString(1, s.getTipoStanza().name());
+//			prepared.setInt(2, s.getPostiLetto());
+//			prepared.setDouble(3,  s.getPrezzoNotte());
 			prepared.setBoolean(1, disponibile);
 			prepared.setInt(2, numeroStanza);
 			
