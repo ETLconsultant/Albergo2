@@ -10,7 +10,7 @@
 <title>Successo</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
-<% String username = (String)session.getAttribute("username");
+<% String username1 = (String)session.getAttribute("username");
 String password = (String)session.getAttribute("password");
 String cognome = (String)session.getAttribute("cognome");
 String nome = (String)session.getAttribute("nome");
@@ -25,7 +25,7 @@ String id_utente = (String)session.getAttribute("id_utente");
 <tbody>
 
 <tr><td>Username</td><td>Nome</td><td>Cognome</td><td>Password</td></tr>
-<tr><td><%=username %></td><td><%=nome %></td><td><%=cognome %></td><td><%=password %></td></tr>
+<tr><td><%=username1 %></td><td><%=nome %></td><td><%=cognome %></td><td><%=password %></td></tr>
 
 </tbody>
 </table>
