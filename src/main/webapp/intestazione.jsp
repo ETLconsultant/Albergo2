@@ -16,12 +16,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   
+  
 </head>
 <body>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="home.jsp">HOME</a>
+  <a class="navbar-brand" href="Home.jsp">HOME</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -46,7 +47,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="#">lista prenotazioni</a>
+      <a class="nav-link" href="listaPrenotazioni.jsp">Lista prenotazioni</a>
     </li>
     
     <li class="nav-login">
