@@ -9,8 +9,10 @@
 <html>
 <head>
 <%@include file="Header.jsp"%>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
 <body>
-	<table>
+	<table id="tabella">
 		<tr>
 			<th>Numero stanza</th>
 			<th>Tipo stanza</th>
