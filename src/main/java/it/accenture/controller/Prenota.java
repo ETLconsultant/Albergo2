@@ -26,7 +26,7 @@ import it.accenture.model.Stanza;
 import it.accenture.model.Utente;
 import it.accenture.service.Service;
 
-@WebServlet("/prenota")
+@WebServlet("/Prenota")
 public class Prenota extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Service service= new Service();

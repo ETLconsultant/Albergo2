@@ -49,10 +49,13 @@ public class Login extends HttpServlet {
 			}else {
 				sessione.setAttribute("username", username);
 				sessione.setAttribute("password", password);
+				sessione.setAttribute("nome", u.getNome());
+				sessione.setAttribute("idUtente", u.getId());
+				
 				String messaggio="Benvenuto!";
 				req.setAttribute("messaggio", messaggio);
 				RequestDispatcher rd= req.getRequestDispatcher("/Home.jsp");
-				rd.include(req, resp);
+				rd.forward(req, resp);
 				
 			}
 	}

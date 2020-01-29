@@ -65,9 +65,9 @@ public class UtenteDaoImpl implements UtenteDao {
 			ResultSet rs = prepared.executeQuery();
 
 			while (rs.next()) {
-				u.setId(rs.getInt("idUtente"));
+				u.setId(rs.getInt("id_utente"));
 				u.setUsername(rs.getString("username"));
-				u.setPassword(rs.getString("pwd"));
+				u.setPassword(rs.getString("password"));
 				u.setNome(rs.getString("nome"));
 
 			}

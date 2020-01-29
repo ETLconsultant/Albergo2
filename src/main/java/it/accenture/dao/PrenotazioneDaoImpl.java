@@ -33,18 +33,17 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	@Override
 	public void insertPrenotazione(Prenotazione prenotazione) throws DAOException {
 		// TODO Auto-generated method stub
-		String query = "insert into prenotazione (id_prenotazione,numero_giorni,data_inizio,data_fine,formula,prezzo_totale,id_utente,numero_stanza)"
-				+ " 					values ( ?, ?, ?, ?, ?, ?)";
+		String query = "insert into prenotazione (numero_giorni,data_inizio,data_fine,formula,prezzo_totale,id_utente,numero_stanza)"
+				+ " 					values ( ?, ?, ?, ?, ?,?,?)";
 		try {
 			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
-			prepared.setInt(1, prenotazione.getIdPrenotazione());
-			prepared.setInt(2, prenotazione.getNumeroGiorni());
-			prepared.setDate(3, Date.valueOf(prenotazione.getDataInizio()));
-			prepared.setDate(4, Date.valueOf(prenotazione.getDataFine()));
-			prepared.setString(5, prenotazione.getFormula().name());
-			prepared.setDouble(6, prenotazione.getPrezzoTotale());
-			prepared.setInt(7, prenotazione.getIdUtente());
-			prepared.setInt(6, prenotazione.getNumeroStanza());
+			prepared.setInt(1, prenotazione.getNumeroGiorni());
+			prepared.setDate(2, Date.valueOf(prenotazione.getDataInizio()));
+			prepared.setDate(3, Date.valueOf(prenotazione.getDataFine()));
+			prepared.setString(4, prenotazione.getFormula().name());
+			prepared.setDouble(5, prenotazione.getPrezzoTotale());
+			prepared.setInt(6, prenotazione.getIdUtente());
+			prepared.setInt(7, prenotazione.getNumeroStanza());
 
 			prepared.executeUpdate();
 			ResultSet rs = prepared.getGeneratedKeys();

@@ -14,6 +14,7 @@
 int idUtente=(int)session.getAttribute("idUtente");
 String username=(String)session.getAttribute("username");
 String nome=(String)session.getAttribute("nome");
+String password=(String)session.getAttribute("password");
 String messaggio=(String)request.getAttribute("messaggio"); 
 if(messaggio!=null){%>
 <%= messaggio%>
