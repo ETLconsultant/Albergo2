@@ -14,9 +14,15 @@ padding : 0;
 box-sizing: border-box;
 }
 
-.navbar navbar-expand-sm bg-dark navbar-dark {
-text-size: 10pt;
+.navbar navbar-expand-sm bg-dark navbar-dark, ul,  li {
+font-size: 20px;
 }
+
+nav-login{
+float: right;
+
+}
+
 </style>
 
 <title>Bootstrap Example</title>
@@ -50,10 +56,10 @@ text-size: 10pt;
         Tipi stanze
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="listaStanze" name="tipoStanza" value= "standard" >Standard</a>
-        <a class="dropdown-item" href="listaStanze" name="tipoStanza" value= "family">Family</a>
-        <a class="dropdown-item" href="listaStanze" name="tipoStanza"value= "business">Business</a>
-          <a class="dropdown-item" href="listaStanze" name="tipoStanza" value= "suite">Suite</a>
+        <a class="dropdown-item" action="listaStanze" name="tipoStanza" value= "standard" >Standard</a>
+        <a class="dropdown-item" action="listaStanze" name="tipoStanza" value= "family">Family</a>
+        <a class="dropdown-item" action="listaStanze" name="tipoStanza"value= "business">Business</a>
+          <a class="dropdown-item" action="listaStanze" name="tipoStanza"value= "suite">Suite</a>
       </div>
     </li>
     
