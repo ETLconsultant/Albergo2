@@ -33,7 +33,7 @@ public class ListaStanze extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessione=request.getSession();
 		
-		String tipoStanza=request.getParameter("tipoStanza");
+		TipoStanza tipoStanza=TipoStanza.valueOf(request.getParameter("tipoStanza"));
 		
 		Service stanzaService = new Service();
 		Stanza s=new Stanza();
@@ -44,7 +44,7 @@ public class ListaStanze extends HttpServlet {
 		
 		
 		switch(tipoStanza) {
-		case "standard":
+		case STANDARD:
 //			String messaggio="";
 //			request.setAttribute("msg", messaggio);
 			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.STANDARD);
@@ -52,7 +52,7 @@ public class ListaStanze extends HttpServlet {
 			RequestDispatcher rd= request.getRequestDispatcher("/standard.jsp");
 			rd.forward(request, response);
 		break;
-		case "family":
+		case FAMILY:
 //			String messaggio="";
 //			request.setAttribute("msg", messaggio);
 			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.FAMILY);
@@ -60,14 +60,14 @@ public class ListaStanze extends HttpServlet {
 			RequestDispatcher rd1= request.getRequestDispatcher("/family.jsp");
 			rd1.forward(request, response);
 		break;
-		case "business":
+		case BUSINESS:
 //			String messaggio="";
 //			request.setAttribute("msg", messaggio);
 			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.BUSINESS);
 			sessione.setAttribute("Business", listaStanze );
 			RequestDispatcher rd2= request.getRequestDispatcher("/business.jsp");
 			rd2.forward(request, response);
-		case "suite":
+		case SUITE:
 //			String messaggio="";
 //			request.setAttribute("msg", messaggio);
 			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.SUITE);

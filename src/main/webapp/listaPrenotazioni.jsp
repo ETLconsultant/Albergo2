@@ -9,7 +9,10 @@
 </head>
 <body>
 
-
+<c:forEach items="${requestScope.listaPrenotazione}" var="lista">
+<c:output lista>
+</c:output>
+</c:forEach>
 
 </body>
 </html>
