@@ -29,13 +29,22 @@ a.active{
 
 </head>
 <body>
-<nav>
-<div class="topnav">
 
-<div class="w3-row">
-Tel. (+39 234235346363)   Email:gruppo2@gruppo2.it  indirizzo:  privacy </div> 
+<nav class="navbar navbar-inverse">
+  <ul class="nav navbar-nav">
+    <li><a href="#">chi siamo</a></li>
+    <li><a href="#">da dove veniamo</a></li>
+    <li><a href="#">chi siete</a></li>
+    <li><a href="#">da dove venite</a></li>
+  </ul>
+  <p class="navbar-text">Some text</p>
+</nav>
+
+<div class="container">
+  <h3>Navbar Text</h3>
+  <p>Use the .navbar-text class to vertical align any elements inside the navbar that are not links (ensures proper padding).</p>
 </div>
 
-</nav>
+
 </body>
 </html>
