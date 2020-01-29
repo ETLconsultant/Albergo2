@@ -63,6 +63,36 @@ function fieldValidation(){
 				"e non deve contenere spazi."
 		return false
 	}
-			
+		
+}
+
+function fieldValidationLogin(){
+	document.getElementById("username2").innerHTML = ""
+	document.getElementById("password2").innerHTML = ""
+		
+	var username = document.forms["myForm"]["username"].value
+	var password = document.forms["myForm"]["password"].value
+	var passwordExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+	var isPasswordValid = password.match(passwordExpression)
+	
+	if(username == null || username.length == 0){
+		document.getElementById("username2").innerHTML = "Username o password errati";
+		return false
+	}
+	
+	if(username.length > 20){
+		document.getElementById("username2").innerHTML = "Username o password errati";
+		return false
+	}
+	
+	if(password == null || password.length<8){
+		document.getElementById("password2").innerHTML = "Username o password errati"
+		return false
+	}
+	
+	if(!isPasswordValid){
+		document.getElementById("password2").innerHTML = "Username o password errati"
+		return false
+	}
 	
 }

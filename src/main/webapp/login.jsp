@@ -15,18 +15,28 @@
 <% String messageLogin = (String)session.getAttribute("messageLogin");%>
 
 <body>
-<%if (messageLogin!=null ){%>
-<%=messageLogin %>
-<%} %>
+
 	<div align="center">
 
 		<h2>Benvenuto! Inserisci Username e Password</h2>
-		<form name="myForm" action="Login" method="post">
+		<form name="myForm" action="Login" method="post" onsubmit="return fieldValidationLogin()">
+			<div id="username2"></div>
+			<div id="password2"></div>
+			<div>
+				<%
+					if (messageLogin != null) {
+				%>
+				<%=messageLogin%>
+				<%} %>
+			</div>
+
 			<h3>Utente</h3>
 			<input type="text" name="username" size="20 px">
+			
 			<c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='username'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach>
+					
 			<h3>Password</h3>
 			<input type="password" name="password" size="20 px"> <br> <br>
 			<c:forEach items="${lista}" var="errore">
