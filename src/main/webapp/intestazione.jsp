@@ -53,8 +53,7 @@ float: right;
 				data-toggle="dropdown"> Tipi stanze </a>
 				<div class="dropdown-menu" name="tipoStanza" >
 					<a class="dropdown-item"  name="standard" href="listaStanze" >Standard</a> 
-						<a class="dropdown-item"
-						action="listaStanze" name="family" href="listaStanze">Family</a> 
+						<a class="dropdown-item" name="family" href="listaStanze">Family</a> 
 						<a
 						class="dropdown-item"  name="business" href="listaStanze" >Business</a> 
 						<a class="dropdown-item"
