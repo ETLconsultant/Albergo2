@@ -13,6 +13,10 @@ margin: 0;
 padding : 0;
 box-sizing: border-box;
 }
+
+.navbar navbar-expand-sm bg-dark navbar-dark {
+text-size: 10pt;
+}
 </style>
 
 <title>Bootstrap Example</title>
@@ -46,15 +50,15 @@ box-sizing: border-box;
         Tipi stanze
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="listaStanze" value= "standard" >Standard</a>
-        <a class="dropdown-item" href="listaStanze" value= "family">Family</a>
-        <a class="dropdown-item" href="listaStanze" value= "business">Business</a>
-          <a class="dropdown-item" href="listaStanze" value= "suite">Suite</a>
+        <a class="dropdown-item" href="listaStanze" name="tipoStanza" value= "standard" >Standard</a>
+        <a class="dropdown-item" href="listaStanze" name="tipoStanza" value= "family">Family</a>
+        <a class="dropdown-item" href="listaStanze" name="tipoStanza"value= "business">Business</a>
+          <a class="dropdown-item" href="listaStanze" name="tipoStanza" value= "suite">Suite</a>
       </div>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="listaPrenotazioni.jsp">Lista prenotazioni</a>
+      <a class="nav-link" href="listaPrenotazioni">Lista prenotazioni</a>
     </li>
     
     <li class="nav-login">
