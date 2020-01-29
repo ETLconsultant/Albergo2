@@ -30,10 +30,10 @@ a.active{
 <nav>
 <div class="topnav">
 
-<div> Tel. (+39 234235346363) </div>
-<div> Email: gruppo2@gruppo2.it </div>
-<div> indirizzo: </div>
-<div> privacy </div>
+<div class="w3-row">
+Tel. (+39 234235346363)   Email: gruppo2@gruppo2.it   indirizzo:   privacy
+</div>
+
 
 </div>
 </nav>
