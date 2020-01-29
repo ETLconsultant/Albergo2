@@ -33,10 +33,10 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	@Override
 	public void insertPrenotazione(Prenotazione prenotazione) throws DAOException {
 		// TODO Auto-generated method stub
-		String query = "insert into prenotazione (numero_giorni,data_inizio,data_fine,formula,prezzo_totale,id_utente,numero_stanza)"
-				+ " 					values ( ?, ?, ?, ?, ?,?,?)";
+		String query = "insert into prenotazione (numero_giorni, data_inizio, data_fine, formula, prezzo_totale, id_utente, numero_stanza)"
+				+ " 					values (?, ?, ?, ?, ?, ?, ?)";
 		try {
-			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			prepared = connection.prepareStatement(query, prepared.RETURN_GENERATED_KEYS);
 			prepared.setInt(1, prenotazione.getNumeroGiorni());
 			prepared.setDate(2, Date.valueOf(prenotazione.getDataInizio()));
 			prepared.setDate(3, Date.valueOf(prenotazione.getDataFine()));
@@ -45,36 +45,37 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 			prepared.setInt(6, prenotazione.getIdUtente());
 			prepared.setInt(7, prenotazione.getNumeroStanza());
 
-			prepared.executeUpdate();
-			System.out.println("Prenotazione inserita");
-			ResultSet rs = prepared.getGeneratedKeys();
-			if (rs.next()) {
-				System.out.println("Auto Generated Primary Key " + rs.getInt(1));
-				prenotazione.setIdPrenotazione(rs.getInt(1));
+			int numero = prepared.executeUpdate();
+			resultset = prepared.getGeneratedKeys();
+			if (resultset.next()) {
+				System.out.println("Auto Generated Primary Key " + resultset.getInt(1));
+				prenotazione.setIdPrenotazione(resultset.getInt(1));
+			}
+			if(numero>0) {
+				System.out.println("Prenotazione inserita correttamente");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
-
 	}
 
 	@Override
 	public ArrayList<Prenotazione> getAllByUtente(int idUtente) {
 		// TODO Auto-generated method stub
-		ArrayList<Prenotazione> a=new ArrayList<Prenotazione>();
+		ArrayList<Prenotazione> allPrenotazioniUtente =new ArrayList<Prenotazione>();
 
 		String query= "select * from Prenotazione where id_utente=?";
 
 		try {
-
-			connection=SingletonConnection.getInstance();
 			prepared = connection.prepareStatement(query);
 			prepared.setInt(1, idUtente);
+			
 			resultset=prepared.executeQuery();
 
-
 			while(resultset.next()) {
-				Prenotazione p=new Prenotazione();
+				Prenotazione p = new Prenotazione();
 				p.setIdPrenotazione(resultset.getInt("id_prenotazione"));
 				p.setNumeroGiorni(resultset.getInt("numero_giorni"));
 				p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
@@ -83,119 +84,47 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				p.setPrezzoTotale(resultset.getDouble("prezzo_totale"));
 				p.setIdUtente(resultset.getInt("id_utente"));
 				p.setNumeroStanza(resultset.getInt("numero_stanza"));
-				a.add(p);
-			}}catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				if(prepared!=null)
-					try {
-						prepared.close();
-
-					}catch (SQLException e) {
-						e.printStackTrace();
-					}
-				if(resultset!=null)
-					try {
-						resultset.close();
-
-					}catch (SQLException e) {
-						e.printStackTrace();
-					}
-				if(connection!=null)
-					try {
-						connection.close();
-
-					}catch (SQLException e) {
-						e.printStackTrace();
-					}
+				allPrenotazioniUtente.add(p);
 			}
-
-		return a;
-	}
-
-	@Override
-	public void close() {
-		// TODO Auto-generated method stub
-		if(connection!=null) {
-			try {
-				connection.close();
 			}catch (SQLException e) {
 				e.printStackTrace();
+			}finally {
+				close();
 			}
-		}
-
+		return allPrenotazioniUtente;
 	}
 
 	@Override
 	public ArrayList<Periodo> getPeriodiByStanza(int numeroStanza) {
 		// TODO Auto-generated method stub
-		ArrayList<Periodo> a=new ArrayList<Periodo>();
+		ArrayList<Periodo> periodiPrenotazStanza = new ArrayList<Periodo>();
 
-		String query= "select data_inizio,data_fine from Prenotazione where numero_stanza=?";
+		String query= "select data_inizio, data_fine from prenotazione where numero_stanza=?";
 
 		try {
-
-			connection=SingletonConnection.getInstance();
 			prepared = connection.prepareStatement(query);
 			prepared.setInt(1, numeroStanza);
+			
 			resultset=prepared.executeQuery();
-
 
 			while(resultset.next()) {
 				Periodo p=new Periodo();
-				//				p.setIdPrenotazione(resultset.getInt("IdPrenotazione"));
-				//				p.setNumeroGiorni(resultset.getInt("NumeroGiorni"));
+
 				p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
 				p.setDataFine(resultset.getDate("data_fine").toLocalDate());
-				//				p.setFormula(Formula.valueOf(resultset.getString("Formula")));
-				//				p.setPrezzoTotale(resultset.getDouble("PrezzoTotale"));
-				//				p.setIdUtente(resultset.getInt("IdUtente"));
-				//				p.setNumeroStanza(resultset.getInt("NumeroStanza"));
-				a.add(p);
-			}}catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				if(prepared!=null)
-					try {
-						prepared.close();
 
-					}catch (SQLException e) {
-						e.printStackTrace();
-					}
-				if(resultset!=null)
-					try {
-						resultset.close();
-
-					}catch (SQLException e) {
-						e.printStackTrace();
-					}
-				if(connection!=null)
-					try {
-						connection.close();
-
-					}catch (SQLException e) {
-						e.printStackTrace();
-					}
+				periodiPrenotazStanza.add(p);
 			}
-
-		return a;
-	}
-	//miiii
-	//bordello sto metodo
-	@Override
-	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine, int numeroStanza){
-		// TODO Auto-generated method stub
-		ArrayList<Periodo> periodiPrenotati=getPeriodiByStanza(numeroStanza);
-		for(Periodo periodo:periodiPrenotati) {
-			if(isInRange(dataInizio,dataFine,periodo)==true) {
-				return false;
-			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
 		}
-		return true;
+
+		return periodiPrenotazStanza;
 	}
 
-
-	public boolean isInRange(LocalDate dataInizio,LocalDate dataFine,Periodo periodo) {
+	public boolean isInRange(LocalDate dataInizio, LocalDate dataFine, Periodo periodo) {
 		boolean a= !(dataInizio.isBefore(periodo.getDataInizio()) || dataInizio.isAfter(periodo.getDataFine()));
 		boolean b= !(dataFine.isBefore(periodo.getDataInizio()) || dataFine.isAfter(periodo.getDataFine()));
 		if(a&&b) {
@@ -204,34 +133,36 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		else {
 			return false;
 		}
-
 	}
-
+	
+	@Override
+	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine, int numeroStanza){
+		// TODO Auto-generated method stub
+		ArrayList<Periodo> periodiPrenotati = getPeriodiByStanza(numeroStanza);
+		for(Periodo periodo : periodiPrenotati) {
+			if((isInRange(dataInizio, dataFine, periodo) == true)) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	@Override
 	public void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze) {
 		// TODO Auto-generated method stub
 
-		ArrayList<Prenotazione> a=new ArrayList<Prenotazione>();
+		ArrayList<Prenotazione> disp = new ArrayList<Prenotazione>();
 
-		String query= "select * from Stanza s left join prenotazione on prenotazione.numero_stanza=s.numero_stanza";
+		String query= "select * from stanza s left join prenotazione on prenotazione.numero_stanza=s.numero_stanza";
+	
 		try {	
-			connection=SingletonConnection.getInstance();
 			prepared = connection.prepareStatement(query);
 
 			resultset=prepared.executeQuery();
 
-			//commento
 			while(resultset.next()) {
-
-				//			Stanza s=new Stanza();
 				Prenotazione p=new Prenotazione();
-				//			s.setNumeroStanza(resultset.getInt("numero_stanza"));
-				//			s.setTipoStanza(TipoStanza.valueOf(resultset.getString("tipo_stanza")));
-				//			s.setPostiLetto(resultset.getInt("posti_letto"));
-				//			s.setPrezzoNotte(resultset.getDouble("prezzo_notte"));
-				//			s.setDisponibile(resultset.getBoolean("disponibile"));
-				//			listaStanze.add(s);
+
 				p.setIdPrenotazione(resultset.getInt("id_prenotazione"));
 				p.setNumeroGiorni(resultset.getInt("numero_giorni"));
 				p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
@@ -240,12 +171,12 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				p.setPrezzoTotale(resultset.getDouble("prezzo_totale"));
 				p.setIdUtente(resultset.getInt("id_utente"));
 				p.setNumeroStanza(resultset.getInt("numero_stanza"));
-				a.add(p);
+				disp.add(p);
 			}
 
 			for (Stanza line: listaStanze){
 				if(line.isDisponibile()==false) {
-					for (Prenotazione prenotate: a) {
+					for (Prenotazione prenotate: disp) {
 						if (line.getNumeroStanza()==prenotate.getNumeroStanza()) {
 							if (!(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine())) &&
 									!(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine()))) {
@@ -256,7 +187,6 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 							}
 						}
 					}
-
 				}else {
 					System.out.println("libera: " + line.getNumeroStanza());
 				}
@@ -264,30 +194,32 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			if(prepared!=null)
-				try {
-					prepared.close();
+			close();
+		}
+	}
 
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(resultset!=null)
-				try {
-					resultset.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(connection!=null)
+	@Override
+	public void close() {
+			if (connection != null) {
 				try {
 					connection.close();
-
-				}catch (SQLException e) {
+				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+			if(prepared != null)
+				try{
+					prepared.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			if(resultset != null) 
+				try{
+					resultset.close();	
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
 		}
-
-	}
 
 }
 

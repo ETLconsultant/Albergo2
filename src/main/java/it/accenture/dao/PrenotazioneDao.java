@@ -13,17 +13,14 @@ public interface PrenotazioneDao {
 
 	public void insertPrenotazione(Prenotazione prenotazione) throws DAOException;
 	
-	public List<Prenotazione> getAllByUtente(int idUtente);
-	
-	public void close();
-	
-	public List<Periodo> getPeriodiByStanza(int numeroStanza);
-	
-	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine,
-			int numeroStanza);
-	
+	public ArrayList<Prenotazione> getAllByUtente(int idUtente);
 
+	public ArrayList<Periodo> getPeriodiByStanza(int numeroStanza);
+	
+	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine, int numeroStanza);
+	
 	public void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze);
 
+	public void close();
 	
 }
