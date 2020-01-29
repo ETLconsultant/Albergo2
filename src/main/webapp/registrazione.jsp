@@ -58,6 +58,7 @@
 			</tr>
 			<br>
 			<br>
+			  
 			<tr height="50">
 				<th colspan="6" valign="middle"><input type="submit"
 					value="registra" class="button"><br></th>
