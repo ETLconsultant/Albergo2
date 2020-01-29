@@ -28,7 +28,7 @@ public class SingletonConnection {
 				throw new ConnessioneException(e.getMessage());
 			}
 			catch(ConnessioneException e1){
-				e1.getMessage();
+				e1.getMessage();  
 				e1.printStackTrace();
 				System.out.println("CONNESSIONE FALLITA???");
 				//Eventualmente aggiungere il log???
