@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<c:forEach items="${requestScope.listaStanze}" var="lista">
+<c:output lista>
+</c:output>
+</c:forEach>
 </body>
 </html>
