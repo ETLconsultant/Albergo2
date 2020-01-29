@@ -12,6 +12,13 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+<div align="center">
+<button class="button2"><a class="link" href="Standard.jsp">Standard </a></button>
+<button class="button2"><a class="link" href="Business.jsp">Business</a></button>
+<button class="button2"><a class="link" href="Family.jsp">Family</a></button>
+<button class="button2"><a class="link" href="Suite.jsp">Suite</a></button>
+</div>
+<br> <br> <br>
 	<table id="tabella">
 		<tr>
 			<th>Numero stanza</th>
