@@ -10,6 +10,7 @@
 <title>Login</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
+<link rel="stylesheet" href="css/stile.css" type="text/css">
 </head>
 <% String messageLogin = (String)session.getAttribute("messageLogin");%>
 
@@ -39,7 +40,7 @@
 		<br> <br> <br>
 
 		<h3>
-			Non sei ancora registrato? <a href="registrazione.jsp">Clicca
+			Non sei ancora registrato? <a href="registrazione.jsp" class="reg">Clicca
 				qui! </a>
 		</h3>
 
