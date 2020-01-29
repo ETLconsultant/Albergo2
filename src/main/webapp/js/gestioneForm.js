@@ -19,6 +19,7 @@ function fieldValidation(){
 			
 	var password = document.forms["myForm"]["password"].value
 	var passwordExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+	var isPasswordValid = password.match(passwordExpression)
 	
 	if(nome == null || nome.length == 0){
 		document.getElementById("nome2").innerHTML = "Inserisca il suo nome";
@@ -46,30 +47,22 @@ function fieldValidation(){
 	}
 	
 	if(username.length > 20){
-		document.getElementById("username2").innerHTML = "Lo username deve essere più corto di 20 caratteri";
+		document.getElementById("username2").innerHTML = "Lo username deve essere piu' corto di 20 caratteri";
 		return false
 	}
 	
-	if(password !== null || password.length<8){
-		document.getElementById("password2").innerHTML = "La password deve "
+	if(password == null || password.length<8){
+		document.getElementById("password2").innerHTML = "La password deve essere piu' lunga di 8 caratteri"
 		return false
 	}
 	
-	if(password !== null && password.match(passwordExpression)){
+	if(!isPasswordValid){
 		document.getElementById("password2").innerHTML = "La password deve contenere " +
 				"almeno una lettera minuscola e una lettera maiuscola, " +
 				"un carattere speciale, un numero, deve essere compresa tra 8 e 20 caratteri " +
 				"e non deve contenere spazi."
 		return false
 	}
-	
-	if(password !== null && password.match(passwordExpression)){
-		document.getElementById("password2").innerHTML = "La password deve contenere " +
-				"almeno una lettera minuscola e una lettera maiuscola, " +
-				"un carattere speciale, un numero, deve essere compresa tra 8 e 20 caratteri " +
-				"e non deve contenere spazi."
-		return false
-	}
-		
+			
 	
 }
