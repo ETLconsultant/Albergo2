@@ -25,7 +25,7 @@ box-sizing: border-box;
 }
 
 /* Style the links inside the navigation bar */
-.navbar a {
+.navbar a, p {
   float: left;
   display: block;
   color: #f2f2f2;
