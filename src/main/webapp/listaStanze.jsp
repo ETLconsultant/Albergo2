@@ -38,7 +38,14 @@
 				<td><c:out value="${ling.tipoStanza}"></c:out></td>
 				<td><c:out value="${ling.postiLetto}"></c:out></td>
 				<td><c:out value="${ling.prezzoNotte}"></c:out></td>
-				<td><c:out value="${ling.disponibile}"></c:out></td>
+				
+				<td><c:if test="${ling.disponibile==true }">
+				<button class="button3"> <a href="prenota.jsp">Prenota</button>
+				 </c:if> 
+				 <c:if test="${ling.disponibile==false }">
+				<button class="button3 disabled">Non Disponibile </button>
+				 </c:if> </td>
+				
 
 			</tr>
 		</c:forEach>
