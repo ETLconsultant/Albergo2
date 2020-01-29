@@ -13,3 +13,229 @@ input[type=radio] {
 	width: 30px;
 	margin: 11px 0;
 }*/
+.button1 {
+	color: gray;
+	padding: 15px 28px;
+	text-align: center;
+	font-size: 15px;
+	border: none;
+	background: none;
+	float: center;
+}
+
+.button1:hover {
+	color: white;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+p>a:hover {
+	color: #d9d9d9;
+	text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1% 0 1% 0;
+}
+
+._12 {
+	font-size: 1.2em;
+}
+
+._14 {
+	font-size: 1.4em;
+}
+
+ul {
+	padding: 0;
+	list-style: none;
+}
+
+/* Stile del footer */
+footer {
+	background-color: black;
+	color: white;
+	padding: 25px;
+}
+
+/* Registrazione */
+input[type=text] {
+	border: 2px solid black;
+	border-radius: 4px;
+	width: 100%;
+}
+
+input[type=password] {
+	border: 2px solid black;
+	border-radius: 4px;
+	width: 100%;
+}
+
+.button {
+	background-color: white;
+	border: 2px solid #008CBA;
+	color: black;
+	padding: 12px 28px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #008B8B;
+	color: white;
+}
+
+/*Social nel Footer */
+.fa {
+	padding: 20px;
+	font-size: 30px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 2px;
+}
+
+.fa:hover {
+	opacity: 0.7;
+}
+
+.fa-facebook {
+	background: #3B5998;
+	color: white;
+}
+
+.fa-twitter {
+	background: #55ACEE;
+	color: white;
+}
+
+.fa-google {
+	background: #dd4b39;
+	color: white;
+}
+
+.fa-linkedin {
+	background: #007bb5;
+	color: white;
+}
+
+.fa-youtube {
+	background: #bb0000;
+	color: white;
+}
+
+.fa-instagram {
+	background: #125688;
+	color: white;
+}
+
+/*Stile nelle varie stanze */
+* {
+	box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+	float: left;
+	width: 50%;
+	padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Home Page */
+.carousel-inner img {
+	width: 100%; /* Set width to 100% */
+	margin: auto;
+	min-height: 200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media ( max-width : 600px) {
+	.carousel-caption {
+		display: none;
+	}
+}
+
+.thumbnail {
+	padding: 0 0 15px 0;
+	border: none;
+	border-radius: 0;
+}
+
+.thumbnail img {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+}
+
+.thumbnail {
+	padding: 0 0 15px 0;
+	border: none;
+	border-radius: 0;
+}
+
+.thumbnail img {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+}
+
+.container {
+	padding: 80px 120px;
+}
+
+.person {
+	border: 10px solid transparent;
+	margin-bottom: 25px;
+	width: 80%;
+	height: 80%;
+	opacity: 0.7;
+}
+
+.person:hover {
+	border-color: #f1f1f1;
+}
+
+/*Tabella listaStanze */
+#tabella {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#tabella td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#tabella tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#tabella tr:hover {
+	background-color: #ddd;
+}
+
+#tabella th {
+	border: 1px solid #ddd;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding: 8px;
+	text-align: left;
+	background-color: #C0C0C0;
+	color: white;
+}
