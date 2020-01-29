@@ -13,22 +13,34 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-
+<table id="tabella">
+		<tr>
+			<th>ID PRENOTAZIONE</th>
+			<th>NUMERO GIORNI</th>
+			<th>DATA INIZIO</th>
+			<th>DATA FINE</th>
+			<th>FORMULA</th>
+			<th>PREZZO TOTALE</th>
+			<th>ID UTENTE</th>
+			<th>NUMERO STANZA</th>
+		</tr>
 <% ArrayList<Prenotazione> listaprenotazioni = (ArrayList<Prenotazione>)session.getAttribute("prenotazioni");
 pageContext.setAttribute("listaPrenot", listaprenotazioni);
 %>
 
 <c:forEach var="ling" items= "${listaPrenot}">
-<c:out value ="${ling.idPrenotazione}"> </c:out>
-<c:out value ="${ling.numeroGiorni}"> </c:out>
-<c:out value ="${ling.dataInizio}"> </c:out>
-<c:out value ="${ling.dataFine}"> </c:out>
-<c:out value ="${ling.formula}"> </c:out>
-<c:out value ="${ling.prezzoTotale}"> </c:out>
-<c:out value ="${ling.idUtente}"> </c:out>
-<c:out value ="${ling.numeroStanza}"> </c:out>
+<tr>
+<td><c:out value ="${ling.idPrenotazione}"> </c:out></td>
+<td><c:out value ="${ling.numeroGiorni}"> </c:out></td>
+<td><c:out value ="${ling.dataInizio}"> </c:out></td>
+<td><c:out value ="${ling.dataFine}"> </c:out></td>
+<td><c:out value ="${ling.formula}"> </c:out></td>
+<td><c:out value ="${ling.prezzoTotale}"> </c:out></td>
+<td><c:out value ="${ling.idUtente}"> </c:out></td>
+<td><c:out value ="${ling.numeroStanza}"> </c:out></td>
+</tr>
 </c:forEach>
-
+</table>
 <%@include file="Footer.jsp"%>
 </body>
 </html>
