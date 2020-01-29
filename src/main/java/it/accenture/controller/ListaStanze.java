@@ -23,17 +23,18 @@ import it.accenture.model.Stanza;
 import it.accenture.model.TipoStanza;
 import it.accenture.service.StanzaService;
 
-@WebServlet("/listaStanze")
+@WebServlet("/ListaStanze")
 public class ListaStanze extends HttpServlet {
 	StanzaService stanzaService = new StanzaService();
 	Stanza stanza = new Stanza();
+	ArrayList<Stanza> listaStanze = new ArrayList<Stanza>();
 
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session=req.getSession();
-		
+//		String numerostanza = (String)req.getParameter("numero_stanza");
 //		String tipoStanza = req.getParameter("tipo_stanza");
 //		String postiLetto= (String)req.getParameter("posti_letto");
 //		String prezzoNotte = (String)req.getParameter("prezzo_notte");
@@ -41,14 +42,17 @@ public class ListaStanze extends HttpServlet {
 		
 		try {
 			
-			stanzaService.getAllStanza();
+			listaStanze = stanzaService.getAllStanza();
+			System.out.println(listaStanze);
+			session.setAttribute("stanze", listaStanze);
 			RequestDispatcher rd =req.getRequestDispatcher("/listaStanze.jsp"); 
 			rd.forward(req, resp);
+//			session.setAttribute(numerostanza, "numerostanza");
 //			session.setAttribute(tipoStanza, "tipostanza");
 //			session.setAttribute(postiLetto, "postiletto");
 //			session.setAttribute(prezzoNotte, "prezzonotte");
 //			session.setAttribute(disponibilità, "disponibilità");
-			
+//			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (DAOException e) {
