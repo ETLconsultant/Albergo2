@@ -21,7 +21,7 @@ import it.accenture.model.Stanza;
 import it.accenture.model.Utente;
 import it.accenture.service.PrenotazioneService;
 
-@WebServlet("/listaPrenotazioni")
+@WebServlet("/ListaPrenotazioni")
 public class ListaPrenotazioni extends HttpServlet {
 	String messagePrenot = " ";
 	ArrayList<Prenotazione> listaPrenot = new ArrayList<Prenotazione>();
@@ -38,17 +38,18 @@ public class ListaPrenotazioni extends HttpServlet {
 		try {
 			listaPrenot = (ArrayList<Prenotazione>) prenot.getAllByUtente(u1.getIdUtente());
 			session.setAttribute("prenotazioni", listaPrenot);
+			messagePrenot = ("Gentile "+ u1.getNome() + " " + u1.getCognome() + ", questa e' la tua "
+					+ "lista di prenotazioni effettuate: ");
+			
+			session.setAttribute("messagePrenot", messagePrenot);
+			RequestDispatcher rd = req.getRequestDispatcher("/listaPrenotazioni.jsp");
+			rd.forward(req, resp);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
 		
-		messagePrenot = ("Gentile "+ u1.getNome() + " " + u1.getCognome() + ", questa e' la tua "
-				+ "lista di prenotazioni effettuate: ");
 		
-		session.setAttribute("messagePrenot", messagePrenot);
-		RequestDispatcher rd = req.getRequestDispatcher("/listaPrenotazioni.jsp");
-		rd.forward(req, resp);
 	
   }
 	
