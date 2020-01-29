@@ -34,6 +34,8 @@
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -49,6 +51,21 @@
         <img src="Immagini/suite.jpg" alt="Image">
         <div class="carousel-caption">
           <h3>Le nostre suite</h3>
+        </div>      
+      </div>
+      
+          <div class="item">
+        <img src="Immagini/facciata.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>Le nostre suite</h3>
+        </div>      
+      </div>
+    
+    
+          <div class="item">
+        <img src="Immagini/hotel.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>La struttura</h3>
         </div>      
       </div>
     </div>
