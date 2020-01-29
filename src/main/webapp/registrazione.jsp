@@ -59,6 +59,7 @@ input[type=password] {
 				<td width="40%" id="nome2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='nome'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach>
+					prova.
 					</td>
 			</tr>
 
