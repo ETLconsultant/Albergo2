@@ -12,6 +12,26 @@
 </head>
 <body>
 <form action="Prenota" method="post">
+Data Check-in: <input type="date" name="dataInizio">
+<br></br>
+Data Check-out: <input type="date" name="dataFine">
+<br></br>
+<select id="formula" >
+<option value ="nothing">formula
+  <option value="BB">BB
+  <option value="mezza_pensione">mezza pensione
+  <option value="pensione_completa">pensione completa
+</select>
+<br></br>
+
+<select id="tipo" >
+<option value ="nothing">tipo stanza
+  <option value="STANDARD">STANDARD
+  <option value="FAMILY">FAMILY
+  <option value="BUSINESS">BUSINESS
+   <option value="SUITE">SUITE
+</select>
+<br></br>
 
 
 </form>
