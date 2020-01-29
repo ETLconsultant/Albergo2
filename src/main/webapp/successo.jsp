@@ -10,8 +10,12 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-Bravo 
+Bravo, 
 <% String username = (String)request.getAttribute("username"); %>
 <%=username %>
+Registrazione avvenuta con successo! 
+<br>
+Torna alla <a href="Home.jsp"> Home </a> ed effettua il login
+
 </body>
 </html>
