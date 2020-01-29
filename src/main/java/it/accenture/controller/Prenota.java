@@ -35,6 +35,11 @@ public class Prenota extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		
 		PrenotazioneService prenotazioneService = new PrenotazioneService();
@@ -77,7 +82,12 @@ public class Prenota extends HttpServlet {
 				prenotazioneBean.setPrezzoTotale(prezzoTotale);
 				prenotazioneBean.setNumeroStanza(numeroStanza);
 				
-				prenotazioneService.insertPrenotazione(prenotazioneBean);
+				try {
+					prenotazioneService.insertPrenotazione(prenotazioneBean);
+				} catch (ConnessioneException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
 				session.setAttribute("messagePrenotazione", messagePrenotazione);
@@ -94,12 +104,7 @@ public class Prenota extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		  
 	}
 	
 	

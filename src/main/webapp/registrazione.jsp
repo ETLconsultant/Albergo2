@@ -30,14 +30,13 @@
 				<td width="40%" id="nome2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='nome'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach>
-					prova.
 					</td>
 			</tr>
 
 			<tr height="50">
 				<td width="20%">Cognome</td>
 				<td width="40%"><input type="text" id="cognome" name="cognome"></td>
-				<td width="40%"><c:forEach items="${lista}" var="errore">
+				<td width="40%" id="cognome2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='cognome'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach></td>
 			</tr>
@@ -45,7 +44,7 @@
 				<td width="20%">Username</td>
 				<td width="40%"><input type="text" id="username"
 					name="username"></td>
-				<td width="40%"><c:forEach items="${lista}" var="errore">
+				<td width="40%" id="username2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='username'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach></td>
 			</tr>
@@ -53,12 +52,13 @@
 				<td width="20%">Password</td>
 				<td width="40%"><input type="password" id="password"
 					name="password"></td>
-				<td width="40%"><c:forEach items="${lista}" var="errore">
+				<td width="40%" id="password2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='password'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach></td>
 			</tr>
 			<br>
 			<br>
+			  
 			<tr height="50">
 				<th colspan="6" valign="middle"><input type="submit"
 					value="registra" class="button"><br></th>

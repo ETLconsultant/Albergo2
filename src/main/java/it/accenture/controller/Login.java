@@ -21,7 +21,7 @@ import it.accenture.dao.UtenteDaoImpl;
 import it.accenture.model.Utente;
 
 @WebServlet("/Login")
-public class Login extends HttpServlet {
+public class Login extends HttpServlet { 
 	
 	
 	UtenteService userservice = new UtenteService();

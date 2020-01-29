@@ -13,10 +13,12 @@ import java.util.List;
 
 
 import exceptions.ConnessioneException;
+import exceptions.DAOException;
 import it.accenture.model.Formula;
 import it.accenture.model.Periodo;
 import it.accenture.model.Prenotazione;
 import it.accenture.model.Stanza;
+import it.accenture.service.StanzaService;
 
 
 public class PrenotazioneDaoImpl implements PrenotazioneDao {
@@ -34,10 +36,11 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	}
 
 	@Override
-	public void insertPrenotazione(Prenotazione prenotazione) throws SQLException{
+	public void insertPrenotazione(Prenotazione prenotazione) throws SQLException, ConnessioneException{
 
 		String query= "insert into prenotazione (numero_giorni,data_inizio,data_fine,formula,prezzo_totale,id_utente,numero_stanza) values (?,?,?,?,?,?,?)";
-		
+		StanzaService stanzaService= new StanzaService();
+	
 		prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
 	//	PreparedStatement prepared1= connection.prepareStatement(query);
 		prepared.setInt(1,prenotazione.getNumeroGiorni());
@@ -48,9 +51,19 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		prepared.setInt(6,prenotazione.getIdUtente());
 		prepared.setInt(7,prenotazione.getNumeroStanza());
 		
+		
 	
-	
-		prepared.executeUpdate();
+		int num = prepared.executeUpdate();
+		if (num>0) {
+			try {
+				stanzaService.updateDisponibile(false, prenotazione.getNumeroStanza());
+			} catch (DAOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+			
 //		System.out.println(prepared.RETURN_GENERATED_KEYS);
 //		System.out.println(prepared.getGeneratedKeys());
 

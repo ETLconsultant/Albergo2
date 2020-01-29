@@ -20,7 +20,7 @@
 	<div align="center">
 
 		<h2>Benvenuto! Inserisci Username e Password</h2>
-		<form action="Login" method="post">
+		<form name="myForm" action="Login" method="post">
 			<h3>Utente</h3>
 			<input type="text" name="username" size="20 px">
 			<c:forEach items="${lista}" var="errore">
