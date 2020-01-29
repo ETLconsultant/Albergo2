@@ -38,18 +38,10 @@ public class Login extends HttpServlet {
 			Service us = new Service();
 			u = us.getByUsernameAndPassword(username, password);
 			
-			if((u.getPassword().equals(password))) {
-				session.setAttribute("username", username );
-				session.setAttribute("password", password );
-				session.setAttribute("idUtente", u.getId());
-				session.setAttribute("nome", u.getNome());
-				RequestDispatcher rd= req.getRequestDispatcher("Home.jsp");
-				rd.forward(req, resp);
-			}
-			else{
-				String messaggio="username o password errati";
+			if((u == null)) {
+				String messaggio="Utente non registrato o username e/o password errati!";
 				req.setAttribute("messaggio", messaggio);
-				RequestDispatcher rd= req.getRequestDispatcher("/index.jsp");
+				RequestDispatcher rd= req.getRequestDispatcher("/login.jsp");
 				rd.include(req, resp);
 			}
 	}

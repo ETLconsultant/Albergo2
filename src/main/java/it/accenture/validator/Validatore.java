@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
+import it.accenture.service.Service;
+
 
 public class Validatore{
 
@@ -53,3 +55,4 @@ public class Validatore{
 	//TODO: aggiungere tutti i controlli per le diverse form del sito
 	
 }
+
