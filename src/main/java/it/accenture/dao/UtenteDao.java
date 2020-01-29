@@ -9,15 +9,12 @@ public interface UtenteDao {
 
 	public void insertUtente(Utente utente) throws DAOException;
 	
-	public Utente getByUsernameAndPassword(String username, 
-			String password);
+	public Utente getByUsernameAndPassword(String username, String password);
 	
 	public void updateUtente(Utente utente);
 	
-	public void deleteteUtenteById(int idutente);
+	public void deleteUtenteById(int idUtente);
 	
 	public void close();
-	
-	
-	
+
 }

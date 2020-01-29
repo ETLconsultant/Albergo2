@@ -103,8 +103,8 @@ public void insertUtente(Utente utente) {
 		udao.updateUtente(utente);
 	}
 	
-	public void deleteteUtenteById(int idutente) {
-		udao.deleteteUtenteById(idutente);
+	public void deleteUtenteById(int idUtente) {
+		udao.deleteUtenteById(idUtente);
 	}
 	
 	public void uclose() {

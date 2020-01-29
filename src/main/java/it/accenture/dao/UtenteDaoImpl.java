@@ -20,7 +20,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	private Connection connection;
 	private PreparedStatement prepared;
 	private Statement statement;
-	ResultSet rs=null;
+	private ResultSet resultset;
 
 	public UtenteDaoImpl() {
 		connection = SingletonConnection.getInstance();
@@ -32,19 +32,24 @@ public class UtenteDaoImpl implements UtenteDao {
 		String query = "insert into utente (nome,username,password)"
 				+ " values ( ?, ?, ?)";
 		try {
-			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			prepared = connection.prepareStatement(query, prepared.RETURN_GENERATED_KEYS);
 			prepared.setString(1, utente.getNome());
 			prepared.setString(2, utente.getUsername());
 			prepared.setString(3, utente.getPassword());
-			prepared.executeUpdate();
-			ResultSet rs = prepared.getGeneratedKeys();
-			if (rs.next()) {
-				System.out.println("Auto Generated Primary Key " + rs.getInt(1));
-				utente.setId(rs.getInt(1));
+			int numero = prepared.executeUpdate();
+			resultset = prepared.getGeneratedKeys();
+			if (resultset.next()) {
+				System.out.println("Auto Generated Primary Key " + resultset.getInt(1));
+				utente.setId(resultset.getInt(1));
+			}
+			
+			if(numero>0) {
+				System.out.println("Utente inserito correttamente");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DAOException(e.getMessage());
+		}finally {
+			close();
 		}
 // va bene ma posso inserire senza password
 
@@ -53,146 +58,73 @@ public class UtenteDaoImpl implements UtenteDao {
 	@Override
 	public Utente getByUsernameAndPassword(String username, String password) {
 
-		String query= "select * from Utente where username=? and password=?";
+		String query= "select * from utente where username=? and password=?";
 		Utente u=new Utente();
 
 // se due utenti hanno stesso username e stessa password esplode
 		try {
-			connection= SingletonConnection.getInstance();
-			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			prepared = connection.prepareStatement(query);
 			prepared.setString(1, username);
 			prepared.setString(2, password);
-			ResultSet rs = prepared.executeQuery();
+			
+			resultset = prepared.executeQuery();
 
-			while (rs.next()) {
-				u.setId(rs.getInt("id_utente"));
-				u.setUsername(rs.getString("username"));
-				u.setPassword(rs.getString("password"));
-				u.setNome(rs.getString("nome"));
-
+			while (resultset.next()) {
+				u.setId(resultset.getInt("id_utente"));
+				u.setUsername(resultset.getString("username"));
+				u.setPassword(resultset.getString("password"));
+				u.setNome(resultset.getString("nome"));
 			}
-			return u;
-
 		}catch (SQLException e) {
 			e.printStackTrace();
-
-		}catch(NullPointerException e) {
-			e.printStackTrace();
-
 		}finally {
-			if(prepared!=null)
-				try {
-					prepared.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-
-			if(rs!=null)
-				try {
-					rs.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(connection!=null)
-				try {
-					connection.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-
+			close();
 		}
 		return u;	
 	}
 
-
-
-
-
 	@Override
 	public void updateUtente(Utente utente) {
 		//non updata ma ne crea uno nuovo
-		String query="update Utente set password=?,nome=?, where username=? and idUtente=?";
+		String query="update utente set password=?,nome=?, where username=? and id_utente=?";
 		try {
-			connection= SingletonConnection.getInstance();
-			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
+			prepared = connection.prepareStatement(query);
 			prepared.setString(1, utente.getPassword());
 			prepared.setString(2, utente.getNome());
 			prepared.setString(3, utente.getUsername());
 			prepared.setInt(4, utente.getId());
-			ResultSet rs = prepared.executeQuery();
-			prepared.executeUpdate();
-			System.out.println("profilo aggiornato");
-
+			
+			int numeroRighe = prepared.executeUpdate();
+			
+			if(numeroRighe>0) {
+				System.out.println("Utente aggiornato");
+			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			if(prepared!=null)
-				try {
-					prepared.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(rs!=null)
-				try {
-					rs.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(connection!=null)
-				try {
-					connection.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
+			close();
 		}
 
 	}
 
 	@Override
-	public void deleteteUtenteById(int idutente) {
-		String query="delete from Utente where idUtente=?";
+	public void deleteUtenteById(int idUtente) {
+		String query="delete from utente where id_utente=?";
 		try {
-			connection= SingletonConnection.getInstance();
-			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
-			prepared.setInt(1, idutente);
-			ResultSet rs = prepared.executeQuery();
-			prepared.executeUpdate();
-
+			prepared = connection.prepareStatement(query);
+			prepared.setInt(1, idUtente);
+			
+			int numeroRighe = prepared.executeUpdate();
+			if(numeroRighe>0) {
+				System.out.println("Utente aggiornato");
+			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			if(prepared!=null)
-				try {
-					prepared.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(rs!=null)
-				try {
-					rs.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(connection!=null)
-				try {
-					connection.close();
-
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
+			close();
 		}
-
-
-
 	}
+	
 	@Override
 	public void close() {
 		if (connection != null) {
@@ -201,10 +133,19 @@ public class UtenteDaoImpl implements UtenteDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-
-
+		if(prepared != null)
+			try{
+				prepared.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		if(resultset != null) 
+			try{
+				resultset.close();	
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
-
 	}
 }	
 
