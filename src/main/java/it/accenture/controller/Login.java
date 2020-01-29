@@ -45,6 +45,13 @@ public class Login extends HttpServlet {
 				RequestDispatcher rd= req.getRequestDispatcher("/login.jsp");
 				rd.include(req, resp);
 				
+			}else {
+				
+				String messaggio="Benvenuto!";
+				req.setAttribute("messaggio", messaggio);
+				RequestDispatcher rd= req.getRequestDispatcher("/Home.jsp");
+				rd.include(req, resp);
+				
 			}
 	}
 }
