@@ -1,3 +1,17 @@
+function fieldValidationDate(){
+	var dataInizio = document.getElementsByName("dataInizio").value;
+//	var dateEntered = new Date(dataInizio);
+	var todaysDate = new Date();
+    todaysDate.setHours(0, 0, 0, 0);
+    
+//    console.log(dateEntered);
+//    console.log(todaysDate);
+    
+    var prova = (document.getElementsByName("dataInizio").value > todaysDate);
+    return prova
+    
+}
+
 function fieldValidation(){
 	
 	document.getElementById("nome2").innerHTML = ""
@@ -96,3 +110,5 @@ function fieldValidationLogin(){
 	}
 	
 }
+
+
