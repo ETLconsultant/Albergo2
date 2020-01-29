@@ -55,7 +55,7 @@ box-sizing: border-box;
 
 
 	<div class="navbar">
-		<a href="#home" class="active">Privacy</a>
+		<a href="#" class="active">Privacy</a>
 		<p>tel.(+39 453676586769)</p>
 		<p>Email: gruppo2@gruppo2.com</p>
 	</div>
