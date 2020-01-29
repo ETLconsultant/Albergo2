@@ -18,7 +18,7 @@ box-sizing: border-box;
 
 
 /* Place the navbar at the bottom of the page, and make it stick */
-.navbar {
+.navbar_footer {
   background-color: #333;
   overflow: hidden;
   position: fixed;
@@ -27,7 +27,7 @@ box-sizing: border-box;
 }
 
 /* Style the links inside the navigation bar */
-.navbar a, p {
+.navbar_footer a, p {
   float: left;
   display: block;
   color: #f2f2f2;
@@ -39,13 +39,13 @@ box-sizing: border-box;
 
 
 /* Change the color of links on hover */
-.navbar a:hover {
+.navbar_footer a:hover {
   background-color: #ddd;
   color: black;
 }
 
 /* Add a color to the class active */
-.navbar a.active {
+.navbar_footer a.active {
 
 }
 
@@ -56,7 +56,7 @@ box-sizing: border-box;
 <body>
 
 
-	<div class="navbar">
+	<div class="navbar_footer">
 		<a href="#" class="active">Privacy</a>
 		<p>tel.(+39 453676586769)</p>
 		<p>Email: gruppo2@gruppo2.com</p>

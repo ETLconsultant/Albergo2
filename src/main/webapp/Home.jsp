@@ -12,8 +12,8 @@
 <body> 
 
 
-<p>Benvenuto</p>
-
+<!-- questo serve per prevenire il collapse tra header e body -->
+<div style='paddind-top: 1px'></div>
 
  
 <div class="container">
