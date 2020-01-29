@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-			HttpSession session=req.getSession();
+			HttpSession sessione = req.getSession();
 			String username=req.getParameter("username");
 			String password=req.getParameter("password");
 			Service us = new Service();
@@ -47,7 +47,8 @@ public class Login extends HttpServlet {
 				rd.include(req, resp);
 				
 			}else {
-				
+				sessione.setAttribute("username", username);
+				sessione.setAttribute("password", password);
 				String messaggio="Benvenuto!";
 				req.setAttribute("messaggio", messaggio);
 				RequestDispatcher rd= req.getRequestDispatcher("/Home.jsp");
