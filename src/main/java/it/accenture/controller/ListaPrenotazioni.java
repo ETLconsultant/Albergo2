@@ -17,12 +17,14 @@ import exceptions.ConnessioneException;
 import it.accenture.dao.PrenotazioneDaoImpl;
 import it.accenture.dao.UtenteDaoImpl;
 import it.accenture.model.Prenotazione;
+import it.accenture.model.Stanza;
 import it.accenture.model.Utente;
 import it.accenture.service.PrenotazioneService;
 
 @WebServlet("/listaPrenotazioni")
 public class ListaPrenotazioni extends HttpServlet {
 	String messagePrenot = " ";
+	ArrayList<Prenotazione> listaPrenot = new ArrayList<Prenotazione>();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,9 +36,10 @@ public class ListaPrenotazioni extends HttpServlet {
 		PrenotazioneService prenot = new PrenotazioneService();
 		
 		try {
-			prenot.getAllByUtente(u1.getIdUtente());
+			listaPrenot = (ArrayList<Prenotazione>) prenot.getAllByUtente(u1.getIdUtente());
+			session.setAttribute("prenotazioni", listaPrenot);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
