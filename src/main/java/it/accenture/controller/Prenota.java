@@ -82,7 +82,12 @@ HttpSession session = req.getSession();
 				prenotazioneBean.setPrezzoTotale(prezzoTotale);
 				prenotazioneBean.setNumeroStanza(numeroStanza);
 				
-				prenotazioneService.insertPrenotazione(prenotazioneBean);
+				try {
+					prenotazioneService.insertPrenotazione(prenotazioneBean);
+				} catch (ConnessioneException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
 				session.setAttribute("messagePrenotazione", messagePrenotazione);
