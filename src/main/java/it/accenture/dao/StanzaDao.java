@@ -17,4 +17,5 @@ public interface StanzaDao {
 	public ArrayList<Stanza> getAllByTipoStanza(TipoStanza tipoStanza);
 	
 	public void close();
+	
 }
