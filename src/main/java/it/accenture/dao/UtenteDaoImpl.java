@@ -36,7 +36,7 @@ public class UtenteDaoImpl implements UtenteDao {
 //			 ResultSet rs = prepared.getGeneratedKeys();
 			 ResultSet rs =  prepared.executeQuery();
 			 
-			 rs.next();
+			while( rs.next()) {
 			 
 			 System.out.println(username + passwordInserita);
 			 
@@ -45,9 +45,10 @@ public class UtenteDaoImpl implements UtenteDao {
 			 if(passwordInserita.equals(rs.getString("password")) ) {
 			
 			 return true;
-			 
 			 }
-			 else return false;
+			 
+			}
+			return false;
 	}
 	public UtenteDaoImpl() {
 		try {
