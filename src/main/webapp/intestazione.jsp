@@ -18,7 +18,7 @@ box-sizing: border-box;
 font-size: 20px;
 }
 
-nav-login{
+.nav-link{
 float: right;
 
 }
@@ -63,7 +63,8 @@ float: right;
 			<li class="nav-item"><a class="nav-link"
 				href="listaPrenotazioni">Lista prenotazioni</a></li>
 
-			<li class="nav-login"><a class="nav-link" href="login.jsp">LOGIN</a>
+			<li class="nav-login">
+				<a class="nav-link" href="login.jsp">LOGIN</a>
 			</li>
 		</ul>
 	</nav>

@@ -21,7 +21,7 @@ box-sizing: border-box;
 .navbar_footer {
   background-color: #333;
   overflow: hidden;
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
 }
