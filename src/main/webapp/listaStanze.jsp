@@ -10,6 +10,7 @@
 <head>
 <%@include file="Header.jsp"%>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/stile.css">
 </head>
 <body>
 <div align="center">

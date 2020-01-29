@@ -24,19 +24,19 @@
 				<th colspan="6" valign="middle">REGISTRAZIONE UTENTE</th>
 			</tr>
 
-			<tr height="50">
-				<td width="20%">Nome</td>
-				<td width="40%"><input type="text" id="nome" name="nome"></td>
-				<td width="40%" id="nome2"><c:forEach items="${lista}" var="errore">
+			<tr >
+				<td>Nome</td>
+				<td><input type="text" id="nome" name="nome"></td>
+				<td  id="nome2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='nome'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach>
 					</td>
 			</tr>
 
 			<tr height="50">
-				<td width="20%">Cognome</td>
-				<td width="40%"><input type="text" id="cognome" name="cognome"></td>
-				<td width="40%" id="cognome2"><c:forEach items="${lista}" var="errore">
+				<td >Cognome</td>
+				<td ><input type="text" id="cognome" name="cognome"></td>
+				<td  id="cognome2"><c:forEach items="${lista}" var="errore">
 						<c:if test="${errore.campoValidato=='cognome'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach></td>
 			</tr>
