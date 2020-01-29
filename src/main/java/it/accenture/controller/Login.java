@@ -39,10 +39,12 @@ public class Login extends HttpServlet {
 			u = us.getByUsernameAndPassword(username, password);
 			
 			if((u == null)) {
+				
 				String messaggio="Utente non registrato o username e/o password errati!";
 				req.setAttribute("messaggio", messaggio);
 				RequestDispatcher rd= req.getRequestDispatcher("/login.jsp");
 				rd.include(req, resp);
+				
 			}
 	}
 }
