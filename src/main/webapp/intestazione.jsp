@@ -52,12 +52,13 @@ float: right;
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> Tipi stanze </a>
 				<div class="dropdown-menu" name="tipoStanza" >
-					<a class="dropdown-item" action="listaStanze" name="tipoStanza"
-						value="standard">Standard</a> <a class="dropdown-item"
-						action="listaStanze" name="tipoStanza" value="family">Family</a> <a
-						class="dropdown-item" action="listaStanze" name="tipoStanza"
-						value="business">Business</a> <a class="dropdown-item"
-						action="listaStanze" name="tipoStanza" value="suite">Suite</a>
+					<a class="dropdown-item"  name="standard" href="listaStanze" >Standard</a> 
+						<a class="dropdown-item"
+						action="listaStanze" name="family" href="listaStanze">Family</a> 
+						<a
+						class="dropdown-item"  name="business" href="listaStanze" >Business</a> 
+						<a class="dropdown-item"
+						action="listaStanze" name="suite" href="listaStanze">Suite</a>
 				</div></li>
 
 			<li class="nav-item"><a class="nav-link"
