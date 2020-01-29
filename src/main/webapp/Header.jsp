@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page import="it.accenture.model.Utente"%>
 <!DOCTYPE html>
 <html>
 <<meta charset="utf-8">
@@ -30,7 +31,7 @@
 					<li><a href="#">Benessere&Spa</a></li>
 					<li><a href="Contatti.jsp">Contatti</a></li>
 				
-				<% if(session.getAttribute("username")!=null)  {
+				<% if(session.getAttribute("utente")!=null)  {
 					%>
 					<li><form action="ListaPrenotazioni">
 					
