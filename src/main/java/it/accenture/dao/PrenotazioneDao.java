@@ -4,13 +4,15 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
+import exceptions.ConnessioneException;
+import exceptions.DAOException;
 import it.accenture.model.Periodo;
 import it.accenture.model.Prenotazione;
 import it.accenture.model.Stanza;
 
 public interface PrenotazioneDao {
 
-	public void insertPrenotazione(Prenotazione prenotazione) throws SQLException;
+	public void insertPrenotazione(Prenotazione prenotazione) throws SQLException, ConnessioneException;
 	
 	public List<Prenotazione> getAllByUtente(int idUtente)throws SQLException;
 	
