@@ -46,6 +46,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 			prepared.setInt(7, prenotazione.getNumeroStanza());
 
 			prepared.executeUpdate();
+			System.out.println("Prenotazione inserita");
 			ResultSet rs = prepared.getGeneratedKeys();
 			if (rs.next()) {
 				System.out.println("Auto Generated Primary Key " + rs.getInt(1));

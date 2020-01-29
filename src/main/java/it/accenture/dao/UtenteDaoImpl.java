@@ -46,7 +46,7 @@ public class UtenteDaoImpl implements UtenteDao {
 			e.printStackTrace();
 			throw new DAOException(e.getMessage());
 		}
-
+// va bene ma posso inserire senza password
 
 	}
 
@@ -56,7 +56,7 @@ public class UtenteDaoImpl implements UtenteDao {
 		String query= "select * from Utente where username=? and password=?";
 		Utente u=new Utente();
 
-
+// se due utenti hanno stesso username e stessa password esplode
 		try {
 			connection= SingletonConnection.getInstance();
 			prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
@@ -113,6 +113,7 @@ public class UtenteDaoImpl implements UtenteDao {
 
 	@Override
 	public void updateUtente(Utente utente) {
+		//non updata ma ne crea uno nuovo
 		String query="update Utente set password=?,nome=?, where username=? and idUtente=?";
 		try {
 			connection= SingletonConnection.getInstance();

@@ -51,8 +51,7 @@ public class Prenota extends HttpServlet {
 		Utente u= new Utente();
 		Stanza s=new Stanza();
 		Prenotazione p= new Prenotazione();
-		u=service.getByUsernameAndPassword(username, password);
-		service.uclose();
+		
 		s=service.getStanzaById(numeroStanza);
 		if(service.controlloDate(dataInizio, dataFine, numeroStanza)) {
 			p.setIdUtente(idUtente);
@@ -72,8 +71,8 @@ public class Prenota extends HttpServlet {
 			req.setAttribute("messaggio", messaggio);
 			req.setAttribute("prezzoTotale", p.getPrezzoTotale());
 			
-			service.pclose();
-			service.sclose();
+//			service.pclose();
+//			service.sclose();
 			
 			RequestDispatcher rd=req.getRequestDispatcher("listaPrenotazioni.jsp");
 			rd.forward(req,resp);
