@@ -14,7 +14,11 @@
 int idUtente=(int)session.getAttribute("idUtente");
 String username=(String)session.getAttribute("username");
 String nome=(String)session.getAttribute("nome");
-%>
+String messaggio=(String)request.getAttribute("messaggio"); 
+if(messaggio!=null){%>
+<%= messaggio%>
+<%} %>
+
 <br>Inserisci i dati per la prenotazione:<br>
 <form name="FormPrenota" action="Prenota" method="post">
 <input type="hidden"  name="idUtente" value=<%= idUtente%>><br>
@@ -30,6 +34,12 @@ String nome=(String)session.getAttribute("nome");
   NUMERO STANZA:<br>
   <input type="number" name="numeroStanza"><br>
   <p class="messaggi" id="numeroStanza"></p>
+  SELEZIONA LA FORMULA CHE PREFERISCI:<br>
+  <select name="formula">
+    <option value="BB">B&B</option>
+    <option value="MEZZA_PENSIONE">Mezza pensione</option>
+    <option value="PENSIONE_COMPLETA">Pensione completa</option>
+  </select>
   
   <input type="submit" name="prenota" value="prenota">
   
