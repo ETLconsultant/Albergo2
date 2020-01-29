@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Prenotazione</title>
+<script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
@@ -33,7 +34,7 @@ Data Check-out: <input type="date" name="dataFine">
 </select>
 <br></br>
 
-
+<input type="submit" name="submit">
 </form>
 
 	<%@include file="Footer.jsp"%>
