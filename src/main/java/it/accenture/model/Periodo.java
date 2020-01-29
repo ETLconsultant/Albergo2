@@ -7,16 +7,9 @@ public class Periodo {
 
 	private LocalDate dataInizio;
 	private LocalDate dataFine;
-	private Period period= Period.between(dataInizio, dataFine);
 	
-
-	public Period getPeriod() {
-		return period;
-	}
-
-	public void setPeriod(Period period) {
-		this.period = period;
-	}
+	
+	
 
 	public LocalDate getDataInizio() {
 		return dataInizio;
@@ -36,7 +29,7 @@ public class Periodo {
 
 	@Override
 	public String toString() {
-		return "Periodo [dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", period=" + period + "]";
+		return "Periodo [dataInizio=" + dataInizio + ", dataFine=" + dataFine + "]";
 	}
 
 

@@ -63,7 +63,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		// TODO Auto-generated method stub
 		ArrayList<Prenotazione> a=new ArrayList<Prenotazione>();
 
-		String query= "select * from Prenotazione where idUtente=?";
+		String query= "select * from Prenotazione where id_utente=?";
 
 		try {
 
