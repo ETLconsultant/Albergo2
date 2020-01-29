@@ -6,7 +6,13 @@
 <meta charset="ISO-8859-1">
 <title>header</title>
 <link rel="stylesheet" type="text/css" href="stile.css">
-
+<style>
+*{
+margin: 0;
+padding : 0;
+box-sizing: border-box;
+}
+</style>
 
 <title>Bootstrap Example</title>
   <meta charset="utf-8">
