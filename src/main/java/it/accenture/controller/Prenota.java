@@ -40,7 +40,7 @@ public class Prenota extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-HttpSession session = req.getSession();
+		HttpSession session = req.getSession();
 		
 		PrenotazioneService prenotazioneService = new PrenotazioneService();
 		Prenotazione prenotazioneBean =new Prenotazione();
