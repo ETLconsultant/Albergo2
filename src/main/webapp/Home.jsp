@@ -11,10 +11,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 .carousel-inner img {
       width: 100%; /* Set width to 100% */
       margin: auto;
       min-height:200px;
+      max-height:500px;
   }
   
    /* Hide the carousel text when the screen is less than 600 pixels wide */
