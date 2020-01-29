@@ -12,56 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-.carousel-inner img {
-	width: 100%; /* Set width to 100% */
-	margin: auto;
-	min-height: 200px;
-}
- 
-/* Hide the carousel text when the screen is less than 600 pixels wide */
-@media ( max-width : 600px) {
-	.carousel-caption {
-		display: none;
-	}
-} 
-.thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-  }
-  .thumbnail img {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
-  }
- .thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-  }
-  .thumbnail img {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .container {
-	padding: 80px 120px;
-}
-
-.person {
-	border: 10px solid transparent;
-	margin-bottom: 25px;
-	width: 80%;
-	height: 80%;
-	opacity: 0.7;
-}
-
-.person:hover {
-	border-color: #f1f1f1;
-}
-</style>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <title>Home</title>
 </head>
 <% String messageArea = (String)session.getAttribute("messageArea");%>

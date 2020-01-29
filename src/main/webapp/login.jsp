@@ -10,37 +10,6 @@
 <title>Login</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
-<style>
-
-input[type=text]{
-border: 2px solid black;
-border-radius: 4px;
-width: 30%;
-}
-
-input[type=password]{
-border: 2px solid black;
-border-radius: 4px;
-width: 30%;
-}
-.button {
-	background-color: white;
-	border: 2px solid #008CBA;
-	color: black;
-	padding: 12px 28px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 14px;
-	margin: 4px 2px;
-	cursor: pointer;
-}
-
-.button:hover {
-	background-color: #008B8B;
-	color: white;
-}
-</style>
 </head>
 <% String messageLogin = (String)session.getAttribute("messageLogin");%>
 

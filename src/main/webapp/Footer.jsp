@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,28 +16,21 @@
 
 <title>Titolo</title>
 <meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body> 
-
-<footer class="container-fluid text-center">
-  <div class="footer-social-icons">
-			<h3>Progetto creato da: Javani Gruppo 1</h3>
-			<h4 class="_14">Seguiteci su:</h4>
-			<ul class="social-icons">
-				<li><a href="" class="social-icon"> <i
-						class="fa fa-facebook"></i></a></li>
-				<li><a href="" class="social-icon"> <i
-						class="fa fa-twitter"></i></a></li>
-				<li><a href="" class="social-icon"> <i class="fa fa-rss"></i></a></li>
-				<li><a href="" class="social-icon"> <i
-						class="fa fa-youtube"></i></a></li>
-				<li><a href="" class="social-icon"> <i
-						class="fa fa-linkedin"></i></a></li>
-				<li><a href="" class="social-icon"> <i class="fa fa-github"></i></a></li>
-			</ul>
-		</div>
+<body>
+<footer>
+   <div align="center">
+	<h3>Progetto creato da: Javani Gruppo 1</h3>
+	<h4>Seguiteci su:</h4>
+	<a href="#" class="fa fa-facebook"></a>
+	<a href="#" class="fa fa-twitter"></a>
+	<a href="#" class="fa fa-linkedin"></a>
+	<a href="#" class="fa fa-instagram"></a>
+	</div>
 </footer>
-
 </body>
 </html>
 
