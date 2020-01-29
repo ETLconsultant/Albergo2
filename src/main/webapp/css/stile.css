@@ -23,7 +23,7 @@ input[type=radio] {
 	background: none;
 	float: center;
 }
-.button1:hover {
+.button1:hover { 
   color: white;
 }
 

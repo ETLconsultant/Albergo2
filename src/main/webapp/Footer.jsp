@@ -17,7 +17,7 @@
 <title>Titolo</title>
 <meta charset="ISO-8859-1">
 </head>
-<body>
+<body> 
 
 <footer class="container-fluid text-center">
   <div class="footer-social-icons">

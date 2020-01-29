@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 
-</head>
+</head> 
 <body>
 	<form name="myForm" action="registrazione" method="post" onsubmit="return fieldValidation()">
 		<table align="center">
