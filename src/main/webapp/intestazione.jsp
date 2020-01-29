@@ -4,39 +4,58 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<style>
-
-.topnav{
-	background-color:#f70707;
-	overflow:hidden;
-	z-index:1000;
-}
-
-a.active{
-	float:right;
-	display:inline;
-	display:block;
-	padding:8px;
-	color:white;
-	background-color: #340087;
-	display:block;
-}
-
-</style>
+<title>header</title>
+<link rel="stylesheet" type="text/css" href="stile.css">
 
 
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
 </head>
 <body>
 
-<div class="topnav">
-<a class="active" href="login.jsp">Login</a>
-<a class="active" href="Home.jsp">Home</a>
-<div class="w3-row">
-<div class="w3-col m1 w3-center w3-grey">Tel. (+39 234235346363)</div>
-<div class="w3-col m1 w3-center">Email: gruppo2@gruppo2.it </div>
-</div>
-</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="home.jsp">HOME</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">About us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">altro link</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown" name="tipoStanza" >
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Tipi stanze
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="listaStanze" value= "standard" >Standard</a>
+        <a class="dropdown-item" href="listaStanze" value= "family">Family</a>
+        <a class="dropdown-item" href="listaStanze" value= "business">Business</a>
+          <a class="dropdown-item" href="listaStanze" value= "suite">Suite</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="#">lista prenotazioni</a>
+    </li>
+    
+    <li class="nav-login">
+      <a class="nav-link" href="login.jsp">LOGIN</a>
+    </li>
+  </ul>
+</nav>
+<br>
+  
 
 </body>
 </html>
