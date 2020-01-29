@@ -13,10 +13,15 @@
 <title>Home</title>
 </head>
 <% String messageArea = (String)session.getAttribute("messageArea");%>
+<% String messageLogout = (String)request.getAttribute("messageLogout");%>
 <body>
 
 <%if (messageArea!=null ){%>
 <%=messageArea %>
+<%} %>
+
+<%if (messageLogout!=null ){%>
+<%=messageLogout %>
 <%} %>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->

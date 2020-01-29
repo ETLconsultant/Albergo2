@@ -41,6 +41,14 @@
 					<% } %>
 					</ul>
 				<ul class="nav navbar-nav navbar-right">
+				<% if(session.getAttribute("utente")!=null)  {
+					%>
+				 <li><form action="Logout">
+					<input type="submit" name="submit" value="Logout"
+								class="button1">
+					</form></li>
+					<% } %>
+					
 					<li><a href="login.jsp"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				</ul>
