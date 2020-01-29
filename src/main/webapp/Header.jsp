@@ -48,11 +48,15 @@
 								class="button1">
 					</form></li>
 					<% } %>
+					<% String username = (String) session.getAttribute("username");%>
 					<% if(session.getAttribute("utente")==null)  {
 					%>
 					<li><a href="login.jsp"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
-								<% } %>
+								<% } else{ %>
+								<li><a class="active" href="areaPersonale.jsp"> <%=username %></a></li>
+								 
+									<% } %>
 				</ul>
 			</div>
 		</div>

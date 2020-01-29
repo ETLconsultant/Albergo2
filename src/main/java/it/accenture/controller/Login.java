@@ -73,7 +73,7 @@ public class Login extends HttpServlet {
 //				session.setAttribute("username", username);
 				
 				session.setAttribute("utente", userservice.getByUsernameAndPassword(username, password));
-				
+				session.setAttribute("username", username);
 				RequestDispatcher rd = request.getRequestDispatcher("/Home.jsp");
 				rd.forward(request, response);
 				
