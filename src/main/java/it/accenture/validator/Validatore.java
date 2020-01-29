@@ -72,7 +72,7 @@ public class Validatore{
 //			
 //		}
 		String nome = request.getParameter("nome");
-		
+		 
 		if(nome == null || nome.length() == 0)
 			lista.add(new ErroreValidazione("nome", "nome " + bundle.getString("error.required")));
 		else if(nome.length() > 20)
