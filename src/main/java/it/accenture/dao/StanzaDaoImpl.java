@@ -97,31 +97,37 @@ public class StanzaDaoImpl implements StanzaDao {
 		}
 		return stanza;
 	}
-	
+
 	@Override
-	public ArrayList<TipoStanza> getTipoStanza() {
+	public ArrayList<Stanza> getAllByTipoStanza(TipoStanza tipoStanza) {
 		// TODO Auto-generated method stub
+		ArrayList<Stanza> listaStanzeTipo = new ArrayList<Stanza>();
+			
 		
-		ArrayList<TipoStanza> tipoStanze = new ArrayList<TipoStanza>();
-		String query = "select DISTINCT tipo_stanza from stanza";
-		
+		String query = "select * from stanza where tipo_stanza = ?";
+			
 		try {
 			prepared = connection.prepareStatement(query);
+			prepared.setString(1, String.valueOf(tipoStanza));
+				
 			resultset = prepared.executeQuery();
-			
+		
 			while(resultset.next()) {
-				tipoStanze.add(TipoStanza.valueOf(resultset.getString("tipo_stanza")));
+				Stanza stanza = new Stanza();
+				stanza.setNumeroStanza(resultset.getInt("numero_stanza"));
+				stanza.setTipoStanza(tipoStanza);
+				stanza.setPostiLetto(resultset.getInt("posti_letto"));
+				stanza.setPrezzoNotte(resultset.getDouble("prezzo_notte"));
+				stanza.setDisponibile(resultset.getBoolean("disponibile"));
+				listaStanzeTipo.add(stanza);
 			}
-			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
-		
-		return tipoStanze;
+		return listaStanzeTipo;
 	}
-	
 
 	@Override
 	public void close() {

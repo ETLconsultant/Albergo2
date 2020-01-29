@@ -72,8 +72,8 @@ public class Service {
 
 	}
 	
-	public ArrayList<TipoStanza> getTipoStanza(){
-		return sdao.getTipoStanza();
+	public ArrayList<Stanza> getAllByTipoStanza(TipoStanza tipoStanza){
+		return sdao.getAllByTipoStanza(tipoStanza);
 	}
 
 	public void sclose() {

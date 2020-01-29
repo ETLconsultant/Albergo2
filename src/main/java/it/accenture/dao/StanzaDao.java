@@ -14,7 +14,7 @@ public interface StanzaDao {
 	
 	public Stanza getStanzaById(int numeroStanza);
 	
-	public ArrayList<TipoStanza> getTipoStanza();
+	public ArrayList<Stanza> getAllByTipoStanza(TipoStanza tipoStanza);
 	
 	public void close();
 }
