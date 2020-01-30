@@ -13,7 +13,11 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css" type="text/css">
 </head>
+<% String messagePrenotazione = (String)session.getAttribute("messagePrenotazione");%>
 <body>
+<%if (messagePrenotazione!=null ){%>
+<%=messagePrenotazione %>
+<%} %>
 <table id="tabella">
 		<tr>
 			<th>ID PRENOTAZIONE</th>
