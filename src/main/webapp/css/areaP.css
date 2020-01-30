@@ -10,7 +10,6 @@
 	margin: 4px 2px;
 	cursor: pointer;
 	width: 150px;
-	font: 14px arial, sans-serif;
 	text-align: center;
 }
 
@@ -38,7 +37,6 @@ a:hover {
 	margin: 4px 2px;
 	cursor: pointer;
 	width: 150px;
-	font: 14px arial, sans-serif;
 	text-align: center;
 }
 .cancella:hover{
@@ -46,6 +44,4 @@ a:hover {
 	color: white;
 }
 
-body {
-font: 18px arial, sans-serif;
-}
+
