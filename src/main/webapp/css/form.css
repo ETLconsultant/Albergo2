@@ -13,11 +13,11 @@ input[type=text],input[type=password] {
 }
 
 input[type=text]:focus {
-  width: 100%;
+  width: 70%;
   background-color: lightblue;
 }
 
 input[type=password]:focus {
-  width: 100%;
+  width: 70%;
   background-color: lightblue;
 }
