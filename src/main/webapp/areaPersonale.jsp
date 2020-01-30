@@ -31,7 +31,7 @@ String msg = (String)request.getAttribute("msg");%>
 
 	<%}	%>
 	
-	<button class="button4"><a href="updateDati.jsp" id="dati"> Modifica Dati</a></button>
+<button class="button4"><a href="updateDati.jsp" id="dati"> Modifica Dati</a></button>
 	
 	<div class="wrap">
 		<p>Da qui puoi modificare i tuoi dati o cancellare il tuo account.
