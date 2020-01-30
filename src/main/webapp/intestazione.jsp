@@ -39,7 +39,6 @@ float: right;
 
 <%
 String username = (String)session.getAttribute("username");
-String idUtente = (String)session.getAttribute("idUtente");
 %>
 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -69,7 +68,7 @@ String idUtente = (String)session.getAttribute("idUtente");
 
 			<li class="nav-item"><a class="nav-link"
 			<%if (username !=null) {%>
-				href="listaPrenotazioni?idUtente">Lista prenotazioni</a>
+				href="listaPrenotazioni">Lista prenotazioni</a>
 				<%} %>
 				</li>
 
