@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
-<%@include file="Header.jsp"%>7
+<%@include file="Header.jsp"%>
 </head>
 <body>
 <form action="Prenota" method="post">
-Data Check-in: <input type="date" name="dataInizio">
+Data Check-in: <input id="datefield" type="date" min="2020-01-01" name="dataInizio" oninput="fieldValidationDate()"></input>
 <br></br>
 Data Check-out: <input type="date" name="dataFine">
 <br></br>

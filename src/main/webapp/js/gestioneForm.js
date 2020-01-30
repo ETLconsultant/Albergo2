@@ -1,14 +1,18 @@
 function fieldValidationDate(){
-	var dataInizio = document.getElementsByName("dataInizio").value;
-//	var dateEntered = new Date(dataInizio);
-	var todaysDate = new Date();
-    todaysDate.setHours(0, 0, 0, 0);
-    
-//    console.log(dateEntered);
-//    console.log(todaysDate);
-    
-    var prova = (document.getElementsByName("dataInizio").value > todaysDate);
-    return prova
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	 if(dd<10){
+	        dd='0'+dd
+	    } 
+	    if(mm<10){
+	        mm='0'+mm
+	    } 
+
+	today = yyyy+'-'+mm+'-'+dd;
+	console.log(today);
+	document.getElementById("datefield").setAttribute("min", today);
     
 }
 
