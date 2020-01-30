@@ -28,7 +28,6 @@ public class Service {
 				throw new DAOException("Prenotazione senza utente");
 			}
 			pdao.insertPrenotazione(prenotazione);
-			sdao.updateDisponibile(false, prenotazione.getNumeroStanza());
 			}
 			catch (DAOException e){
 				e.printStackTrace();
