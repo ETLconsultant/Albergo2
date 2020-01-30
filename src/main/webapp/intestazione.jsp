@@ -81,7 +81,7 @@ String username = (String)session.getAttribute("username");
 			<%if (username != null) {%>
 				<a class="nav-link" href="logout">LOGOUT</a>
 			<%} else { %>
-				<a class="nav-link" href="home.jsp">LOGIN</a>
+				<a class="nav-link" href="login.jsp">LOGIN</a>
 				<%} %>
 			</li>
 		</ul>
