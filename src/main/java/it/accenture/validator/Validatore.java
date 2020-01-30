@@ -28,9 +28,7 @@ public class Validatore{
 		}
 		else if(username.length() > 20) {
 			lista.add(new ErroreValidazione("username", "username " + bundle.getString("error.maxlength") + " 20"));
-			System.out.println();
 			System.out.println("username.length() < 20");
-			System.out.println();
 
 		}
 		
@@ -89,12 +87,22 @@ public class Validatore{
 			lista.add(new ErroreValidazione("nome", "nome " + bundle.getString("error.required")));
 		else if(nome.length() > 20)
 			lista.add(new ErroreValidazione("nome", "nome " + bundle.getString("error.maxlength") + " 20"));			
+		else if(nome.matches("^[a-zA-Z]*$")) {
+			System.out.println("^[a-zA-Z]*$");
+			lista.add(new ErroreValidazione("nome", "Il nome " + bundle.getString("error.nonumeri")));
+			
+		}
 		
 		String cognome = request.getParameter("cognome");
 		if(cognome == null || cognome.length() == 0)
 			lista.add(new ErroreValidazione("cognome", "cognome " + bundle.getString("error.required")));
 		else if(cognome.length() > 20)
 			lista.add(new ErroreValidazione("cognome", "cognome" + bundle.getString("error.maxlength") + " 20"));			
+		else if(cognome.matches("^[a-zA-Z]*$")) {
+			System.out.println("^[a-zA-Z]*$");
+			lista.add(new ErroreValidazione("cognome", "Il cognome " + bundle.getString("error.nonumeri")));
+			
+		}
 		
 		//TODO: continuare con gli eventuali controlli di validità che si ritiene necessari
 		
