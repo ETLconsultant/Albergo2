@@ -26,10 +26,12 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="#">Chi Siamo</a></li>
+					<% if(session.getAttribute("utente")!=null)  {%>
 					<li><form action="ListaStanze">
 							<input type="submit" name="submit" value="Camere&Suite"
 								class="button1">
 						</form></li>
+						<% } %>
 					<li><a href="#">Benessere&Spa</a></li>
 					<li><a href="Contatti.jsp">Contatti</a></li>
 				
