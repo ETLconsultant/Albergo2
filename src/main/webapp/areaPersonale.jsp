@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
-<link rel="stylesheet" href="css/stile.css" type="text/css">
+<link rel="stylesheet" href="css/areaP.css" type="text/css">
 </head><% String messageArea = (String)session.getAttribute("messageArea");%>
 <body>
 
@@ -19,14 +19,12 @@
 
 <p>Da qui puoi modificare i tuoi dati o cancellare il tuo account. Seleziona l'operazione che vuoi effettuare: </p>
 
-<div>
-<a href="updateDati.jsp">
-<input type ="button"  name = "modificare" value ="Modifica Dati">
-</a>
-</div>
+
+<button class="button4"><a href="updateDati.jsp" id="dati"> Modifica Dati</a></button>
 
 
-<form action = "ServletDelete" method="post">
+
+<form action = "Delete" method="post">
 
 <input type = "submit" name = "cancellare" value ="Cancella account">
 </form>
