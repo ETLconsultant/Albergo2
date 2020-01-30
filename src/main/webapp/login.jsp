@@ -8,6 +8,9 @@
 <title>Accedi</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
+<style>.messaggi {
+	color: red;
+}</style>
 </head>
 <body>
 	<%
@@ -17,19 +20,18 @@
 			}
 		%>
 		<br>
-		<form action="login" method="post">
+		<form name="FormLogin" action="login" method="post" onsubmit="return validateLogin()">
 			<p>
 				<b>Inserisci i tuoi dati:</b>
 			</p>
 			<br>
 			<p>
-				Username: <input type="text" name="username" size="16 px" required>
-			<p id="username"></p>
+				Username: <input type="text" name="username" size="16 px" >
+			<p class="messaggi" id="username"></p>
 			</p>
 			<p>
-				Password: <input type="password" name="password" size="16 px"
-					required>
-			<p id="psd"></p>
+				Password: <input type="password" name="password" size="16 px">
+			<p class="messaggi" id="password"></p>
 			</p>
 			<input type="submit" name="bottone" value="Accedi">
 		</form>

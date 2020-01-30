@@ -11,9 +11,17 @@
 <title>Registrazione</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
+
+<style>.messaggi {
+	color: red;
+}</style>
+
+
 </head>
 <body>
-<form action="registrazione" method="post">
+
+<form name="FormReg" action="registrazione" method="post" onsubmit="return validateFormReg()">
+
 	<table align="center">
 	  
 		<tr height="50" align="center">
@@ -29,21 +37,27 @@
 		
 		<tr height="50" >
 			<td width="20%">Nome</td>
-			<td width="40%"><input type="text" id="nome" name="nome"></td>
+			<td width="40%"><input type="text" name="nome" onkeypress="return SoleLettere()">
+				<p class="messaggi" id="anagrafici"></p>
+			</td>
 			<td width="40%"><c:forEach items="${lista}" var="errore">
 								<c:if test="${errore.campoValidato=='nome'}" > ${errore.descrizioneErrore}</c:if>
 							</c:forEach>
 		</tr>
+		
 		<tr height="50" >
 			<td width="20%">Username</td>
-			<td width="40%"><input type="text" id="username" name="username"></td>
+			<td width="40%"><input type="text" name="username">
+			<p class="messaggi" id="username"></p></td>
 			<td width="40%"><c:forEach items="${lista}" var="errore">
 								<c:if test="${errore.campoValidato=='username'}" > ${errore.descrizioneErrore}</c:if>
 							</c:forEach>
+							
 		</tr>
 		<tr height="50" >
 			<td width="20%">Password</td>
-			<td width="40%"><input type="password" id="password" name="password"></td>
+			<td width="40%"><input type="password" name="password">
+			<p class="messaggi" id="password"></p></td>
 			<td width="40%"><c:forEach items="${lista}" var="errore">
 								<c:if test="${errore.campoValidato=='password'}" > ${errore.descrizioneErrore}</c:if>
 							</c:forEach>
@@ -53,6 +67,7 @@
 			<th colspan="6" valign="middle"><input type="submit" value="registra" ><br></th>
 		</tr>
 	</table>
+	
    </form>
 
 </body>

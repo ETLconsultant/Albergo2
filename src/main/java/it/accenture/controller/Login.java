@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
 			Service us = new Service();
 			u = us.getByUsernameAndPassword(username, password);
 			
-			if((u == null)) {
+			if((u.getUsername() == null)) {
 				
 				String messaggio="Utente non registrato o username e/o password errati!";
 				req.setAttribute("messaggio", messaggio);
