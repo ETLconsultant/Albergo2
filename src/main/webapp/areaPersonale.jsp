@@ -27,29 +27,12 @@ String msg = (String)request.getAttribute("msg");%>
 				
 				
 <p>Ciao <%=username1 %>, da qui puoi modificare i tuoi dati o cancellare il tuo account. Seleziona l'operazione che vuoi effettuare: </p>
-
-<%if (msg != null) {
-				%>
-				<%=msg%>
-				<%} %>
-
-
-<%if (messageArea!=null && msg==null){%>
-<%=messageArea %>
-<%} %>
-<%if (msg == null) {%>
-				
-				
-<p>Ciao <%=username1 %>, da qui puoi modificare i tuoi dati o cancellare il tuo account. Seleziona l'operazione che vuoi effettuare: </p>
 <br>
-<%} %>
-<br>
-<button class="button4"><a href="updateDati.jsp" id="dati"> Modifica Dati</a></button>
 
-	<%
-		if (messageArea != null) {%>
-	<%=messageArea%>
 	<%}	%>
+	
+	<button class="button4"><a href="updateDati.jsp" id="dati"> Modifica Dati</a></button>
+	
 	<div class="wrap">
 		<p>Da qui puoi modificare i tuoi dati o cancellare il tuo account.
 			Seleziona l'operazione che vuoi effettuare:</p>
