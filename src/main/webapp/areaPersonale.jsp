@@ -14,7 +14,7 @@
 <%String username1 = (String)session.getAttribute("username"); 
 String msg = (String)request.getAttribute("msg");%>
 <body>
-
+ 
 <%if (msg != null) {
 				%>
 				<%=msg%>

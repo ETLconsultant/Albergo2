@@ -1,18 +1,16 @@
 html,body{
 	height:100%;
-	background-image: url(/Albergo2/src/main/webapp/image/sfondo1.jpg);
 	
-}
+} 
 body{
 	margin:0;
-	background-image: url(/Albergo2/src/main/webapp/image/sfondo1.jpg);
 }
 .wrap{
 	height: auto;
 	min-height: 65%;
 	position: relative;
 	margin: 0 auto -60px;
-	background-image: url(/Albergo2/src/main/webapp/image/sfondo1.jpg);
+
 }
 
 .button4 {
