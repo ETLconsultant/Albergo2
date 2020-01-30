@@ -40,11 +40,12 @@ public class Prenota extends HttpServlet {
 		RequestDispatcher rd=req.getRequestDispatcher("/prenota.jsp");
 		rd.forward(req,resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession sessione = req.getSession();
 		String messaggio;
+
 		int idUtente=(int) sessione.getAttribute("idUtente");
 		String username=(String) sessione.getAttribute("username");
 		String nome=(String) sessione.getAttribute("nome");
@@ -53,50 +54,39 @@ public class Prenota extends HttpServlet {
 		LocalDate dataFine=LocalDate.parse(req.getParameter("dataFine"));
 		int numeroStanza=(int) sessione.getAttribute("numeroStanza");
 		Formula formula= Formula.valueOf(req.getParameter("formula"));
+
 		Utente u= new Utente();
 		Stanza s=new Stanza();
 		Prenotazione p= new Prenotazione();
-		
-		s=service.getStanzaById(numeroStanza);
-		if(service.controlloDate(dataInizio, dataFine, numeroStanza)) {
-			p.setIdUtente(idUtente);
-			p.setNumeroStanza(numeroStanza);
-			p.setDataInizio(dataInizio);
-			p.setDataFine(dataFine);
-			int numeroGiorni= (int)ChronoUnit.DAYS.between(dataInizio, dataFine);
-			p.setNumeroGiorni(numeroGiorni);
-			p.setFormula(formula);
-			p.calcolaPrezzo(s.getPrezzoNotte(), s.getPostiLetto());
-			
-			service.insertPrenotazione(p);
-			service.updateDisponibile(false, numeroStanza);
-			
-			
-			messaggio="Prenotazione riuscita.";
-			req.setAttribute("messaggio", messaggio);
-			req.setAttribute("prezzoTotale", p.getPrezzoTotale());
-			
-//			service.pclose();
-//			service.sclose();
-			
-			RequestDispatcher rd=req.getRequestDispatcher("listaPrenotazioni.jsp");
-			rd.forward(req,resp);
-		}
-		else {
-			messaggio="Mi dispiace ma la stanza che hai scelto è già prenotata.";
-			req.setAttribute("messaggio", messaggio);
-			RequestDispatcher rd=req.getRequestDispatcher("prenota.jsp");
-			rd.forward(req,resp);
-			
 
-		
-			
-			
-		}
-		
-		
+		s=service.getStanzaById(numeroStanza);
+		p.setIdUtente(idUtente);
+		p.setNumeroStanza(numeroStanza);
+		p.setDataInizio(dataInizio);
+		p.setDataFine(dataFine);
+		int numeroGiorni= (int)ChronoUnit.DAYS.between(dataInizio, dataFine);
+		p.setNumeroGiorni(numeroGiorni);
+		p.setFormula(formula);
+		p.calcolaPrezzo(s.getPrezzoNotte(), s.getPostiLetto());
+
+		service.insertPrenotazione(p);
+		service.updateDisponibile(false, numeroStanza);
+
+
+		messaggio="Prenotazione riuscita.";
+		req.setAttribute("messaggio", messaggio);
+		req.setAttribute("prezzoTotale", p.getPrezzoTotale());
+
+		//			service.pclose();
+		//			service.sclose();
+
+		RequestDispatcher rd=req.getRequestDispatcher("listaPrenotazioni.jsp");
+		rd.forward(req,resp);
 	}
-	
-	
-	
+
+
 }
+
+
+
+

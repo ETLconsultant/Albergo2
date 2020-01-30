@@ -22,7 +22,10 @@ if(messaggio!=null){%>
 <%= messaggio%>
 <%} %>
 
+
 <br>Inserisci i dati per la prenotazione:<br>
+<br>
+Stanza numero <%= numeroStanza%><br>
 <form name="FormPrenota" action="Prenota" method="post">
 <input type="hidden"  name="idUtente" value=<%= idUtente%>><br>
 <input type="hidden"  name="username" value=<%= username%>><br>
@@ -34,9 +37,6 @@ if(messaggio!=null){%>
    DATA FINE:<br>
   <input type="date" name="dataFine" ><br>
    <p class="messaggi" id="dataFine"></p>
-  NUMERO STANZA:<br>
-  <input type="number" name="numeroStanza" value= <%= numeroStanza%>><br>
-  <p class="messaggi" id="numeroStanza"></p>
   SELEZIONA LA FORMULA CHE PREFERISCI:<br>
   <select name="formula">
     <option value="BB">B&B</option>
