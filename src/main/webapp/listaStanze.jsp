@@ -41,7 +41,20 @@
 				<td><c:out value="${ling.prezzoNotte}"></c:out></td>
 				
 				<td><c:if test="${ling.disponibile==true }">
-				<button class="button3"> <a href="prenota.jsp">Prenota</button>
+				
+				<script>function f(s) {
+						session.setAttribute("ns", s.getNumeroStanza());
+						session.setAttribute("ts", s.getNumeroStanza());
+					}
+				</script>
+				<form onsubmit="return f(ling)" > 
+
+
+				
+				
+				<input type="submit" class="button3"> <a href="prenota.jsp">Prenota</button>
+				 
+				 </form>
 				 </c:if> 
 				 <c:if test="${ling.disponibile==false }">
 				<button class="button3 disabled">Non Disponibile </button>
