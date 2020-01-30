@@ -19,11 +19,9 @@
 
 <p>Da qui puoi modificare i tuoi dati o cancellare il tuo account. Seleziona l'operazione che vuoi effettuare: </p>
 
-<div>
-<a href="updateDati.jsp">
-<input type ="button"  name = "modificare" value ="Modifica Dati">
-</a>
-</div>
+
+<button><a href="updateDati.jsp" id="dati"> Modifica Dati</a></button>
+
 
 
 <form action = "ServletDelete" method="post">

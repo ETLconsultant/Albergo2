@@ -198,14 +198,8 @@ Hide the carousel text when the screen is less than 600 pixels wide
 	background-color: #C0C0C0;
 }
 
-.link {
-	color: black;
-}
-
 /*Bottoni listaStanze dentro Disponibilità */
-a {
-	color: white;
-}
+
 .button3 {
 	background-color: #4CAF50;
 	border: none;
@@ -239,4 +233,8 @@ a {
   left: 0;
   width: 100% !important;
   height: 40% !important;
+}
+
+#dati{
+	color: black;
 }

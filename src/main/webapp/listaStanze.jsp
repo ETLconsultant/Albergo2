@@ -47,14 +47,9 @@
 						session.setAttribute("ts", s.getNumeroStanza());
 					}
 				</script>
-				<form onsubmit="return f(ling)" > 
-
-
-				
-				
-				<input type="submit" class="button3"> <a href="prenota.jsp">Prenota</button>
+			
+				<button onclick="f(ling)" class="button3" > <a href="prenota.jsp">Prenota</a> </button>
 				 
-				 </form>
 				 </c:if> 
 				 <c:if test="${ling.disponibile==false }">
 				<button class="button3 disabled">Non Disponibile </button>
