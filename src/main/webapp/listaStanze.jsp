@@ -12,71 +12,68 @@
 
 
 <style>
-
-body {
-background-color: #e8eaf6;
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-button[type=submit] {
-  width: 50 px;
-  background-color: #2979ff;
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#titolo_tabella {
+	padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
   color: white;
-  padding: 8px 12px;
-  margin: 8px 15px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+button {
+	width: 50 px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 10px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  font-family:verdana;
 }
 
-table {
-  padding: 20px;
-  width: 100px;
- 
+#no_button{
+width: 50 px;
+  background-color: #FF4500;
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
 }
 
-td, th {
-  border: 3px solid #75a7ff;
-  text-align: left;
-  font-family:verdana;
-  padding: 22px;
-  background-color: #b6b8c3;
-}
-td{
-	width : 20px;
-	}
-
-tr:nth-child(even) {
-  background-color:#f0fff6;
-  font-family:verdana;
-}
-
-#titolo {
-	font-family:verdana;
-	padding: 10px 15px;
-	font-size: 17px;
-}
 
 </style>
 </head>
+
+
 <body>
 
 
 	
-<div class="table">
-		<table>
+<div >
+		<table id="customers">
 		
-				<tr>
+				<tr id="titolo_tabella">
 						<td><%="Numero stanza"%>
 						<td><%="tipo stanza"%>
 						<td><%="Posti letto"%>
 						<td><%="Prezzo notte"%>
 						<td><%="disponibilita"%>
+				</tr>
 			<c:forEach var="lista" items="${requestScope.listaStanze}">
 				<br>
-				
-
-					
 					<tr>
 						<td><c:out value= "${lista.numeroStanza}">
 							</c:out>
@@ -90,14 +87,20 @@ tr:nth-child(even) {
 						<td><c:out value= "${lista.prezzoNotte}">
 							</c:out>
 							</td>
-							<td>
+					<td><c:choose>
+							<c:when test="${lista.disponibile}">
 								<form action="Prenota">
-								 <button type="submit" name="button" value= "${lista.numeroStanza}" > Prenota</button>
-							</form>
-							
-							</td>
-							
-						<tr>
+									<button type="submit" name="button"
+										value="${lista.numeroStanza}">Prenota</button>
+								</form>
+
+							</c:when>
+							<c:otherwise>
+								<button id="no_button" type="button" ">Prenota</button>
+
+							</c:otherwise>
+						</c:choose></td>
+				</tr>
 				
 			</c:forEach>
 
