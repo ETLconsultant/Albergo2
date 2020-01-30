@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 				
 				String messaggio="Benvenuto!";
 				req.setAttribute("messaggio", messaggio);
-				RequestDispatcher rd= req.getRequestDispatcher("/prenota.jsp");
+				RequestDispatcher rd= req.getRequestDispatcher("/Home.jsp");
 				rd.forward(req, resp);
 				
 			}

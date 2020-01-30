@@ -31,7 +31,7 @@ public class Registrazione extends HttpServlet {
 			req.setAttribute("lista", lista );
 			RequestDispatcher rd= req.getRequestDispatcher("registrazione.jsp");
 			rd.forward(req, resp);
-		}else {
+		}else{
 		String idUtente;
 		String nome = req.getParameter("nome");
 		String username = req.getParameter("username");
