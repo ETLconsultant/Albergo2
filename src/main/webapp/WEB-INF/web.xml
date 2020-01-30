@@ -9,13 +9,4 @@
 		<welcome-file>default.htm</welcome-file> <welcome-file>default.jsp</welcome-file> 
 		</welcome-file-list> -->
 
-<servlet>
-	<servlet-name>listaStanze</servlet-name>
-	<servlet-class>it.accenture.controller.ListaStanze</servlet-class>
-</servlet>
-	<servlet-mapping>
-		<servlet-name>listaStanze</servlet-name>
-		<url-pattern>/listaStanze</url-pattern>
-	</servlet-mapping>
-
 </web-app>
