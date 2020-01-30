@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
-<%@include file="Header.jsp"%>
+<%@include file="Header.jsp"%>7
 </head>
 <body>
 <form action="Prenota" method="post">
