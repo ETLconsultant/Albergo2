@@ -70,7 +70,7 @@ String msg1 = (String)request.getAttribute("msg1");%>
   <!-- Container (Javani Resort) -->
 <div class="container-fluid text-center bg-grey">
   <h2>Javani Resort e' il vostro paradiso</h2><br>
-  <h4>l incanto di un giardino privato a pochi passi dal vivace viavai di Milano.</h4>
+  <h4>L incanto di un giardino privato a pochi passi dal vivace viavai di Milano.</h4>
   <div class="row text-center">
     <div class="col-sm-4">
       <div class="thumbnail">
