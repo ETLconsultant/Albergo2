@@ -17,7 +17,7 @@
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <style>
 body {
-background-image: url('image/sfondo.png');
+background-image: url('image/nicola.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 98% 98%;

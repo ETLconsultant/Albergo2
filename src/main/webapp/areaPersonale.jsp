@@ -9,28 +9,55 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <link rel="stylesheet" href="css/areaP.css" type="text/css">
+<style>
+body {
+	background-image: url('image/nicola.jpg');
+	background-repeat: no-repeat;
+	background-attachment: relative;
+	background-size: 89% 89%;
+}
+</style>
 </head>
-<% String messageArea = (String)session.getAttribute("messageArea");%>
-<%String username1 = (String)session.getAttribute("username"); 
-String msg = (String)request.getAttribute("msg");%>
+<%
+	String messageArea = (String) session.getAttribute("messageArea");
+%>
+<%
+	String username1 = (String) session.getAttribute("username");
+	String msg = (String) request.getAttribute("msg");
+%>
 <body>
- 
-<%if (msg != null) {
-				%>
-				<%=msg%>
-				<%} %>
 
-<%if (messageArea!=null && msg==null){%>
-<%=messageArea %>
-<%} %>
-<%if (msg == null) {%>
-				
-<div class="wrap">			
-<p>Ciao <%=username1 %>, da qui puoi modificare i tuoi dati o cancellare il tuo account. Seleziona l'operazione che vuoi effettuare: </p>
-<br>
+	<%
+		if (msg != null) {
+	%>
+	<%=msg%>
+	<%
+		}
+	%>
 
-	<%}	%>
-	
+	<%
+		if (messageArea != null && msg == null) {
+	%>
+	<%=messageArea%>
+	<%
+		}
+	%>
+	<%
+		if (msg == null) {
+	%>
+
+	<div class="wrap">
+		<p>
+			Ciao
+			<%=username1%>, da qui puoi modificare i tuoi dati o cancellare il
+			tuo account. Seleziona l'operazione che vuoi effettuare:
+		</p>
+		<br>
+
+		<%
+			}
+		%>
+
 
 
 		<button class="button4">

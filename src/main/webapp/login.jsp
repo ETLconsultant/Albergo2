@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="css/stile.css" type="text/css">
 <style>
 body {
-background-image: url('image/sfondo3.png');
+background-image: url('image/nicola.png');
   background-repeat: no-repeat;
   background-attachment: relative;
   background-size: 89% 89%;
