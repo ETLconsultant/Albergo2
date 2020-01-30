@@ -45,11 +45,9 @@
 			ArrayList<Stanza> stanze = (ArrayList<Stanza>) session.getAttribute("stanze");
 			pageContext.setAttribute("listaStanze", stanze);
 		%>
-		
-		
-	
+
 		<c:forEach var="ling" items="${listaStanze}">
-				<form action="Prenota" method="post">
+				
 			<tr>
 				<td><c:out value="${ling.numeroStanza}"></c:out></td>
 				<td><c:out value="${ling.tipoStanza}"></c:out></td>
@@ -58,9 +56,11 @@
 				<script>console.log("riga");</script>	
 				<td><c:if test="${ling.disponibile==true }">
 				
-			
-				<input type="submit" class="button3" name="b" data-value="${ling.numeroStanza}">
-				<input type="hidden" name ="c" value="${ling.tipoStanza}">
+			<form action="Prenota">
+		    <input type="hidden" name ="ns" value="${ling.numeroStanza}">
+			<button type="submit" class="button3" name="ts" value="${ling.tipoStanza}">prenota</button>
+			</form>
+				
 			
 				 
 				 </c:if> 
@@ -71,7 +71,7 @@
 				
 
 			</tr>
-				</form>
+				
 		</c:forEach>
 		
 	

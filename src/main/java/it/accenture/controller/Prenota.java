@@ -59,9 +59,10 @@ public class Prenota extends HttpServlet {
 		Stanza stanzaBean = new Stanza();
 //		System.out.println("entrato !!!!!!!!!!!!!!!!!");
 //		System.out.println(session.getAttribute("ns"));
-		int ns;
-		
-		
+		//req.getParameter("ns")
+		int ns =Integer.parseInt(req.getParameter("ns"));
+		TipoStanza ts = TipoStanza.valueOf(req.getParameter("ts"));
+
 	
 
 	
@@ -72,7 +73,8 @@ public class Prenota extends HttpServlet {
 		LocalDate df;
 		Object ob;
 		Formula f;
-		if(req.getParameter("dataInizio")!=null) {
+		
+		System.out.println("stampa da dopost: "+ns);
 		
 		di= LocalDate.parse(req.getParameter("dataInizio"));
 		df= LocalDate.parse(req.getParameter("dataFine"));
@@ -82,7 +84,7 @@ public class Prenota extends HttpServlet {
 		
 		RequestDispatcher rd=req.getRequestDispatcher("/listaPrenotazioni.jsp");
 		rd.forward(req,resp);
-		}
+		
 		
 //		Prenotazione beanPrenotazione= new Prenotazione(2,di,df,f,u1.getIdUtente(),ns);
 //		prenotazioneService.insertPrenotazione(beanPrenotazione);

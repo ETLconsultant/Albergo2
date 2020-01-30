@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,8 +15,8 @@
 </head>
 <body>
 
-<c:set items="${requestScope.ns}" var= "ns" scope="page"/>
-<c:set items="${requestScope.ts}" var= "ts" scope="page"/>
+<c:set var="ns" scope="page" value="${requestScope.ns}" />
+<c:set var= "ts" scope="page" value="${requestScope.ts}"/>
 
 <form action="Prenota" method="post">
 Data Check-in: <input id="datefield" type="date" min="2020-01-01" name="dataInizio" onload="fieldValidationDate()"></input>
@@ -27,8 +29,8 @@ Data Check-out: <input type="date" name="dataFine">
   <option value="mezza_pensione">mezza pensione
   <option value="pensione_completa">pensione completa
 </select>
-<input ></input>
-
+<input type="hidden" name="ns "value="ns"></input>
+<input type="hidden" name="ts "value="ts"></input>
 
 <br></br>
 
