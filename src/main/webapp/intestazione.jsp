@@ -37,6 +37,7 @@ float: right;
 </head>
 <body>
 
+
 <%
 String username = (String)session.getAttribute("username");
 %>
