@@ -37,8 +37,6 @@
 	<%
 		if (msg == null) {
 	%>
-
-	<div class="wrap">
 		<p>
 			Ciao
 			<%=username1%>, da qui puoi modificare i tuoi dati o cancellare il
