@@ -34,11 +34,23 @@ public class Prenota extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession sessione = req.getSession();
+		String messaggio;
+
 		String bottone= req.getParameter("button");
 		int numeroStanza = Integer.parseInt(bottone);
 		sessione.setAttribute("numeroStanza", numeroStanza);
-		RequestDispatcher rd=req.getRequestDispatcher("/prenota.jsp");
-		rd.forward(req,resp);
+
+		if(sessione.getAttribute("idUtente").equals(null)) {
+			messaggio="Per prenotare devi effettuare il login!";
+			req.setAttribute("messaggio", messaggio);
+			RequestDispatcher rd=req.getRequestDispatcher("login.jsp");
+			rd.forward(req,resp);
+		}
+		else {
+
+			RequestDispatcher rd=req.getRequestDispatcher("/prenota.jsp");
+			rd.forward(req,resp);
+		}
 	}
 
 	@Override
@@ -55,10 +67,11 @@ public class Prenota extends HttpServlet {
 		int numeroStanza=(int) sessione.getAttribute("numeroStanza");
 		Formula formula= Formula.valueOf(req.getParameter("formula"));
 
-		
+
 		Utente u= new Utente();
 		Stanza s=new Stanza();
 		Prenotazione p= new Prenotazione();
+
 
 		s=service.getStanzaById(numeroStanza);
 		p.setIdUtente(idUtente);
