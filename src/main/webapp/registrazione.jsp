@@ -15,14 +15,6 @@
 <title>Registrazione</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
-<style>
-body {
-background-image: url('image/nicola.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 98% 98%;
-}
-</style>
 </head> 
 <body>
 	<form name="myForm" action="registrazione" method="post" onsubmit="return fieldValidation()">

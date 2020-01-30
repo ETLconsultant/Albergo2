@@ -9,14 +9,6 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <link rel="stylesheet" href="css/areaP.css" type="text/css">
-<style>
-body {
-	background-image: url('image/nicola.jpg');
-	background-repeat: no-repeat;
-	background-attachment: relative;
-	background-size: 89% 89%;
-}
-</style>
 </head>
 <%
 	String messageArea = (String) session.getAttribute("messageArea");
