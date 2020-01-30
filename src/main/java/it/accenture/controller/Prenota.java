@@ -59,12 +59,12 @@ public class Prenota extends HttpServlet {
 		Stanza stanzaBean = new Stanza();
 //		System.out.println("entrato !!!!!!!!!!!!!!!!!");
 //		System.out.println(session.getAttribute("ns"));
-		//req.getParameter("ns")
-		int ns =Integer.parseInt(req.getParameter("ns"));
-		TipoStanza ts = TipoStanza.valueOf(req.getParameter("ts"));
+		
+		int ns =Integer.parseInt(req.getParameter("nspar"));
+		TipoStanza ts = TipoStanza.valueOf(req.getParameter("tspar"));
 
-	
-
+		System.out.println(ns);
+		System.out.println(ts);
 	
 	
 		Object u = session.getAttribute("utente");
@@ -79,18 +79,12 @@ public class Prenota extends HttpServlet {
 		di= LocalDate.parse(req.getParameter("dataInizio"));
 		df= LocalDate.parse(req.getParameter("dataFine"));
 		
-		ob=req.getParameter("formula");
-		f=(Formula)ob;
+		f=Formula.valueOf(req.getParameter("formula"));
 		
-		RequestDispatcher rd=req.getRequestDispatcher("/listaPrenotazioni.jsp");
-		rd.forward(req,resp);
-		
-		
-//		Prenotazione beanPrenotazione= new Prenotazione(2,di,df,f,u1.getIdUtente(),ns);
-//		prenotazioneService.insertPrenotazione(beanPrenotazione);
+
 		
 //		try {
-//			stanzaBean = stanzaService.getStanzaById(Integer.parseInt(req.getParameter("numero_stanza")));
+//			stanzaBean = stanzaService.getStanzaById(ns);
 //		} catch (NumberFormatException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
@@ -104,49 +98,42 @@ public class Prenota extends HttpServlet {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//		
-//		LocalDate dataInizio = LocalDate.parse(req.getParameter("dataInizio"));
-//		LocalDate dataFine = LocalDate.parse(req.getParameter("dataFine"));
-//		Formula formula = Formula.valueOf(req.getParameter("formula"));
-//		int numeroGiorni = Period.between(dataInizio, dataFine).getDays();
-//		double prezzoNotte = stanzaBean.getPrezzoNotte();
-//		double prezzoTotale = (prezzoNotte*numeroGiorni*stanzaBean.getPostiLetto());
-//		int numeroStanza = stanzaBean.getNumeroStanza();
-//		String messagePrenotazione = " ";
-//		
-//		try {
-//			if(numeroGiorni>0 && prenotazioneService.controlloDate(dataInizio, dataFine, Integer.parseInt(req.getParameter("numero_stanza"))) ){
-//				
-//				prenotazioneBean.setDataFine(dataFine);
-//				prenotazioneBean.setDataInizio(dataInizio);
-//				prenotazioneBean.setFormula(formula);
-//				prenotazioneBean.setIdUtente(Integer.parseInt((String) session.getAttribute("id_utente")));
-//				prenotazioneBean.setNumeroGiorni(numeroGiorni);
-//				prenotazioneBean.setPrezzoTotale(prezzoTotale);
-//				prenotazioneBean.setNumeroStanza(numeroStanza);
-//				
-//				try {
-//					prenotazioneService.insertPrenotazione(prenotazioneBean);
-//				} catch (ConnessioneException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				
-//				messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
-//				session.setAttribute("messagePrenotazione", messagePrenotazione);
-//				RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
-//				rd.forward(req, resp);
-//			}
-//			else {
-//				messagePrenotazione = "Errore! Stanza non disponibile nel periodo selezionato. Riprova con altre date.";
-//				session.setAttribute("messagePrenotazione", messagePrenotazione);
-//				RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
-//				rd.forward(req, resp);
-//			}
-//		} catch (NumberFormatException | SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+	
+		int numeroGiorni = Period.between(di, df).getDays();
+		double prezzoNotte = stanzaBean.getPrezzoNotte();
+		double prezzoTotale = (prezzoNotte*numeroGiorni*stanzaBean.getPostiLetto());
+		
+		String messagePrenotazione;
+		
+		
+		try {
+			if(prenotazioneService.controlloDate(di, df, ns) ){
+				
+				Prenotazione beanPrenotazione= new Prenotazione(numeroGiorni,di,df,f,u1.getIdUtente(),ns);
+				
+				try {
+					prenotazioneService.insertPrenotazione(prenotazioneBean);
+					messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
+					session.setAttribute("messagePrenotazione", messagePrenotazione);
+					RequestDispatcher rd=req.getRequestDispatcher("/listaPrenotazioni.jsp");
+					rd.forward(req,resp);
+				} catch (ConnessioneException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}
+			else {
+				messagePrenotazione = "Errore! Stanza non disponibile nel periodo selezionato. Riprova con altre date.";
+				session.setAttribute("messagePrenotazione", messagePrenotazione);
+				RequestDispatcher rd = req.getRequestDispatcher("/prenota.jsp");
+				rd.forward(req, resp);
+			}
+		} catch (NumberFormatException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		  
 	}
 	
