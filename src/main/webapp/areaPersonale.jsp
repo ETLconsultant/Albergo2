@@ -25,7 +25,7 @@ String msg = (String)request.getAttribute("msg");%>
 <%} %>
 <%if (msg == null) {%>
 				
-				
+<div class="wrap">			
 <p>Ciao <%=username1 %>, da qui puoi modificare i tuoi dati o cancellare il tuo account. Seleziona l'operazione che vuoi effettuare: </p>
 <br>
 

@@ -6,8 +6,8 @@ body{
 	margin:0;
 }
 .wrap{
-	height: auto !important;
-		min-height: 65%;
+	height: auto;
+	min-height: 65%;
 	position: relative;
 	margin: 0 auto -60px;
 }
