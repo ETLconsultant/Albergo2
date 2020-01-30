@@ -1,6 +1,7 @@
 package it.accenture.validator;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -85,6 +86,36 @@ public class Validatore{
 			lista.add(new ErroreValidazione("cognome", "cognome" + bundle.getString("error.maxlength") + " 20"));			
 		
 		//TODO: continuare con gli eventuali controlli di validità che si ritiene necessari
+		
+		return lista;
+	}
+	
+	public static List<ErroreValidazione> validazionePrenota(HttpServletRequest request){
+		List<ErroreValidazione> lista = new ArrayList<>();
+		
+		LocalDate dataInizio = LocalDate.parse(request.getParameter("dataInizio"));
+		LocalDate dataFine = LocalDate.parse(request.getParameter("dataFine"));
+		LocalDate today = LocalDate.now();
+		
+		System.out.println(dataInizio);
+		System.out.println(dataFine);
+		System.out.println(today);
+		
+		if(dataInizio.isBefore(today)) {
+			System.out.println("La data di check in non puo' essere prima di oggi");
+			lista.add(new ErroreValidazione("dataInizio", "La data di check in " + bundle.getString("error.data.checkinoggi")));
+		}
+		
+		if(dataFine.isBefore(today)) {
+			System.out.println("La data di check out non puo' essere prima di oggi");
+			lista.add(new ErroreValidazione("dataFine", "La data di check out " + bundle.getString("error.data.checkoutoggi")));
+		}
+		
+		if(dataInizio.isAfter(dataFine)) {
+			System.out.println("La data di check in non puo' essere dopo la data di check out");
+			lista.add(new ErroreValidazione("dataInizio", "La data di check in " + bundle.getString("error.data.checkincheckout")));
+		}
+		
 		
 		return lista;
 	}
