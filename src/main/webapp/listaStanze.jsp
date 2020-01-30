@@ -21,6 +21,7 @@
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
+  width: 50px;
 }
 
 #titolo_tabella {
@@ -35,25 +36,29 @@
 
 #customers tr:hover {background-color: #ddd;}
 
-button {
-	width: 50 px;
-  background-color: #4CAF50;
+#centrato{
+  padding: 0 25px;
+   background-color: #4CAF50;
   color: white;
   padding: 8px 10px;
   border: none;
   border-radius: 5px;
-  margin-right: auto;
-  margin-left: auto;
-  
 }
 
+.form {
+	margin: 0 50px;
+	text-align: center;
+	}
+
 #no_button{
-width: 50 px;
+width: 800 px;
   background-color: #FF4500;
   color: white;
   padding: 8px 10px;
   border: none;
   border-radius: 5px;
+ 
+  
 }
 
 
@@ -90,19 +95,23 @@ width: 50 px;
 						<td><c:out value= "${lista.prezzoNotte}">
 							</c:out>
 							</td>
-					<td><c:choose>
-							<c:when test="${lista.disponibile}">
-								<form action="Prenota">
-									<button type="submit" name="button"
+					<td >
+						<c:choose>
+							<c:when test="${lista.disponibile}"> 
+								<form action="Prenota" class="form">
+									<button id="centrato" type="submit" name="button"
 										value="${lista.numeroStanza}">Prenota</button>
 								</form>
 
 							</c:when>
 							<c:otherwise>
+								<div class="form">
 								<button id="no_button" type="button" ">Prenota</button>
+								</div>
 
 							</c:otherwise>
-						</c:choose></td>
+						</c:choose>
+					</td>
 				</tr>
 				
 			</c:forEach>
