@@ -11,6 +11,14 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <link rel="stylesheet" href="css/stile.css" type="text/css">
+<style>
+body {
+background-image: url('image/sfondo3.png');
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-size: 89% 89%;
+}
+</style>
 </head>
 <% String messageLogin = (String)session.getAttribute("messageLogin");%>
 

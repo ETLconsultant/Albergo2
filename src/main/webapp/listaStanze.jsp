@@ -11,8 +11,21 @@
 <%@include file="Header.jsp"%>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css">
+
+
+<script>function f(s) {
+	console.log(s);
+		session.setAttribute("ns", s.getNumeroStanza());
+		
+	}
+</script>
+
+
 </head>
 <body> 
+
+
+
 <div align="center">
 <button class="button2"><a class="link" href="Standard.jsp">Standard </a></button>
 <button class="button2"><a class="link" href="Business.jsp">Business</a></button>
@@ -32,35 +45,39 @@
 			ArrayList<Stanza> stanze = (ArrayList<Stanza>) session.getAttribute("stanze");
 			pageContext.setAttribute("listaStanze", stanze);
 		%>
+		
+		
+	
 		<c:forEach var="ling" items="${listaStanze}">
-
+				<form action="Prenota" method="post">
 			<tr>
 				<td><c:out value="${ling.numeroStanza}"></c:out></td>
 				<td><c:out value="${ling.tipoStanza}"></c:out></td>
 				<td><c:out value="${ling.postiLetto}"></c:out></td>
 				<td><c:out value="${ling.prezzoNotte}"></c:out></td>
-				
+				<script>console.log("riga");</script>	
 				<td><c:if test="${ling.disponibile==true }">
 				
-				<script>function f(s) {
-						session.setAttribute("ns", s.getNumeroStanza());
-						session.setAttribute("ts", s.getNumeroStanza());
-					}
-				</script>
 			
-				<button onclick="f(ling)" class="button3" > <a href="prenota.jsp">Prenota</a> </button>
+				<input type="submit" class="button3" name="b" data-value="${ling.numeroStanza}">
+				<input type="hidden" name ="c" value="${ling.tipoStanza}">
+			
 				 
 				 </c:if> 
 				 <c:if test="${ling.disponibile==false }">
 				<button class="button3 disabled">Non Disponibile </button>
-				 </c:if> </td>
+				 </c:if> 
+				 </td>
 				
 
 			</tr>
+				</form>
 		</c:forEach>
+		
+	
 	</table>
 
 
-	<%@include file="Footer.jsp"%>
+<%@include file="Footer.jsp"%>
 </body>
 </html>
