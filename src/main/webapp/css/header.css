@@ -1,9 +1,11 @@
-
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
+body {
+	font: 18px arial, sans-serif;
+}
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
 /*Bottone all'interno della navbar*/
 .button1 {
 	color: gray;
@@ -16,5 +18,4 @@
 
 .button1:hover {
 	color: white;
-} 
-    
+}
