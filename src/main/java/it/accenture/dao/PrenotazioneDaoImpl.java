@@ -207,13 +207,14 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
-		if(resultset != null) 
+		if(resultset != null)
 			try{
 				resultset.close();	
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
 	}
+	
 }
 
 

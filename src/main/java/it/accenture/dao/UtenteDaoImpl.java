@@ -25,7 +25,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	public UtenteDaoImpl() {
 		connection = SingletonConnection.getInstance();
 	}
-	
+
 
 	@Override
 	public void insertUtente(Utente utente) throws DAOException {
@@ -42,7 +42,7 @@ public class UtenteDaoImpl implements UtenteDao {
 				System.out.println("Auto Generated Primary Key " + resultset.getInt(1));
 				utente.setId(resultset.getInt(1));
 			}
-			
+
 			if(numero>0) {
 				System.out.println("Utente inserito correttamente");
 			}
@@ -51,7 +51,7 @@ public class UtenteDaoImpl implements UtenteDao {
 		}finally {
 			close();
 		}
-// va bene ma posso inserire senza password
+		// va bene ma posso inserire senza password
 
 	}
 
@@ -61,12 +61,12 @@ public class UtenteDaoImpl implements UtenteDao {
 		String query= "select * from utente where username=? and password=?";
 		Utente u=new Utente();
 
-// se due utenti hanno stesso username e stessa password esplode
+		// se due utenti hanno stesso username e stessa password esplode
 		try {
 			prepared = connection.prepareStatement(query);
 			prepared.setString(1, username);
 			prepared.setString(2, password);
-			
+
 			resultset = prepared.executeQuery();
 
 			while (resultset.next()) {
@@ -93,9 +93,9 @@ public class UtenteDaoImpl implements UtenteDao {
 			prepared.setString(2, utente.getNome());
 			prepared.setString(3, utente.getUsername());
 			prepared.setInt(4, utente.getId());
-			
+
 			int numeroRighe = prepared.executeUpdate();
-			
+
 			if(numeroRighe>0) {
 				System.out.println("Utente aggiornato");
 			}
@@ -113,7 +113,7 @@ public class UtenteDaoImpl implements UtenteDao {
 		try {
 			prepared = connection.prepareStatement(query);
 			prepared.setInt(1, idUtente);
-			
+
 			int numeroRighe = prepared.executeUpdate();
 			if(numeroRighe>0) {
 				System.out.println("Utente cancellato");
@@ -124,15 +124,10 @@ public class UtenteDaoImpl implements UtenteDao {
 			close();
 		}
 	}
-	
+
 	@Override
 	public void close() {
-		if (connection != null) {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
 		if(prepared != null)
 			try{
 				prepared.close();
@@ -145,7 +140,7 @@ public class UtenteDaoImpl implements UtenteDao {
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
-		}
 	}
-}	
+}
+
 
