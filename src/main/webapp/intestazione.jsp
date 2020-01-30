@@ -50,7 +50,8 @@ String username = (String)session.getAttribute("username");
 			<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">altro link</a>
 			</li>
-
+ 
+ 
 			<!-- Dropdown -->
 			<li class="nav-item dropdown" ><a
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
