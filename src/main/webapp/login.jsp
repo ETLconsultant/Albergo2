@@ -16,6 +16,7 @@ background-attachment:fixed;
 background-size:100% 100%;
 }
 
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
 
 body {
@@ -121,11 +122,13 @@ form button[type=submit] {
 			<p class="messaggi" id="password"></p>
 			</p>
 			<input type="submit" name="bottone" value="Accedi">
-		</form>
-		<br>
-		<p>
+			
+			<p>
 			Non sei registrato? <a href="registrazione.jsp"> Registrati< </a>
 		</p>
+		</form>
+		<br>
+		
 	</div>
 </body>
 </html>
