@@ -55,10 +55,10 @@ public class Update extends HttpServlet {
 		
         HttpSession sessione = req.getSession();
 		
-        String idUtente =(String) sessione.getAttribute("idUtente");
+        String idUtente =(String.valueOf(sessione.getAttribute("id_utente")));
 		String user = req.getParameter("username");
 		String cognome = req.getParameter("cognome");
-		String pass = req.getParameter("passoword");
+		String pass = req.getParameter("password");
 		String name = req.getParameter("nome");
 		
 		
@@ -69,10 +69,6 @@ public class Update extends HttpServlet {
 		ub.setNome(name);
 		ub.setCognome(cognome);
 
-		
-	  
-//			try {
-//				ub = us.getUser(user);
 
 				try {
 						us.updateUtente(ub);;

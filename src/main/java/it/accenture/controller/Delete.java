@@ -41,7 +41,7 @@ public class Delete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessione = request.getSession();
-		String idUtente = (String)sessione.getAttribute("id_utente");
+		String idUtente = (String.valueOf(sessione.getAttribute("id_utente")));
 	
 		ub.setIdUtente(Integer.parseInt(idUtente));
 		
