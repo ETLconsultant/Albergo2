@@ -33,13 +33,15 @@ public class Validatore{
 			System.out.println();
 
 		}
+		
 		String password = request.getParameter("password");
 		String passwordExpression = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%*^&+=])(?=\\S+$).{8,20}$";
-//		String specialCharacterExpression = "^(?=.*[@#$%*^&+=])$";
-//		String atLeastOneNumberExpression = "^(?=.*[0-9])$";
-//		String atLeastOneSmallLetterExpression = "^(?=.*[a-z])$";
-//		String atLeastOneBigLetterExpression = "^(?=.*[A-Z])$";
-//		String noSpacesException = "^(?=\\S+$)$";
+		String minuscola = "^(?=.*[a-z]).{8,20}$";
+		String maiuscola = "^(?=.*[A-Z]).{8,20}$";
+		String numero = "^(?=.*[0-9]).{8,20}$";
+		String speciale = "^(?=.*[!@#$%*^&+=]).{8,20}$";
+		String spazio = "^(?=\\S+$).{8,20}$";
+
 		boolean isPasswordValid = password.matches(passwordExpression);
 		
 		if(password == null || password.length()==0) {
@@ -51,27 +53,36 @@ public class Validatore{
 			lista.add(new ErroreValidazione("password", bundle.getString("error.minlength") + " 8"));
 			System.out.println("password.length()<8");
 		}
-		else if(!isPasswordValid) {
-			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.password")));
-			System.out.println("!password.matches(isPasswordValid)");
+		else if(password.length()>20) {
+			lista.add(new ErroreValidazione("password", bundle.getString("error.maxlength") + " 20"));
+			System.out.println("password.length()>20");
 		}
-//		else if(!password.matches(atLeastOneNumberExpression)) {
-//			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.atleastonenumber")));
-//			System.out.println("password.matches(atLeastOneNumberExpression");
+		else if(!password.matches(minuscola)) {
+			lista.add(new ErroreValidazione("password", bundle.getString("error.atleastonesmall")));
+			System.out.println("!password.matches(minuscola)");
+		}
+		else if(!password.matches(maiuscola)) {
+			lista.add(new ErroreValidazione("password", bundle.getString("error.atleastonebig")));
+			System.out.println("!password.matches(maiuscola)");
+		}
+		else if(!password.matches(numero)) {
+			lista.add(new ErroreValidazione("password", bundle.getString("error.atleastonenumber")));
+			System.out.println("!password.matches(numero)");
+		}
+		else if(!password.matches(speciale)) {
+			lista.add(new ErroreValidazione("password", bundle.getString("error.specialcharacter")));
+			System.out.println("!password.matches(speciale)");
+		}
+		else if(!password.matches(spazio)) {
+			lista.add(new ErroreValidazione("password", bundle.getString("error.nospaces")));
+			System.out.println("!password.matches(spazio)");
+		}
+		
+//		else if(!isPasswordValid) {
+//			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.password")));
+//			System.out.println("!password.matches(isPasswordValid)");
 //		}
-//		else if(!password.matches(atLeastOneSmallLetterExpression)) {
-//			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.atleastonesmall")));
-//			System.out.println("!password.matches(atLeastOneSmallLetterExpression)");
-//		}
-//			
-//		else if(!password.matches(atLeastOneBigLetterExpression)) {
-//			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.atleastonebig")));
-//			System.out.println("!password.matches(atLeastOneBigLetterExpression");
-//		}
-//		else if(!password.matches(noSpacesException)) {
-//			lista.add(new ErroreValidazione("password", "password " + bundle.getString("error.nospaces")));
-//			
-//		}
+
 		String nome = request.getParameter("nome");
 		 
 		if(nome == null || nome.length() == 0)
