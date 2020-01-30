@@ -55,6 +55,7 @@ public class Prenota extends HttpServlet {
 		int numeroStanza=(int) sessione.getAttribute("numeroStanza");
 		Formula formula= Formula.valueOf(req.getParameter("formula"));
 
+		
 		Utente u= new Utente();
 		Stanza s=new Stanza();
 		Prenotazione p= new Prenotazione();

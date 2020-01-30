@@ -23,6 +23,7 @@ if(messaggio!=null){%>
 <%} %>
 
 
+
 <br>Inserisci i dati per la prenotazione:<br>
 <br>
 Stanza numero <%= numeroStanza%><br>
