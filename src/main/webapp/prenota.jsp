@@ -16,6 +16,8 @@ String username=(String)session.getAttribute("username");
 String nome=(String)session.getAttribute("nome");
 String password=(String)session.getAttribute("password");
 String messaggio=(String)request.getAttribute("messaggio"); 
+int numeroStanza = (int)session.getAttribute("numeroStanza");
+
 if(messaggio!=null){%>
 <%= messaggio%>
 <%} %>
@@ -33,7 +35,7 @@ if(messaggio!=null){%>
   <input type="date" name="dataFine" ><br>
    <p class="messaggi" id="dataFine"></p>
   NUMERO STANZA:<br>
-  <input type="number" name="numeroStanza"><br>
+  <input type="number" name="numeroStanza" value= <%= numeroStanza%>><br>
   <p class="messaggi" id="numeroStanza"></p>
   SELEZIONA LA FORMULA CHE PREFERISCI:<br>
   <select name="formula">

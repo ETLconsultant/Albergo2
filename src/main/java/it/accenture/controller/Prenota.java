@@ -33,7 +33,12 @@ public class Prenota extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		HttpSession sessione = req.getSession();
+		String bottone= req.getParameter("button");
+		int numeroStanza = Integer.parseInt(bottone);
+		sessione.setAttribute("numeroStanza", numeroStanza);
+		RequestDispatcher rd=req.getRequestDispatcher("/prenota.jsp");
+		rd.forward(req,resp);
 	}
 	
 	@Override
@@ -46,7 +51,7 @@ public class Prenota extends HttpServlet {
 		String password=(String)sessione.getAttribute("password");
 		LocalDate dataInizio=LocalDate.parse(req.getParameter("dataInizio"));
 		LocalDate dataFine=LocalDate.parse(req.getParameter("dataFine"));
-		int numeroStanza=Integer.parseInt(req.getParameter("numeroStanza"));
+		int numeroStanza=(int) sessione.getAttribute("numeroStanza");
 		Formula formula= Formula.valueOf(req.getParameter("formula"));
 		Utente u= new Utente();
 		Stanza s=new Stanza();
