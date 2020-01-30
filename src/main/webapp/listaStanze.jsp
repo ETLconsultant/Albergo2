@@ -95,7 +95,7 @@ width: 800 px;
 						<td><c:out value= "${lista.prezzoNotte}">
 							</c:out>
 							</td>
-					<td >
+					<td size= 40px>
 						<c:choose>
 							<c:when test="${lista.disponibile}"> 
 								<form action="Prenota" class="form">
