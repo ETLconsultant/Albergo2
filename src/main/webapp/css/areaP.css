@@ -9,6 +9,9 @@
 	font-size: 14px;
 	margin: 4px 2px;
 	cursor: pointer;
+	width: 150px;
+	font: 14px arial, sans-serif;
+	text-align: center;
 }
 
 .button4:hover {
@@ -23,7 +26,7 @@ a:hover {
 	color:white;
 }
 
-input[type=submit] {
+.cancella {
 	background-color: white;
 	border: 2px solid #008CBA;
 	color: black;
@@ -34,8 +37,15 @@ input[type=submit] {
 	font-size: 14px;
 	margin: 4px 2px;
 	cursor: pointer;
+	width: 150px;
+	font: 14px arial, sans-serif;
+	text-align: center;
 }
-input[type=submit]:hover{
+.cancella:hover{
 	background-color: #008B8B;
 	color: white;
+}
+
+body {
+font: 18px arial, sans-serif;
 }
