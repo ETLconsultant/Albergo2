@@ -13,6 +13,11 @@
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <%@include file="Header.jsp"%>
 </head>
+<% String messagePrenotazione = (String)session.getAttribute("messagePrenotazione");%>
+<body>
+<%if (messagePrenotazione!=null ){%>
+<%=messagePrenotazione %>
+<%} %>
 <body>
 
 <c:set var="ns1" scope="page" value="${requestScope.ns}" />
