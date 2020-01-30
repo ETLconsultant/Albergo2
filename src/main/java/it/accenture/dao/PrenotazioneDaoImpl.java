@@ -25,6 +25,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	
 	private Connection connection;
 	private PreparedStatement prepared;
+	private ResultSet rs;
 	
 	public PrenotazioneDaoImpl() {
 		try {
@@ -62,6 +63,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				e.printStackTrace();
 			}
 		}
+		close();
 		
 			
 //		System.out.println(prepared.RETURN_GENERATED_KEYS);
@@ -97,14 +99,26 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		Prenotazione bean=new Prenotazione(rs.getInt("numero_giorni"), rs.getDate("data_inizio").toLocalDate(),rs.getDate("data_fine").toLocalDate(), Formula.valueOf(rs.getString("formula")), rs.getInt("id_utente"), rs.getInt("numero_stanza"));
 		elencoPrenotazioni.add(bean);
 		}
-		
+		close();
 		return elencoPrenotazioni;
+		
 	}
 
 	@Override
 	public void close()  throws SQLException {
+		if (prepared!=null)
+			try {
+				prepared.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		if(rs!=null)
+			try {
+				rs.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
 	
-		connection.close();
 	}
 
 	@Override
@@ -125,7 +139,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		bean.setDataFine(rs.getDate("data_fine").toLocalDate());
 		periodi_pren.add(bean);
 		}
-		
+		close();
 		return periodi_pren;
 	}
 
@@ -165,6 +179,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		}
 		}
 		}
+		close();
 	
 
 		

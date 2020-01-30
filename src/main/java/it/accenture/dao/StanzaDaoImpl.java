@@ -21,6 +21,7 @@ public class StanzaDaoImpl implements StanzaDao {
 	private Connection connection;
 	private Statement statement;
 	private PreparedStatement prepared;
+	private ResultSet rs;
 
 	
 	public StanzaDaoImpl () {
@@ -120,14 +121,12 @@ public class StanzaDaoImpl implements StanzaDao {
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}
-		if (connection != null) {
+		if(rs!=null)
 			try {
-				connection.close();
-			} catch (SQLException e) {
+				rs.close();
+			}catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
-	    }
 	}
 
 	

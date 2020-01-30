@@ -20,6 +20,7 @@ public class UtenteDaoImpl implements UtenteDao {
 	private Connection connection;
 	private PreparedStatement prepared;
 	private Statement statement;
+	private ResultSet rs;
 	
 	
 	
@@ -75,7 +76,9 @@ public class UtenteDaoImpl implements UtenteDao {
 			if (rs.next()) {
 				System.out.println("Auto Generated Primary Key " + rs.getInt(1));
 				utente.setIdUtente(rs.getInt(1));
-			}		
+			}
+			
+			close();
 		
 	}
 
@@ -112,6 +115,7 @@ public class UtenteDaoImpl implements UtenteDao {
 			 close();	
 			 System.out.println(utente);
 			 return utente;
+			 
 			 
 			
 
@@ -171,22 +175,17 @@ public class UtenteDaoImpl implements UtenteDao {
 			 } catch (SQLException e) {
 				 e.printStackTrace();
 			 }
-		 if(prepared != null)
-			 try {
-				 prepared.close();
-			 } catch (SQLException e) {
-				 e.printStackTrace();
-		if (connection != null) {
-			try {
-				connection.close();
-			} catch (SQLException e1) {
-				e.printStackTrace();
-			}
+		 if(rs!=null)
+				try {
+					rs.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+		
+		
 		
 
      }
-		
 	}
-	}
-	}	
+	
 	

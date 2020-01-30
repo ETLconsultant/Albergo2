@@ -31,8 +31,6 @@ public class ListaPrenotazioni extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		Utente u1 = (Utente) session.getAttribute("utente");
-		
-	
 		PrenotazioneService prenot = new PrenotazioneService();
 		
 		try {
@@ -45,7 +43,6 @@ public class ListaPrenotazioni extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("/listaPrenotazioni.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 		

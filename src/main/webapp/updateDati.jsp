@@ -20,7 +20,7 @@
 <%} %>
 
 <p Id="mex"></p>
-<form name="myForm" action="ServletUpdate" method="post"  onsubmit="fieldValidation()">
+<form name="myForm" action="Update" method="post"  onsubmit="fieldValidation()">
 
 <p>Username: </p>
 <input type ="text" name = "username" size = "20px"  >
