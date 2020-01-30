@@ -71,7 +71,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		try {
 			prepared = connection.prepareStatement(query);
 			prepared.setInt(1, idUtente);
-			
+
 			resultset=prepared.executeQuery();
 
 			while(resultset.next()) {
@@ -86,11 +86,11 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				p.setNumeroStanza(resultset.getInt("numero_stanza"));
 				allPrenotazioniUtente.add(p);
 			}
-			}catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				close();
-			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 		return allPrenotazioniUtente;
 	}
 
@@ -104,7 +104,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		try {
 			prepared = connection.prepareStatement(query);
 			prepared.setInt(1, numeroStanza);
-			
+
 			resultset=prepared.executeQuery();
 
 			while(resultset.next()) {
@@ -124,83 +124,111 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		return periodiPrenotazStanza;
 	}
 
-	public boolean isInRange(LocalDate dataInizio, LocalDate dataFine, Periodo periodo) {
-		boolean a= !(dataInizio.isBefore(periodo.getDataInizio()) || dataInizio.isAfter(periodo.getDataFine()));
-		boolean b= !(dataFine.isBefore(periodo.getDataInizio()) || dataFine.isAfter(periodo.getDataFine()));
-		if(a&&b) {
+	public boolean FuoriPeriodo(LocalDate dataInizio, LocalDate dataFine, Periodo periodo) {
+		boolean a= (dataInizio.isBefore(periodo.getDataInizio()) || dataInizio.isAfter(periodo.getDataFine()));
+		boolean b= (dataFine.isBefore(periodo.getDataInizio()) || dataFine.isAfter(periodo.getDataFine()));
+		if(a && b) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public boolean controlloDate(LocalDate dataInizio, LocalDate dataFine, int numeroStanza){
 		// TODO Auto-generated method stub
 		ArrayList<Periodo> periodiPrenotati = getPeriodiByStanza(numeroStanza);
+		boolean ris=false;
 		for(Periodo periodo : periodiPrenotati) {
-			if((isInRange(dataInizio, dataFine, periodo) == true)) {
-				return false;
+			if((FuoriPeriodo(dataInizio, dataFine, periodo) == true)) {
+				ris=true;
 			}
+			else return false;
 		}
-		return true;
+		return ris;
 	}
 
 	@Override
 	public void controlloDisponibilitaQuotidiana(ArrayList<Stanza> listaStanze) {
 		// TODO Auto-generated method stub
+		// Metodo che non funzionava
+		//		ArrayList<Prenotazione> disp = new ArrayList<Prenotazione>();
+		//
+		//		String query= "select * from stanza s left join prenotazione on prenotazione.numero_stanza=s.numero_stanza";
+		//	
+		//		try {	
+		//			prepared = connection.prepareStatement(query);
+		//
+		//			resultset=prepared.executeQuery();
+		//
+		//			while(resultset.next()) {
+		//				Prenotazione p=new Prenotazione();
+		//
+		//				p.setIdPrenotazione(resultset.getInt("id_prenotazione"));
+		//				p.setNumeroGiorni(resultset.getInt("numero_giorni"));
+		//				p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
+		//				p.setDataFine(resultset.getDate("data_fine").toLocalDate());
+		//				p.setFormula(Formula.valueOf(resultset.getString("formula")));
+		//				p.setPrezzoTotale(resultset.getDouble("prezzo_totale"));
+		//				p.setIdUtente(resultset.getInt("id_utente"));
+		//				p.setNumeroStanza(resultset.getInt("numero_stanza"));
+		//				disp.add(p);
+		//			}
+		//
+		//			for (Stanza line: listaStanze){
+		//				if(line.isDisponibile()==false) {
+		//					for (Prenotazione prenotate: disp) {
+		//						if (line.getNumeroStanza()==prenotate.getNumeroStanza()) {
+		//							if (!(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine())) &&
+		//									!(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine()))) {
+		//								System.out.println("tutte prenotate mi spiace");
+		//							}
+		//							else {
+		//								System.out.println("libera solo per oggi: " + line.getNumeroStanza());
+		//							}
+		//						}
+		//					}
+		//				}else {
+		//					System.out.println("libera: " + line.getNumeroStanza());
+		//				}
+		//			}
+		//		}catch (SQLException e) {
+		//			e.printStackTrace();
+		//		}finally {
+		//			close();
+		//		}
 
-		ArrayList<Prenotazione> disp = new ArrayList<Prenotazione>();
-
-		String query= "select * from stanza s left join prenotazione on prenotazione.numero_stanza=s.numero_stanza";
-	
-		try {	
+		ArrayList<Stanza> disponibili= new ArrayList<Stanza>();
+		String query = " select * from stanza where stanza.disponibile=1 ";
+		try {
 			prepared = connection.prepareStatement(query);
 
 			resultset=prepared.executeQuery();
 
 			while(resultset.next()) {
-				Prenotazione p=new Prenotazione();
-
-				p.setIdPrenotazione(resultset.getInt("id_prenotazione"));
-				p.setNumeroGiorni(resultset.getInt("numero_giorni"));
-				p.setDataInizio(resultset.getDate("data_inizio").toLocalDate());
-				p.setDataFine(resultset.getDate("data_fine").toLocalDate());
-				p.setFormula(Formula.valueOf(resultset.getString("formula")));
-				p.setPrezzoTotale(resultset.getDouble("prezzo_totale"));
-				p.setIdUtente(resultset.getInt("id_utente"));
-				p.setNumeroStanza(resultset.getInt("numero_stanza"));
-				disp.add(p);
+				Stanza s=new Stanza();
+				s.setDisponibile(resultset.getBoolean("disponibile"));
+				s.setPostiLetto(resultset.getInt("posti_letto"));
+				s.setTipoStanza(TipoStanza.valueOf(resultset.getString("tipo_stanza")));
+				s.setNumeroStanza(resultset.getInt("numero_stanza"));
+				s.setPrezzoNotte(resultset.getDouble("prezzo_notte"));
+				disponibili.add(s);
 			}
-
-			for (Stanza line: listaStanze){
-				if(line.isDisponibile()==false) {
-					for (Prenotazione prenotate: disp) {
-						if (line.getNumeroStanza()==prenotate.getNumeroStanza()) {
-							if (!(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine())) &&
-									!(LocalDate.now().isBefore(prenotate.getDataInizio()) || LocalDate.now().isAfter(prenotate.getDataFine()))) {
-								System.out.println("tutte prenotate mi spiace");
-							}
-							else {
-								System.out.println("libera solo per oggi: " + line.getNumeroStanza());
-							}
-						}
-					}
-				}else {
-					System.out.println("libera: " + line.getNumeroStanza());
-				}
-			}
-		}catch (SQLException e) {
+			for (Stanza s : disponibili) {
+				System.out.println(s.toString());
+			}}
+		catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
+
 	}
 
 	@Override
 	public void close() {
-			
+
 		if(prepared != null)
 			try{
 				prepared.close();
@@ -214,7 +242,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				e.printStackTrace();
 			}
 	}
-	
+
 }
 
 

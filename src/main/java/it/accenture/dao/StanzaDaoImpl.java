@@ -11,11 +11,11 @@ import it.accenture.model.TipoStanza;
 
 //QUALCOSA NON VA CON LE CONNESSIONI MARONN!
 public class StanzaDaoImpl implements StanzaDao {
-	
+
 	private Connection connection;
 	private PreparedStatement prepared;
 	private ResultSet resultset;
-	
+
 	public StanzaDaoImpl() {
 		connection = SingletonConnection.getInstance();
 	}
@@ -24,13 +24,13 @@ public class StanzaDaoImpl implements StanzaDao {
 	public ArrayList<Stanza> getAll() {
 		// TODO Auto-generated method stub		
 		ArrayList<Stanza> listaStanze = new ArrayList<Stanza>();
-		
+
 		String query = "select * from stanza";
 		try {
-			
+
 			prepared = connection.prepareStatement(query);
 			resultset = prepared.executeQuery(); 
-			
+
 			while(resultset.next()) {
 				Stanza stanza = new Stanza();
 				stanza.setNumeroStanza(resultset.getInt("numero_stanza"));
@@ -53,19 +53,19 @@ public class StanzaDaoImpl implements StanzaDao {
 	public void updateDisponibile(boolean disponibile, int numeroStanza) {
 		// TODO Auto-generated method stub
 		String query = "update stanza set disponibile=? where numero_stanza=?";
-//		Stanza s = getStanzaById(numeroStanza);
-//		System.out.println(s.toString());
-		
+		//		Stanza s = getStanzaById(numeroStanza);
+		//		System.out.println(s.toString());
+
 		try {
-		
+
 			prepared = connection.prepareStatement(query);
-//			System.out.println("misono connesso");
-//			prepared.setString(1, s.getTipoStanza().name());
-//			prepared.setInt(2, s.getPostiLetto());
-//			prepared.setDouble(3,  s.getPrezzoNotte());
+			//			System.out.println("misono connesso");
+			//			prepared.setString(1, s.getTipoStanza().name());
+			//			prepared.setInt(2, s.getPostiLetto());
+			//			prepared.setDouble(3,  s.getPrezzoNotte());
 			prepared.setBoolean(1, disponibile);
 			prepared.setInt(2, numeroStanza);
-			
+
 			int numeroRighe = prepared.executeUpdate(); 
 			if(numeroRighe>0) {
 				System.out.println("Aggiornameto avvenuto con successo");
@@ -87,9 +87,9 @@ public class StanzaDaoImpl implements StanzaDao {
 		try {
 			prepared = connection.prepareStatement(query);
 			prepared.setInt(1, numeroStanza);
-			
+
 			resultset = prepared.executeQuery();
-	
+
 			while(resultset.next()) {
 				stanza.setNumeroStanza(numeroStanza);
 				stanza.setTipoStanza(TipoStanza.valueOf(resultset.getString("tipo_stanza")));
@@ -109,16 +109,16 @@ public class StanzaDaoImpl implements StanzaDao {
 	public ArrayList<Stanza> getAllByTipoStanza(TipoStanza tipoStanza) {
 		// TODO Auto-generated method stub
 		ArrayList<Stanza> listaStanzeTipo = new ArrayList<Stanza>();
-			
-		
+
+
 		String query = "select * from stanza where tipo_stanza = ?";
-			
+
 		try {
 			prepared = connection.prepareStatement(query);
 			prepared.setString(1, tipoStanza.name());
-				
+
 			resultset = prepared.executeQuery();
-		
+
 			while(resultset.next()) {
 				Stanza stanza = new Stanza();
 				stanza.setNumeroStanza(resultset.getInt("numero_stanza"));
@@ -139,12 +139,12 @@ public class StanzaDaoImpl implements StanzaDao {
 	@Override
 	public void close() {
 		// TODO Auto-generated method stub
-		if (connection != null) {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+//		if (connection != null) 
+//			try {
+//				connection.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
 		if(prepared != null)
 			try{
 				prepared.close();
@@ -157,7 +157,7 @@ public class StanzaDaoImpl implements StanzaDao {
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
-		}
 	}
-	
 }
+
+
