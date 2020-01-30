@@ -1,0 +1,41 @@
+.button4 {
+	background-color: white;
+	border: 2px solid #008CBA;
+	color: black;
+	padding: 12px 28px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.button4:hover {
+	background-color: #008B8B;
+	color: white;
+}
+
+a{
+	color: black;
+}
+a:hover {
+	color:white;
+}
+
+input[type=submit] {
+	background-color: white;
+	border: 2px solid #008CBA;
+	color: black;
+	padding: 12px 28px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+input[type=submit]:hover{
+	background-color: #008B8B;
+	color: white;
+}
