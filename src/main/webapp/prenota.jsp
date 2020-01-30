@@ -12,27 +12,27 @@
 <%@include file="Header.jsp"%>
 </head>
 <body>
+
+<c:set items="${requestScope.ns}" var= "ns" scope="page"/>
+<c:set items="${requestScope.ts}" var= "ts" scope="page"/>
+
 <form action="Prenota" method="post">
-Data Check-in: <input id="datefield" type="date" min="2020-01-01" name="dataInizio" oninput="fieldValidationDate()"></input>
+Data Check-in: <input id="datefield" type="date" min="2020-01-01" name="dataInizio" onload="fieldValidationDate()"></input>
 <br></br>
 Data Check-out: <input type="date" name="dataFine">
 <br></br>
-<select id="formula" >
+<select id="formula" name="formula" >
 <option value ="nothing">formula
   <option value="BB">BB
   <option value="mezza_pensione">mezza pensione
   <option value="pensione_completa">pensione completa
 </select>
+<input ></input>
+
+
 <br></br>
 
-<select id="tipo" >
-<option value ="nothing">tipo stanza
-  <option value="STANDARD">STANDARD
-  <option value="FAMILY">FAMILY
-  <option value="BUSINESS">BUSINESS
-   <option value="SUITE">SUITE
-</select>
-<br></br>
+
 
 <input type="submit" name="submit">
 </form>
