@@ -12,7 +12,7 @@
 <body>
 Bravo, 
 <% String username = (String)request.getAttribute("username"); %>
-<%=username %>
+<%=username %><br>
 Registrazione avvenuta con successo! 
 <br>
 Torna alla <a href="Home.jsp"> Home </a> ed effettua il login

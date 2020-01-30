@@ -37,6 +37,8 @@ float: right;
 </head>
 <body>
 
+
+
 <%
 String username = (String)session.getAttribute("username");
 %>
@@ -77,9 +79,9 @@ String username = (String)session.getAttribute("username");
 			
 			<li class="nav-login">
 			<%if (username != null) {%>
-				<a class="nav-link" href="home.jsp">LOGOUT</a>
-			<%} else { %>
 				<a class="nav-link" href="login.jsp">LOGIN</a>
+			<%} else { %>
+				<a class="nav-link" href="home.jsp">LOGOUT</a>
 				<%} %>
 			</li>
 		</ul>
