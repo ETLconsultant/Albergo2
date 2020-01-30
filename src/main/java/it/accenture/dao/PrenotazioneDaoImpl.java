@@ -200,28 +200,23 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 
 	@Override
 	public void close() {
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(prepared != null)
-				try{
-					prepared.close();
-				}catch(SQLException e){
-					e.printStackTrace();
-				}
-			if(resultset != null) 
-				try{
-					resultset.close();	
-				}catch(SQLException e){
-					e.printStackTrace();
-				}
+			
+		if(prepared != null)
+			try{
+				prepared.close();
+			}catch(SQLException e){
+				e.printStackTrace();
 			}
-		}
-
+		if(resultset != null) 
+			try{
+				resultset.close();	
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+	}
 }
+
+
 
 
 
