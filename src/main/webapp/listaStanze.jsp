@@ -42,6 +42,9 @@ button {
   padding: 8px 10px;
   border: none;
   border-radius: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  
 }
 
 #no_button{
