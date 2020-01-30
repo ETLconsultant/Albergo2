@@ -55,16 +55,16 @@ String username = (String)session.getAttribute("username");
 			<li class="nav-item dropdown" ><a
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> Tipi stanze </a>
-				<div class="dropdown-menu" name="tipoStanza" >
-					<a class="dropdown-item"  name="standard" href="listaStanze" >Standard</a> 
-						<a class="dropdown-item" name="family" href="listaStanze">Family</a> 
+				<div class="dropdown-menu" >
+				
+					<a class="dropdown-item"  href="listaStanze?tipoStanza=STANDARD" >Standard</a> 
+						<a class="dropdown-item" href="listaStanze?tipoStanza=FAMILY">Family</a> 
 						<a
-						class="dropdown-item"  name="business" href="listaStanze" >Business</a> 
-						<a class="dropdown-item"
-						action="listaStanze" name="suite" href="listaStanze">Suite</a>
+						class="dropdown-item"   href="listaStanze?tipoStanza=BUSINESS" >Business</a> 
+						<a class="dropdown-item"	 href="listaStanze?tipoStanza=SUITE">Suite</a>
 				</div></li>
 
-
+			
 
 			<li class="nav-item"><a class="nav-link"
 			<%if (username !=null) {%>

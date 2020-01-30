@@ -33,50 +33,59 @@ public class ListaStanze extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessione=request.getSession();
 		
-		TipoStanza tipoStanza=TipoStanza.valueOf(request.getParameter("tipoStanza"));
-		
+		String tipoStanzaString=request.getParameter("tipoStanza");
+		TipoStanza tipoStanza=TipoStanza.valueOf(tipoStanzaString);
 		Service stanzaService = new Service();
-		Stanza s=new Stanza();
+		
 		ArrayList<Stanza> listaStanze=new ArrayList<Stanza>();
+		listaStanze=stanzaService.getAllByTipoStanza(tipoStanza);
 		
 		
 		
-		
-		
-		switch(tipoStanza) {
-		case STANDARD:
-//			String messaggio="";
-//			request.setAttribute("msg", messaggio);
-			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.STANDARD);
-			sessione.setAttribute("Standard", listaStanze );
-			RequestDispatcher rd= request.getRequestDispatcher("/standard.jsp");
+			
+			request.setAttribute("listaStanze", listaStanze );
+			RequestDispatcher rd= request.getRequestDispatcher("/listaStanze.jsp");
 			rd.forward(request, response);
-		break;
-		case FAMILY:
-//			String messaggio="";
-//			request.setAttribute("msg", messaggio);
-			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.FAMILY);
-			sessione.setAttribute("Family", listaStanze );
-			RequestDispatcher rd1= request.getRequestDispatcher("/family.jsp");
-			rd1.forward(request, response);
-		break;
-		case BUSINESS:
-//			String messaggio="";
-//			request.setAttribute("msg", messaggio);
-			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.BUSINESS);
-			sessione.setAttribute("Business", listaStanze );
-			RequestDispatcher rd2= request.getRequestDispatcher("/business.jsp");
-			rd2.forward(request, response);
-		case SUITE:
-//			String messaggio="";
-//			request.setAttribute("msg", messaggio);
-			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.SUITE);
-			sessione.setAttribute("Suite", listaStanze );
-			RequestDispatcher rd3= request.getRequestDispatcher("/suite.jsp");
-			rd3.forward(request, response);
-		break;
-		default:
+		
+		
 		}
+			
+			
+		
+//		
+//		switch(tipoStanza) {
+//		case "standard":
+////			String messaggio="";
+////			request.setAttribute("msg", messaggio);
+//			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.STANDARD);
+//			sessione.setAttribute("Standard", listaStanze );
+//			RequestDispatcher rd= request.getRequestDispatcher("/standard.jsp");
+//			rd.forward(request, response);
+//		break;
+//		case "family":
+////			String messaggio="";
+////			request.setAttribute("msg", messaggio);
+//			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.FAMILY);
+//			sessione.setAttribute("Family", listaStanze );
+//			RequestDispatcher rd1= request.getRequestDispatcher("/family.jsp");
+//			rd1.forward(request, response);
+//		break;
+//		case "business":
+////			String messaggio="";
+////			request.setAttribute("msg", messaggio);
+//			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.BUSINESS);
+//			sessione.setAttribute("Business", listaStanze );
+//			RequestDispatcher rd2= request.getRequestDispatcher("/business.jsp");
+//			rd2.forward(request, response);
+//		case "suite":
+////			String messaggio="";
+////			request.setAttribute("msg", messaggio);
+//			listaStanze=stanzaService.getAllByTipoStanza(TipoStanza.SUITE);
+//			sessione.setAttribute("Suite", listaStanze );
+//			RequestDispatcher rd3= request.getRequestDispatcher("/suite.jsp");
+//			rd3.forward(request, response);
+//		break;
+//		default:
+//		}
 	}
-}
 		

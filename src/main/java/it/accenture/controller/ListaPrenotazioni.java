@@ -27,7 +27,7 @@ public class ListaPrenotazioni extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession sessione=req.getSession();
 		ArrayList<Prenotazione> listaPrenotazioni=new ArrayList<Prenotazione>();
-		Stanza s=new Stanza();
+		
 		Service PrenotazioneService = new Service();
 		String submit=req.getParameter("listaPrenotazioni");
 		Integer idUtente=(Integer) sessione.getAttribute("idUtente");
