@@ -13,9 +13,12 @@
 <title>Home</title>
 </head>
 <% String messageArea = (String)session.getAttribute("messageArea");%>
-<% String messageLogout = (String)request.getAttribute("messageLogout");%>
+<% String messageLogout = (String)request.getAttribute("messageLogout");
+String msg1 = (String)request.getAttribute("msg1");%>
 <body>
-
+<%if (msg1!=null ){%>
+<%=msg1 %>
+<%} %>
 <%if (messageArea!=null ){%>
 <%=messageArea %>
 <%} %>

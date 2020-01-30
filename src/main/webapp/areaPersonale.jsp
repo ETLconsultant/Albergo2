@@ -9,17 +9,25 @@
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <link rel="stylesheet" href="css/areaP.css" type="text/css">
 </head><% String messageArea = (String)session.getAttribute("messageArea");%>
-<%String username1 = (String)session.getAttribute("username"); %>
+<%String username1 = (String)session.getAttribute("username"); 
+String msg = (String)request.getAttribute("msg");%>
 <body>
 
+<%if (msg != null) {
+				%>
+				<%=msg%>
+				<%} %>
 
-<%if (messageArea!=null ){%>
+<%if (messageArea!=null && msg==null){%>
 <%=messageArea %>
 <%} %>
-
+<%if (msg == null) {%>
+				
+				
 <p>Ciao <%=username1 %>, da qui puoi modificare i tuoi dati o cancellare il tuo account. Seleziona l'operazione che vuoi effettuare: </p>
-
-
+<br>
+<%} %>
+<br>
 <button class="button4"><a href="updateDati.jsp" id="dati"> Modifica Dati</a></button>
 
 

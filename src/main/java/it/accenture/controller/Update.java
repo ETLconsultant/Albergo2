@@ -77,7 +77,7 @@ public class Update extends HttpServlet {
 						sessione.setAttribute("cognome", ub.getCognome());
 						sessione.setAttribute("password", ub.getPassword());
 						
-						req.setAttribute("msg", "aggiornamento avvenuto con successo");
+						req.setAttribute("msg", "Aggiornamento dei dati avvenuto con successo!");
 						RequestDispatcher rd =req.getRequestDispatcher("/areaPersonale.jsp"); 
 						rd.forward(req, resp);
 

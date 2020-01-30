@@ -49,7 +49,8 @@ public class Delete extends HttpServlet {
 		
 		try {
 			us.deleteteUtenteById(Integer.parseInt(idUtente));
-			request.setAttribute("msg", "cancellazione avvenuta con successo");
+			request.setAttribute("msg1", "Cancellazione avvenuta con successo. Torna presto a trovarci!");
+			sessione.invalidate();
 			RequestDispatcher rd =request.getRequestDispatcher("/Home.jsp"); 
 			rd.forward(request, response);
 		} catch (SQLException e) {
