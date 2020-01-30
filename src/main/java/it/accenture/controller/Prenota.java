@@ -76,12 +76,12 @@ public class Prenota extends HttpServlet {
 
 		messaggio="Prenotazione riuscita.";
 		req.setAttribute("messaggio", messaggio);
-		req.setAttribute("prezzoTotale", p.getPrezzoTotale());
+		req.setAttribute("prenotazione", p);
 
 		//			service.pclose();
 		//			service.sclose();
 
-		RequestDispatcher rd=req.getRequestDispatcher("listaPrenotazioni.jsp");
+		RequestDispatcher rd=req.getRequestDispatcher("prenotazione.jsp");
 		rd.forward(req,resp);
 	}
 
