@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 		
 		session.setAttribute("messageArea", messageArea);
 		session.setAttribute("messageLogin", messageLogin);
-		System.out.println("strunz" );
+	
 		try {
 			System.out.println(" ma davvero?" + userservice.loginControl(username, password));
 			if(userservice.loginControl(username, password)== false) {
@@ -74,6 +74,7 @@ public class Login extends HttpServlet {
 				
 				session.setAttribute("utente", userservice.getByUsernameAndPassword(username, password));
 				session.setAttribute("username", username);
+				session.setAttribute("id_utente", userservice.getByUsernameAndPassword(username, password).getIdUtente());
 				RequestDispatcher rd = request.getRequestDispatcher("/Home.jsp");
 				rd.forward(request, response);
 				
