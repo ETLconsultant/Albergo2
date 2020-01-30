@@ -8,6 +8,7 @@
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/stile.css" type="text/css">
+<link rel="stylesheet" href="css/form.css" type="text/css">
 <head>
 <%@include file="Header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -21,7 +22,7 @@
 		<table align="center">
 
 			<tr height="50" align="center">
-				<th colspan="6" valign="middle">REGISTRAZIONE UTENTE</th>
+				<th colspan="6" valign="middle"><h3>REGISTRAZIONE UTENTE</h3></th>
 			</tr>
 
 			<tr >
@@ -56,11 +57,9 @@
 						<c:if test="${errore.campoValidato=='password'}"> ${errore.descrizioneErrore}</c:if>
 					</c:forEach></td>
 			</tr>
-			<br>
-			<br>
 			  
-			<tr height="50">
-				<th colspan="6" valign="middle"><input type="submit"
+			<tr height="100">
+				<th colspan="20" valign="middle"><input type="submit"
 					value="registra" class="button"><br></th>
 			</tr>
 		</table>
