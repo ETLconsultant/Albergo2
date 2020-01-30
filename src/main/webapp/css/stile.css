@@ -1,5 +1,7 @@
 @CHARSET "ISO-8859-1";
-
+body{
+	background-image: url(image_1jpg);
+}
 /*.img-carousel {
 	margin: auto;
 	width: 45%;
