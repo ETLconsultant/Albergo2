@@ -125,7 +125,9 @@ form button[type=submit] {
 			
 			<p>
 			Non sei registrato? <a href="registrazione.jsp"> Registrati< </a>
-		</p>
+			</p>
+			
+
 		</form>
 		<br>
 		
