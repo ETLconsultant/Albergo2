@@ -69,6 +69,9 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();    
 }); 
 </script>
-	<%@include file="Footer.jsp"%>
+
+	
+  	<%@include file="Footer.jsp"%>
+  
 </body>
 </html>
