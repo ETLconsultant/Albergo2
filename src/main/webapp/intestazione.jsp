@@ -58,7 +58,7 @@ String username=(String)session.getAttribute("username");
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="aboutUs.jsp">About Us</a></li>
+					<li ><a href="aboutUs.jsp">About Us</a></li>
 					<li><a href="contatti.jsp">Dove siamo</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Tipi Stanze<span class="caret"></span></a>
