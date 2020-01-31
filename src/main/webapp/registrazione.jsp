@@ -22,6 +22,7 @@ background-size:100% 100%;
 
 form {
 
+
 	width: 100 px;
   padding: 8px 8px;
   margin: 20px 20px;
