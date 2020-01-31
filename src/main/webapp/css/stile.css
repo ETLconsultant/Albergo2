@@ -234,3 +234,8 @@ Hide the carousel text when the screen is less than 600 pixels wide
   .container {
     padding: 80px 120px;
   }
+
+  .spa{
+  	font-family: Helvetica, Arial, sans-serif;
+   font-size: 14px;
+  }
