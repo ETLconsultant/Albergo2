@@ -78,7 +78,7 @@ public class Prenota extends HttpServlet {
 		
 		di= LocalDate.parse(req.getParameter("dataInizio"));
 		df= LocalDate.parse(req.getParameter("dataFine"));
-		
+		System.out.println(req.getParameter("formula"));
 		f=Formula.valueOf(req.getParameter("formula"));
 		
 
@@ -118,7 +118,7 @@ public class Prenota extends HttpServlet {
 					session.setAttribute("messagePrenotazione", messagePrenotazione);
 //					RequestDispatcher rd=req.getRequestDispatcher("/listaPrenotazioni.jsp");
 //					rd.forward(req,resp);
-					resp.sendRedirect("/ListaPrenotazioni");
+					resp.sendRedirect("ListaPrenotazioni");
 				} catch (ConnessioneException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
