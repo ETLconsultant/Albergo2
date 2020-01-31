@@ -26,9 +26,9 @@
 
 
 <form action="Prenota" method="post">
-Data Check-in: <input id="datefield1" type="date" min="2020-01-01" name="dataInizio" onclick="fieldValidationDate()"></input>
+Data Check-in: <input id="datefield1" type="date" name="dataInizio" onclick="fieldValidationDate()"></input>
 <br></br>
-Data Check-out: <input id="datefield2" type="date" name="dataFine" min="2020-01-01" onclick="fieldValidationDate()">
+Data Check-out: <input id="datefield2" type="date" name="dataFine" onclick="fieldValidationDate()">
 <br></br>
 Formula<select id="formula" name="formula" >
   <option value="BB">BB
