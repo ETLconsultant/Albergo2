@@ -86,9 +86,9 @@ background-size:100% 100%;
     
     
           <div class="item">
-        <img src="Immagini/hotel.jpg" alt="Image">
+        <img src="Immagini/investimenti.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>La struttura</h3>
+          <h3>Investimenti sicuri</h3>
         </div>      
       </div>
     </div>
