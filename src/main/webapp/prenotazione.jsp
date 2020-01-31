@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page='intestazione.jsp' />
 <meta charset="ISO-8859-1">
 <title>La tua prenotazione</title>
 
@@ -77,4 +78,7 @@ if(messaggio!=null){%>
 
 
 </body>
+<footer>
+<%@include file="/fondopagina.jsp"%>
+</footer>
 </html>
