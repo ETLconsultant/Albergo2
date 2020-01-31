@@ -27,7 +27,7 @@ public class ListaPrenotazioni extends HttpServlet {
 	ArrayList<Prenotazione> listaPrenot = new ArrayList<Prenotazione>();
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
 		Utente u1 = (Utente) session.getAttribute("utente");
