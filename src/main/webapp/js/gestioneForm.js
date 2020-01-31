@@ -2,6 +2,7 @@ function SoleLettere(){
 	return(event.charCode>64 && event.charCode<91)|| (event.charCode>96 && event.charCode<123)
 }
 
+
 function validateFormReg() {
 	var nome = document.forms["FormReg"]["nome"].value;
 	var username = document.forms["FormReg"]["username"].value;
