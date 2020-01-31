@@ -1,6 +1,7 @@
 package it.accenture.validator;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -10,6 +11,7 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
+import it.accenture.model.Formula;
 import it.accenture.service.Service;
 
 
@@ -53,6 +55,18 @@ public class Validatore{
 	}
 
 	//TODO: aggiungere tutti i controlli per le diverse form del sito
-	
+	public static List<ErroreValidazione> validazionePrenotazione(HttpServletRequest request){
+		List<ErroreValidazione> lista = new ArrayList<>();
+		
+		LocalDate dataInizio=LocalDate.parse(request.getParameter("dataInizio"));
+		if(dataInizio.isBefore(LocalDate.now())) 
+			lista.add(new ErroreValidazione("dataInizio", bundle.getString("error.data.oggi")));
+
+		LocalDate dataFine=LocalDate.parse(request.getParameter("dataFine"));
+		if(dataFine.isBefore(dataInizio))
+			lista.add(new ErroreValidazione("dataInizio", bundle.getString("error.data.fine")));
+		
+		return lista;
+	}
 }
 

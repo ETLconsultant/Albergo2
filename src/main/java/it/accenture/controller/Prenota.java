@@ -25,6 +25,8 @@ import it.accenture.model.Prenotazione;
 import it.accenture.model.Stanza;
 import it.accenture.model.Utente;
 import it.accenture.service.Service;
+import it.accenture.validator.ErroreValidazione;
+import it.accenture.validator.Validatore;
 
 @WebServlet("/Prenota")
 public class Prenota extends HttpServlet {
@@ -59,6 +61,14 @@ public class Prenota extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession sessione = req.getSession();
 		String messaggio;
+		
+		List<ErroreValidazione> lista = Validatore.validazionePrenotazione(req);
+		if(lista.size()!=0){
+			req.setAttribute("lista", lista );
+			RequestDispatcher rd= req.getRequestDispatcher("prenota.jsp");
+			rd.forward(req, resp);
+		}
+		else {
 
 		int idUtente=(int) sessione.getAttribute("idUtente");
 		String username=(String) sessione.getAttribute("username");
@@ -100,7 +110,7 @@ public class Prenota extends HttpServlet {
 		rd.forward(req,resp);
 	}
 
-
+	}
 }
 
 
