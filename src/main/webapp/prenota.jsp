@@ -22,18 +22,18 @@
 
 <c:set var="ns1" scope="page" value="${requestScope.ns}" />
 <c:set var= "ts1" scope="page" value="${requestScope.ts}"/>
-<c:out value="${ns1}"/>
+
 
 <form action="Prenota" method="post">
-Data Check-in: <input id="datefield" type="date" min="2020-01-01" name="dataInizio" onload="fieldValidationDate()"></input>
+Data Check-in: <input id="datefield1" type="date" min="2020-01-01" name="dataInizio" onclick="fieldValidationDate()"></input>
 <br></br>
-Data Check-out: <input type="date" name="dataFine">
+Data Check-out: <input id="datefield2" type="date" name="dataFine" min="2020-01-01" onclick="fieldValidationDate()">
 <br></br>
 <select id="formula" name="formula" >
 <option value ="nothing">formula
   <option value="BB">BB
-  <option value="mezza_pensione">mezza pensione
-  <option value="pensione_completa">pensione completa
+  <option value="MEZZA_PENSIONE">mezza pensione
+  <option value="PENSIONE_COMPLETA">pensione completa
 </select>
 <input type="hidden" name="nspar" value= "${ns1}"></input>
 <input type="hidden" name="tspar" value= "${ts1}"></input>

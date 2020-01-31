@@ -96,7 +96,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		Formula f = Formula.BB;
 		
 		while(rs.next()) {
-		Prenotazione bean=new Prenotazione(rs.getInt("numero_giorni"), rs.getDate("data_inizio").toLocalDate(),rs.getDate("data_fine").toLocalDate(), Formula.valueOf(rs.getString("formula")), rs.getInt("id_utente"), rs.getInt("numero_stanza"));
+		Prenotazione bean=new Prenotazione(rs.getInt("numero_giorni"), rs.getDate("data_inizio").toLocalDate(),rs.getDate("data_fine").toLocalDate(), Formula.valueOf(rs.getString("formula")), rs.getDouble("prezzo_totale"), rs.getInt("id_utente"), rs.getInt("numero_stanza"));
 		elencoPrenotazioni.add(bean);
 		}
 		close();
