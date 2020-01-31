@@ -8,27 +8,35 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/stile.css" type="text/css">
 <title>Chi Siamo</title>
+<%@include file="Header.jsp"%>
 </head>
 <body>
 <div class="container text-center">
-  <h3>Javani...Gruppo misto</h3>
-  <p><em>Nel dubbio PULLA!</em></p>
+  <h3>JAVANI GRUPPO...MISTO</h3>
+  <p><em>Nel dubbio...Pulla!</em></p>
   <br>
   <div class="row">
     <div class="col-sm-4">
-      <p><strong>Name</strong></p><br>
-      <img src="mela.jpg" alt="Random Name" width="400" height="400">
+  
+      <img src="image/scimmie.jpg" alt="Random Name" width="255" height="255" data-toggle="popover" title="Descrizione"
+				data-content="Giorgio,Marco,Gianfilippo">
     </div>
- 
     <div class="col-sm-4">
-      <p><strong>Name</strong></p><br>
-      <img src="scimmie.jpg" alt="Random Name" width="400" height="400">
+
+      <img src="image/gruppo.jpg" alt="Random Name" width="255" height="255"data-toggle="popover" title="Descrizione"
+				data-content="Apericena da Nhero">
+    </div>
+    <div class="col-sm-4">
+
+      <img src="image/mela.jpg" alt="Random Name" width="255" height="255"data-toggle="popover" title="Descrizione"
+				data-content="Luciana,Nicola,Sara,Davide,Giulia&Silvia">
     </div>
   </div>
 </div>
-
-  <h2>Frasi Celebri</h2>
+<br> <br> <br> 
+ <div align="center"> <h2>Frasi Celebri</h2> </div>
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -60,6 +68,12 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+
+<script> 
+$(document).ready(function(){ 
+    $('[data-toggle="popover"]').popover();    
+}); 
+</script>
+<%@include file="Footer.jsp"%>
 </body>
 </html>
