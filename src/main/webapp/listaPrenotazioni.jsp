@@ -12,9 +12,11 @@
 <title>Lista Prenotazioni</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css" type="text/css">
+<link rel="stylesheet" href="css/areaP.css" type="text/css">
 </head>
 <% String messagePrenotazione = (String)session.getAttribute("messagePrenotazione");%>
 <body>
+<div class="wrap">
 <%if (messagePrenotazione!=null ){%>
 <%=messagePrenotazione %>
 <%} %>
@@ -46,6 +48,7 @@ pageContext.setAttribute("listaPrenot", listaprenotazioni);
 </tr>
 </c:forEach>
 </table>
+</div>
 <%@include file="Footer.jsp"%>
 </body>
 </html>

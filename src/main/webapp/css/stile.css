@@ -230,3 +230,6 @@ Hide the carousel text when the screen is less than 600 pixels wide
   height: 40% !important;
 }
 
+  .container {
+    padding: 80px 120px;
+  }

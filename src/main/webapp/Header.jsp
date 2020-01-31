@@ -25,7 +25,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Chi Siamo</a></li>
+					<li><a href="chiSiamo.jsp">Chi Siamo</a></li>
 					<% if(session.getAttribute("utente")!=null)  {%>
 					<li><form action="ListaStanze">
 							<input type="submit" name="submit" value="Camere&Suite"
