@@ -24,14 +24,14 @@
 <c:set var="ns1" scope="page" value="${requestScope.ns}" />
 <c:set var= "ts1" scope="page" value="${requestScope.ts}"/>
 
-
+<!--onclick="fieldValidationDate()"  -->
 <form action="Prenota" method="post">
-Data Check-in: <input id="datefield1" type="date" name="dataInizio" onclick="fieldValidationDate()">
+Data Check-in: <input id="datefield1" type="date" name="dataInizio" >
 			<c:forEach items="${listaErroriDate}" var="errore">
 				<c:if test="${errore.campoValidato=='dataInizio'}"> ${errore.descrizioneErrore}</c:if>
 			</c:forEach>
 			<br></br>
-Data Check-out: <input id="datefield2" type="date" name="dataFine" onclick="fieldValidationDate()">
+Data Check-out: <input id="datefield2" type="date" name="dataFine">
 			<c:forEach items="${listaErroriDate}" var="errore" >
 				<c:if test="${errore.campoValidato=='dataFine'}"> ${errore.descrizioneErrore}</c:if>
 			</c:forEach>

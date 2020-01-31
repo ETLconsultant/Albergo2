@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,11 +80,12 @@ public class Prenota extends HttpServlet {
 		Formula f;
 		
 		System.out.println("stampa da dopost: "+ns);
-		
-		System.out.println(req.getParameter("dataInizio"));
+				
 		
 		di= LocalDate.parse(req.getParameter("dataInizio"));
 		df= LocalDate.parse(req.getParameter("dataFine"));
+
+		
 		System.out.println(req.getParameter("formula"));
 		f=Formula.valueOf(req.getParameter("formula"));
 		
@@ -128,8 +130,8 @@ public class Prenota extends HttpServlet {
 						req.setAttribute("ns1", ns);
 						req.setAttribute("ts1", ts);
 						System.out.println(listaErroriDate);
-						RequestDispatcher dis = req.getRequestDispatcher("prenota.jsp");
-						dis.forward(req, resp);
+//						RequestDispatcher dis = req.getRequestDispatcher("prenota.jsp");
+//						dis.forward(req, resp);
 						getServletContext().getRequestDispatcher("/prenota.jsp").include(req, resp);
 						return;
 					}
