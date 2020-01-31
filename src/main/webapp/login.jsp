@@ -13,14 +13,14 @@
 
 <style>
 body {
-	background-image: url('Immagini/login.jpg');
+	background-color: lightblue;
 	text-align: center;
 }
 
-form {
-	width: 40%;
+.form {
+	width: 20%;
 	padding: 8px 8px;
-	margin: 20px 20px;
+	margin: auto auto;
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, .5);
@@ -42,12 +42,13 @@ input[type=submit] {
 	color: red;
 }
 
+
 </style>
 
 </head>
 <body>
 
-	<div class="wrap" >
+	<div class="wrap">
 		<%
 			String messaggio = (String) request.getAttribute("messaggio");
 			if (messaggio != null) {
@@ -55,21 +56,27 @@ input[type=submit] {
 			}
 		%>
 		<br>
-		<p class="messaggi" id="username"></p>
-		<p class="messaggi" id="password"></p>
 
-		<form  name="FormLogin" action="login" method="post"
-			onsubmit="return validateLogin()">
+		<div class="form">
+			<form name="FormLogin" action="login" method="post"
+				onsubmit="return validateLogin()">
 
-			<b>Inserisci i tuoi dati:</b> <br> Username: <input type="text"
-				name="username" size="16 px"> <br> <br> Password:
-			<input type="password" name="password" size="16px"> <br>
-			<br> <input type="submit" name="bottone" value="Accedi">
+				<b>Inserisci i tuoi dati:</b> <br> Username: <input type="text"
+					name="username" size="16 px"> <br> <br> Password:
+				<input type="password" name="password" size="16px"> <br>
+				<br> <input type="submit" name="bottone" value="Accedi">
+				<br>
 
-
-			Non sei registrato? <a href="registrazione.jsp"> Registrati</a> <br>
-			Torna alla <a href="Home.jsp"> Home </a> <br>
-		</form>
+				<div>
+					Non sei registrato? <a href="registrazione.jsp"> Registrati</a> <br>
+					Torna alla <a href="Home.jsp"> Home </a> <br>
+				</div>
+			</form>
+			<div>
+					<p class="messaggi" id="username"></p>
+					<p class="messaggi" id="password"></p>
+				</div>
+		</div>
 	</div>
 
 </body>

@@ -6,9 +6,10 @@
 <html>
 
 <head>
-<jsp:include page="intestazione.jsp" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lista Stanze</title>
+<jsp:include page="intestazione.jsp" />
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
 
@@ -38,7 +39,7 @@
 	background-color: #f2f2f2;
 }
 
-#customers tr:hover {
+tr #effetto:hover {
 	background-color: #ddd;
 }
 
@@ -85,7 +86,7 @@
 			</tr>
 			<c:forEach var="lista" items="${requestScope.listaStanze}">
 				<br>
-				<tr>
+				<tr id="effetto">
 					<td><c:out value="${lista.numeroStanza}">
 						</c:out></td>
 					<td><c:out value="${ lista.tipoStanza}">
@@ -103,7 +104,7 @@
 							</c:when>
 							<c:otherwise>
 								<div class="form">
-									<button id="no_button" type="button"">Prenota</button>
+									<button id="no_button" type="button"">Già Prenotata</button>
 								</div>
 
 							</c:otherwise>

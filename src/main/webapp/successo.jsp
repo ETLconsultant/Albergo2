@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Successo</title>
+<jsp:include page="intestazione.jsp" />
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
