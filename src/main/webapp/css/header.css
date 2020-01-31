@@ -17,3 +17,8 @@
 .button1:hover {
 	color: white;
 }
+
+.button1:active {
+	background-color:black;
+	border: none;
+}
