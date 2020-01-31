@@ -41,6 +41,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 
 		String query= "insert into prenotazione (numero_giorni,data_inizio,data_fine,formula,prezzo_totale,id_utente,numero_stanza) values (?,?,?,?,?,?,?)";
 		StanzaService stanzaService= new StanzaService();
+		
 	
 		prepared = connection.prepareStatement(query,prepared.RETURN_GENERATED_KEYS);
 	//	PreparedStatement prepared1= connection.prepareStatement(query);
