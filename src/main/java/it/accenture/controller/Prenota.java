@@ -47,6 +47,7 @@ public class Prenota extends HttpServlet {
 			}
 			else {
 				messaggio="Devi effettuare il login per prenotare";
+				req.setAttribute("messaggio", messaggio);
 				RequestDispatcher rd=req.getRequestDispatcher("/login.jsp");
 				rd.forward(req,resp);
 				
