@@ -5,7 +5,7 @@
 
 
 <head>
-<jsp:include page='intestazione.jsp' />
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <jsp:include page='intestazione.jsp' />

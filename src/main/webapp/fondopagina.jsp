@@ -10,11 +10,7 @@
 <style>
 
 
-*{
-margin: 0;
-padding : 0;
-box-sizing: border-box;
-}
+
 
 
 /* Place the navbar at the bottom of the page, and make it stick */
@@ -22,8 +18,9 @@ box-sizing: border-box;
   background-color: #333;
   overflow: hidden;
   position: relative;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
+  margin-top: 400px;
 }
 
 /* Style the links inside the navigation bar */
