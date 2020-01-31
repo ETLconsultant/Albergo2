@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <style>
-#storia {
+#storia{
 	
 	text-align: center;
 	color: black;
