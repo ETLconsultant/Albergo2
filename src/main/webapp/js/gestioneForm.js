@@ -3,17 +3,28 @@ function fieldValidationDate(){
 	var dd = today.getDate();
 	var mm = today.getMonth()+1; //January is 0!
 	var yyyy = today.getFullYear();
+	var nextDay =new Date(today);
+	nextDay.setDate(today.getDate()+1);
+	var dd1 = nextDay.getDate();
+	var mm1 = nextDay.getMonth()+1;
+	var yyyy1 = nextDay.getFullYear();
 	 if(dd<10){
 	        dd='0'+dd
 	    } 
 	    if(mm<10){
 	        mm='0'+mm
 	    } 
-
+	    if(dd1<10){
+	        dd1='0'+dd1
+	    } 
+	    if(mm1<10){
+	        mm1='0'+mm1
+	    } 
 	today = yyyy+'-'+mm+'-'+dd;
+	nextDay = yyyy1+'-'+mm1+'-'+dd1;
 	console.log(today);
 	document.getElementById("datefield1").setAttribute("min", today);
-	document.getElementById("datefield2").setAttribute("min", today);
+	document.getElementById("datefield2").setAttribute("min", nextDay);
 
 }
 
