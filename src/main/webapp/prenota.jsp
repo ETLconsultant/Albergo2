@@ -9,7 +9,8 @@
 <title>Prenotazione</title>
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/stile.css">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/areaP.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <%@include file="Header.jsp"%>
 </head>
@@ -19,7 +20,7 @@
 <%=messagePrenotazione %>
 <%} %>
 <body>
-
+<div class="wrap">
 <c:set var="ns1" scope="page" value="${requestScope.ns}" />
 <c:set var= "ts1" scope="page" value="${requestScope.ts}"/>
 
@@ -29,8 +30,7 @@ Data Check-in: <input id="datefield1" type="date" min="2020-01-01" name="dataIni
 <br></br>
 Data Check-out: <input id="datefield2" type="date" name="dataFine" min="2020-01-01" onclick="fieldValidationDate()">
 <br></br>
-<select id="formula" name="formula" >
-<option value ="nothing">formula
+Formula<select id="formula" name="formula" >
   <option value="BB">BB
   <option value="MEZZA_PENSIONE">mezza pensione
   <option value="PENSIONE_COMPLETA">pensione completa
@@ -42,9 +42,9 @@ Data Check-out: <input id="datefield2" type="date" name="dataFine" min="2020-01-
 
 
 
-<input type="submit" name="submit">
+<input type="submit" name="submit" class="button4">
 </form>
-
+</div>
 	<%@include file="Footer.jsp"%>
 </body>
 </html>

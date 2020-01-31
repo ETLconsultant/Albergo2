@@ -18,7 +18,7 @@
 	String msg = (String) request.getAttribute("msg");
 %>
 <body>
-
+<div class="wrap">
 	<%
 		if (msg != null) {
 	%>
