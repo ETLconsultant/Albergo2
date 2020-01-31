@@ -23,7 +23,7 @@
 }
 
 #titolo_tabella {
-	padding-top: 12px;
+  padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
   background-color: #4CAF50;
@@ -33,6 +33,8 @@
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
 #customers tr:hover {background-color: #ddd;}
+
+
 
 </style>
 </head>
@@ -44,12 +46,12 @@
 				<tr id="titolo_tabella">
 						<td><%="id utente"%>
 						<td><%="id Prenotazione"%>
-						<td><%="numero stanza"%>
-						<td><%="data inizio"%>
-						<td><%="data fine"%>
-						<td><%="numeri giorni"%>
-						<td><%="formula"%>
-						<td><%="prezzo"%>
+						<td><%="Numero stanza"%>
+						<td><%="Data inizio"%>
+						<td><%="Data fine"%>
+						<td><%="Numero di giorni"%>
+						<td><%="Formula selezionata"%>
+						<td><%="Prezzo"%>
 				</tr>
 			<c:forEach var="lista" items="${requestScope.listaPrenotazione}">
 				<br>
