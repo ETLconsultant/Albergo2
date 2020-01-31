@@ -14,11 +14,15 @@
 <link rel="stylesheet" href="css/stile.css" type="text/css">
 <link rel="stylesheet" href="css/areaP.css" type="text/css">
 </head>
+<% String messagePrenot = (String)session.getAttribute("messagePrenot");%>
 <% String messagePrenotazione = (String)session.getAttribute("messagePrenotazione");%>
 <body>
 <div class="wrap">
 <%if (messagePrenotazione!=null ){%>
 <%=messagePrenotazione %>
+<%} %>
+<%if (messagePrenot!=null ){%>
+<%=messagePrenot %>
 <%} %>
 <table id="tabella">
 		<tr>

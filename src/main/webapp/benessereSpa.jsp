@@ -15,7 +15,7 @@
 </head>
 <body>
 <p class="spa"> Vuoi fuggire dallo stress metropolitano? Lasciati coccolare dalla nostra SPA... </p>
-<img src="image/DavideSPA.jpg" title="Davide" height="750px" >
+<img src="image/DavideSPA.jpg" title="Davide" height="750px">
 <p class="spa"> Il nostro Davide ha provato i nostri servizi, ed ora non può più farne a meno! </p>
 
 
