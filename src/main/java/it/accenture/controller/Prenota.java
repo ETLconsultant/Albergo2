@@ -30,10 +30,13 @@ import it.accenture.model.TipoStanza;
 import it.accenture.model.Utente;
 import it.accenture.service.PrenotazioneService;
 import it.accenture.service.StanzaService;
+import it.accenture.validator.ErroreValidazione;
+import it.accenture.validator.Validatore;
 
 @WebServlet("/Prenota")
 public class Prenota extends HttpServlet {
 	String messageLogin = " ";
+	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -59,10 +62,11 @@ public class Prenota extends HttpServlet {
 		Stanza stanzaBean = new Stanza();
 //		System.out.println("entrato !!!!!!!!!!!!!!!!!");
 //		System.out.println(session.getAttribute("ns"));
-		System.out.println(req.getParameter("nspar"));
-		int ns =Integer.parseInt(req.getParameter("nspar"));
+
+		int	ns =Integer.parseInt(req.getParameter("nspar"));
 		TipoStanza ts = TipoStanza.valueOf(req.getParameter("tspar"));
 
+		
 		System.out.println(ns);
 		System.out.println(ts);
 	
@@ -114,6 +118,20 @@ public class Prenota extends HttpServlet {
 				
 
 				try {
+					
+					List<ErroreValidazione> listaErroriDate = Validatore.validazionePrenota(req);
+					
+					if(listaErroriDate.size()!=0){
+						req.setAttribute("listaErroriDate", listaErroriDate);
+						req.setAttribute("ns1", ns);
+						req.setAttribute("ts1", ts);
+						System.out.println(listaErroriDate);
+						RequestDispatcher dis = req.getRequestDispatcher("prenota.jsp");
+						dis.forward(req, resp);
+						getServletContext().getRequestDispatcher("/prenota.jsp").include(req, resp);
+						return;
+					}
+					
 					Prenotazione prenotazioneBean= new Prenotazione();
 					prenotazioneBean.setNumeroGiorni(numeroGiorni);
 					prenotazioneBean.setDataInizio(di);
