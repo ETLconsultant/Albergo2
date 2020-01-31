@@ -7,8 +7,8 @@
 <head>
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<jsp:include page='intestazione.jsp' />
+<title>Dove siamo</title>
+<jsp:include page="intestazione.jsp" />
 </head>
 
 <style>
