@@ -70,7 +70,7 @@ if(messaggio!=null){%>
 				</tr>
 			</table>
 			<div >
-			<button id="centrato" ><a  href="listaPrenotazioni.jsp" > INVIA</a></button>
+			<button id="centrato" ><a  href="listaPrenotazioni" > Vai alla tua lista prenotazioni</a></button>
 			</div>
 		
 
