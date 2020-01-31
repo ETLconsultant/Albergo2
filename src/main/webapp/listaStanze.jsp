@@ -11,7 +11,9 @@
 <title>Lista Stanze</title>
 <jsp:include page="intestazione.jsp" />
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
 
 
 <style>

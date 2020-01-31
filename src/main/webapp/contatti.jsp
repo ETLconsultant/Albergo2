@@ -9,6 +9,9 @@
 <meta charset="ISO-8859-1">
 <title>Dove siamo</title>
 <jsp:include page="intestazione.jsp" />
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
 </head>
 
 <style>

@@ -60,7 +60,7 @@ String username=(String)session.getAttribute("username");
 				<ul class="nav navbar-nav">
 					<li ><a href="aboutUs.jsp">About Us</a></li>
 					<li><a href="contatti.jsp">Dove siamo</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown">Tipi Stanze<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href=" listaStanze?tipoStanza=STANDARD">Standard</a></li>
