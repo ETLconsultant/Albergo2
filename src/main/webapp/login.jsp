@@ -13,7 +13,7 @@
 
 <style>
 body {
-	background-color: lightblue;
+	background-color: white;
 	text-align: center;
 }
 

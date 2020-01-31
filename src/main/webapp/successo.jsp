@@ -9,6 +9,13 @@
 <title>Successo</title>
 <jsp:include page="intestazione.jsp" />
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<style>
+body {
+	background-color: lightblue;
+	text-align: center;
+}
+</style>
+
 </head>
 <body>
 Bravo, 
