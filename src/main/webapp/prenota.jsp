@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <%@include file="Header.jsp"%>
 </head>
-<% String messagePrenotazione = (String)session.getAttribute("messagePrenotazione");%>
+<% String messagePrenotazione = (String)request.getAttribute("messagePrenotazione");%>
 <body>
 <%if (messagePrenotazione!=null ){%>
 <%=messagePrenotazione %>

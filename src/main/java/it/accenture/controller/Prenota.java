@@ -83,24 +83,27 @@ public class Prenota extends HttpServlet {
 		
 
 		
-//		try {
-//			stanzaBean = stanzaService.getStanzaById(ns);
-//		} catch (NumberFormatException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (DAOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (ConnessioneException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			stanzaBean = stanzaService.getStanzaById(ns);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ConnessioneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 		int numeroGiorni = Period.between(di, df).getDays();
 		double prezzoNotte = stanzaBean.getPrezzoNotte();
+		System.out.println(numeroGiorni);
+		System.out.println(prezzoNotte);
+		System.out.println(stanzaBean);
 		double prezzoTotale = (prezzoNotte*numeroGiorni*stanzaBean.getPostiLetto());
 		
 		String messagePrenotazione;
@@ -115,7 +118,7 @@ public class Prenota extends HttpServlet {
 				//	System.out.println("beanPrenotazione " +prenotazioneBean);
 					prenotazioneService.insertPrenotazione(prenotazioneBean);
 					messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
-					session.setAttribute("messagePrenotazione", messagePrenotazione);
+					req.setAttribute("messagePrenotazione", messagePrenotazione);
 //					RequestDispatcher rd=req.getRequestDispatcher("/listaPrenotazioni.jsp");
 //					rd.forward(req,resp);
 					resp.sendRedirect("ListaPrenotazioni");
