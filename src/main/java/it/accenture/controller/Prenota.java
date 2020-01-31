@@ -80,6 +80,8 @@ public class Prenota extends HttpServlet {
 		
 		System.out.println("stampa da dopost: "+ns);
 		
+		System.out.println(req.getParameter("dataInizio"));
+		
 		di= LocalDate.parse(req.getParameter("dataInizio"));
 		df= LocalDate.parse(req.getParameter("dataFine"));
 		System.out.println(req.getParameter("formula"));

@@ -37,7 +37,7 @@
 				
 				<% if(session.getAttribute("utente")!=null)  {
 					%>
-					<li><form action="ListaPrenotazioni">
+					<li><form action="ListaPrenotazioni" method="post">
 					
 							<input type="submit" name="submit" value="Lista Prenotazioni"
 								class="button1">
