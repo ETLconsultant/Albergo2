@@ -114,7 +114,16 @@ public class Prenota extends HttpServlet {
 				
 
 				try {
-					Prenotazione prenotazioneBean= new Prenotazione(numeroGiorni,di,df,f,prezzoTotale,u1.getIdUtente(),ns);
+					Prenotazione prenotazioneBean= new Prenotazione();
+					prenotazioneBean.setNumeroGiorni(numeroGiorni);
+					prenotazioneBean.setDataInizio(di);
+					prenotazioneBean.setDataFine(df);
+					prenotazioneBean.setFormula(f);
+					prenotazioneBean.setNumeroGiorni(numeroGiorni);
+					prenotazioneBean.setPrezzoTotale(prezzoTotale);
+					prenotazioneBean.setIdUtente(u1.getIdUtente());
+					prenotazioneBean.setNumeroStanza(ns);
+					
 				//	System.out.println("beanPrenotazione " +prenotazioneBean);
 					prenotazioneService.insertPrenotazione(prenotazioneBean);
 					messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";

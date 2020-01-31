@@ -96,8 +96,9 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 		Formula f = Formula.BB;
 		
 		while(rs.next()) {
-		Prenotazione bean=new Prenotazione(rs.getInt("numero_giorni"), rs.getDate("data_inizio").toLocalDate(),rs.getDate("data_fine").toLocalDate(), Formula.valueOf(rs.getString("formula")), rs.getDouble("prezzo_totale"), rs.getInt("id_utente"), rs.getInt("numero_stanza"));
+		Prenotazione bean=new Prenotazione(rs.getInt("id_prenotazione"),rs.getInt("numero_giorni"), rs.getDate("data_inizio").toLocalDate(),rs.getDate("data_fine").toLocalDate(), Formula.valueOf(rs.getString("formula")), rs.getDouble("prezzo_totale"), rs.getInt("id_utente"), rs.getInt("numero_stanza"));
 		elencoPrenotazioni.add(bean);
+		
 		}
 		close();
 		return elencoPrenotazioni;
@@ -152,9 +153,9 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 	boolean ret=false;
 	for(Periodo a : p ) {
 		if(dataInizio.isAfter(a.getDataFine()) || (dataInizio.isBefore(a.getDataInizio()) && dataFine.isBefore(a.getDataInizio())))
-				ret = true;
+				{ret = true;}
 	}
-	
+	 
 	return ret;
 	}
 
