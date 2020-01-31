@@ -17,12 +17,13 @@ public class Prenotazione {
 
 	
 	
-	public Prenotazione(int numeroGiorni, LocalDate dataInizio, LocalDate dataFine, Formula formula,
+	public Prenotazione(int numeroGiorni, LocalDate dataInizio, LocalDate dataFine, Formula formula,double prezzoTotale,
 			 int idUtente, int numeroStanza) {
 		this.numeroGiorni = numeroGiorni;
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
 		this.formula = formula;
+		this.prezzoTotale=prezzoTotale;
 		this.idUtente = idUtente;
 		this.numeroStanza = numeroStanza;
 	}
