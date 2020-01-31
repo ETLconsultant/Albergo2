@@ -78,7 +78,7 @@ background-size:100% 100%;
       </div>
       
           <div class="item">
-        <img src="Immagini/facciata.jpg" alt="Image">
+        <img src="Immagini/Le nostre piscine.jpg" alt="Image">
         <div class="carousel-caption">
           
         </div>      
