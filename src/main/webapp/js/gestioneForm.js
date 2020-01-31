@@ -8,12 +8,13 @@ function fieldValidationDate(){
 	    } 
 	    if(mm<10){
 	        mm='0'+mm
-	    }
+	    } 
 
 	today = yyyy+'-'+mm+'-'+dd;
 	console.log(today);
-	document.getElementById("datefield").setAttribute("min", today);
-    
+	document.getElementById("datefield1").setAttribute("min", today);
+	document.getElementById("datefield2").setAttribute("min", today);
+
 }
 
 function fieldValidation(){
