@@ -17,6 +17,7 @@ text-align = center;
 }
 </style>
 </head>
+
 <body>
 	<div>
 		<h3  > GRUPPO 2: NON UN SEMPLICE HOTEL </h3>
