@@ -32,7 +32,7 @@ Data Check-in: <input id="datefield1" type="date" name="dataInizio" onclick="fie
 			</c:forEach>
 			<br></br>
 Data Check-out: <input id="datefield2" type="date" name="dataFine" onclick="fieldValidationDate()">
-			<c:forEach items="${listaErroriDate}" var="errore">
+			<c:forEach items="${listaErroriDate}" var="errore" >
 				<c:if test="${errore.campoValidato=='dataFine'}"> ${errore.descrizioneErrore}</c:if>
 			</c:forEach>
 <br></br>
