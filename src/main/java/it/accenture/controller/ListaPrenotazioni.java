@@ -29,18 +29,22 @@ public class ListaPrenotazioni extends HttpServlet {
 		ArrayList<Prenotazione> listaPrenotazioni=new ArrayList<Prenotazione>();
 		
 		Service PrenotazioneService = new Service();
-		String submit=req.getParameter("listaPrenotazioni");
-		Integer idUtente=(Integer) sessione.getAttribute("idUtente");
+		System.out.println(sessione.getAttribute("idUtente"));
 		
-		if(PrenotazioneService.getPrenotazioniByUtente(idUtente)!=null) {
+		System.out.println("caso ottimo");
+		int idUtente= (int) sessione.getAttribute("idUtente");
+		System.out.println(idUtente);
+		
+//		if(PrenotazioneService.getPrenotazioniByUtente(idUtente)!=null) {
 			listaPrenotazioni=PrenotazioneService.getPrenotazioniByUtente(idUtente);
-			sessione.setAttribute("listaPrenotazione", listaPrenotazioni );
+			System.out.println(listaPrenotazioni);
+			req.setAttribute("listaPrenotazione", listaPrenotazioni );
 			RequestDispatcher rd= req.getRequestDispatcher("/listaPrenotazioni.jsp");
 			rd.forward(req, resp);
-		}else {
-			RequestDispatcher rd= req.getRequestDispatcher("/Home.jsp");
-			rd.include(req, resp);
-		}
+//		}else {
+//			RequestDispatcher rd= req.getRequestDispatcher("/Home.jsp");
+//			rd.include(req, resp);
+//		}
 	}
 }
 	

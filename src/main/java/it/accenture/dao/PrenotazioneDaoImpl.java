@@ -85,6 +85,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDao {
 				p.setIdUtente(resultset.getInt("id_utente"));
 				p.setNumeroStanza(resultset.getInt("numero_stanza"));
 				allPrenotazioniUtente.add(p);
+				
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();

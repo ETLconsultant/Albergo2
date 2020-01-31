@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@page import="it.accenture.model.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,8 @@ float: right;
 
 
 <%
-String username = (String)session.getAttribute("username");
+
+String username=(String)session.getAttribute("username");
 %>
 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -49,8 +51,8 @@ String username = (String)session.getAttribute("username");
 
 		<!-- Links -->
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">altro link</a>
+			<li class="nav-item"><a class="nav-link" href="aboutUs.jsp">About us</a></li>
+			<li class="nav-item"><a class="nav-link" href="contatti.jsp">Contatti</a>
 			</li>
  
  
@@ -70,7 +72,7 @@ String username = (String)session.getAttribute("username");
 			
 
 			<li class="nav-item"><a class="nav-link"
-			<%if (username !=null) {%>
+			<%if (username!=null) {%>
 				href="listaPrenotazioni">Lista prenotazioni</a>
 				<%} %>
 				</li>
@@ -78,7 +80,7 @@ String username = (String)session.getAttribute("username");
 
 			
 			<li class="nav-login">
-			<%if (username != null) {%>
+			<%if (username!= null) {%>
 				<a class="nav-link" href="logout">LOGOUT</a>
 			<%} else { %>
 				<a class="nav-link" href="login.jsp">LOGIN</a>
