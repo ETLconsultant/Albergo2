@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<jsp:include page='intestazione.jsp' />
+<jsp:include page="intestazione.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lista Stanze</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
