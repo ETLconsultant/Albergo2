@@ -8,13 +8,12 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <link rel="stylesheet" href="css/stile.css" type="text/css">
+<link rel="stylesheet" href="css/form.css" type="text/css">
 </head>
 <body>
-
+<div align="center">
 <% String message = (String)session.getAttribute("message");%>
 
-
-<body>
 <%if (message!=null ){%>
 <%=message %>
 <%} %>
@@ -34,10 +33,11 @@
 <p>Password:</p>
 <input type ="password" name = "password" size = "20px" >
 
-
-<input type = "submit" name = "update" value ="Aggiorna Dati">
+<br> <br> <br>
+<input type = "submit" name = "update" value ="Aggiorna Dati" class="button">
 
 </form>
+</div>
 <%@include file="Footer.jsp"%>
 </body>
 </html>
