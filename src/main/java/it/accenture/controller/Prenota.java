@@ -30,6 +30,8 @@ import it.accenture.model.TipoStanza;
 import it.accenture.model.Utente;
 import it.accenture.service.PrenotazioneService;
 import it.accenture.service.StanzaService;
+import it.accenture.validator.ErroreValidazione;
+import it.accenture.validator.Validatore;
 
 @WebServlet("/Prenota")
 public class Prenota extends HttpServlet {
@@ -114,6 +116,16 @@ public class Prenota extends HttpServlet {
 				
 
 				try {
+					
+					List<ErroreValidazione> listaErroriDate = Validatore.validazionePrenota(req);
+					
+					if(listaErroriDate.size()!=0){
+						req.setAttribute("listaErroriDate", listaErroriDate);
+						System.out.println(listaErroriDate);
+						getServletContext().getRequestDispatcher("/prenota.jsp").forward(req, resp);
+						return;
+					}
+					
 					Prenotazione prenotazioneBean= new Prenotazione();
 					prenotazioneBean.setNumeroGiorni(numeroGiorni);
 					prenotazioneBean.setDataInizio(di);
