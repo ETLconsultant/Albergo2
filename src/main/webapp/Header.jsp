@@ -32,7 +32,7 @@
 								class="button1">
 						</form></li>
 						<% } %>
-					<li><a href="#">Benessere&Spa</a></li>
+					<li><a href="benessereSpa.jsp">Benessere&Spa</a></li>
 					<li><a href="Contatti.jsp">Contatti</a></li>
 				
 				<% if(session.getAttribute("utente")!=null)  {
