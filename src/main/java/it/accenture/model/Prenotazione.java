@@ -17,8 +17,9 @@ public class Prenotazione {
 
 	
 	
-	public Prenotazione(int numeroGiorni, LocalDate dataInizio, LocalDate dataFine, Formula formula,double prezzoTotale,
+	public Prenotazione(int idPrenotazione, int numeroGiorni, LocalDate dataInizio, LocalDate dataFine, Formula formula,double prezzoTotale,
 			 int idUtente, int numeroStanza) {
+		this.idPrenotazione=idPrenotazione;
 		this.numeroGiorni = numeroGiorni;
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
