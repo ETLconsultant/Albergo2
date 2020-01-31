@@ -74,11 +74,11 @@ body {
 </head>
 <body>
 <div align="center">
-<div class="container text-center">
+
   <h3>JAVANI GRUPPO...MISTO</h3>
   <p><em>Nel dubbio...Pulla!</em></p>
   <br>
-  </div>
+ 
   
   <div class="row">
   <div class="column">
