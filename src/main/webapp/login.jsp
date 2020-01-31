@@ -127,6 +127,7 @@ form button[type=submit] {
 			Non sei registrato? <a href="registrazione.jsp"> Registrati< </a>
 			</p>
 			
+			Torna alla <a href="Home.jsp"> Home </a> 
 
 		</form>
 		<br>
