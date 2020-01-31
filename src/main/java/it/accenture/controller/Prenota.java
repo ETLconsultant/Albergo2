@@ -39,9 +39,18 @@ public class Prenota extends HttpServlet {
 			String bottone= req.getParameter("button");
 			int numeroStanza = Integer.parseInt(bottone);
 			sessione.setAttribute("numeroStanza", numeroStanza);
-
+			String username = (String)sessione.getAttribute("username");
+			
+			if(username!=null) {
 			RequestDispatcher rd=req.getRequestDispatcher("/prenota.jsp");
 			rd.forward(req,resp);
+			}
+			else {
+				messaggio="Devi effettuare il login per prenotare";
+				RequestDispatcher rd=req.getRequestDispatcher("/login.jsp");
+				rd.forward(req,resp);
+				
+			}
 		
 	}
 

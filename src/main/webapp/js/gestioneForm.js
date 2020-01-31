@@ -70,3 +70,12 @@ function validateLogin(){
 	document.getElementById('password').innerHTML=messaggio
 	}
 
+function tiDeviLoggare(){
+	var username = document.getElementById('username').value;
+	if (username==null){
+		messaggio="Ti devi loggare."
+			document.getElementById('messaggio').innerHTML=messaggio
+				return false;
+			}
+		document.getElementById('messaggio').innerHTML=messaggio
+		}
