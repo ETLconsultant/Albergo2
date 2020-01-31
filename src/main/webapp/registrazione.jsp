@@ -12,6 +12,55 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 
+<style>
+body{
+background-image:url('Immagini/bellaggio.jpg');
+background-repeat: no-repeat;
+background-attachment:fixed;
+background-size:100% 100%;
+}
+
+form {
+
+	width: 100 px;
+  padding: 8px 8px;
+  margin: 20px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,.5);
+  
+}
+
+input[type=date], [type=formula]{
+  width: 50 px;
+  padding: 8px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  
+}
+
+
+
+input[type=submit] {
+  width: 50 px;
+  background-color: #2979ff;
+  color: white;
+  padding: 8px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+
+</style>
+
 <style>.messaggi {
 	color: red;
 }</style>
