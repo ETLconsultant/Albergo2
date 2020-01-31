@@ -50,14 +50,22 @@ background-size:100% 100%;
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
       <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
+        <img src="Immagini/bellaggio.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>La struttura</h3>
+        </div>      
+      </div>
+      
+        <div class="item">
         <img src="Immagini/SPA.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>La nostra SPA</h3>
+          <h3>La nostra spa</h3>
         </div>      
       </div>
 
@@ -71,7 +79,7 @@ background-size:100% 100%;
           <div class="item">
         <img src="Immagini/facciata.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Le nostre suite</h3>
+          
         </div>      
       </div>
     
