@@ -51,7 +51,7 @@ form {
 form input, form button {
   width: 212px;
   border: 1px solid;
-  border-bottom-color: rgba(255,255,255,.5);
+  border-bottom-color: rgba(255,255,255,.8);
   border-right-color: rgba(60,60,60,.35);
   border-top-color: rgba(60,60,60,.35);
   border-left-color: rgba(80,80,80,.45);
