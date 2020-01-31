@@ -27,7 +27,7 @@ h3{
 
 <br>
 	<div>
-		<h3 text-align = "center">
+		<h3>
 			<em> GRUPPO 2: NON UN SEMPLICE HOTEL </em>
 		</h3>
 		<br>
