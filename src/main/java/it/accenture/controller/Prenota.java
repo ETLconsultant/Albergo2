@@ -116,8 +116,9 @@ public class Prenota extends HttpServlet {
 					prenotazioneService.insertPrenotazione(prenotazioneBean);
 					messagePrenotazione = "La tua prenotazione è stata effettuata con successo!";
 					session.setAttribute("messagePrenotazione", messagePrenotazione);
-					RequestDispatcher rd=req.getRequestDispatcher("/listaPrenotazioni.jsp");
-					rd.forward(req,resp);
+//					RequestDispatcher rd=req.getRequestDispatcher("/listaPrenotazioni.jsp");
+//					rd.forward(req,resp);
+					resp.sendRedirect("/ListaPrenotazioni");
 				} catch (ConnessioneException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
