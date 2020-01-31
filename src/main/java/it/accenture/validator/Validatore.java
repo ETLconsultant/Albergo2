@@ -82,27 +82,28 @@ public class Validatore{
 //		}
 
 		String nome = request.getParameter("nome");
-		 
+		 System.out.println("prima dell'if");
 		if(nome == null || nome.length() == 0)
 			lista.add(new ErroreValidazione("nome", "nome " + bundle.getString("error.required")));
 		else if(nome.length() > 20)
 			lista.add(new ErroreValidazione("nome", "nome " + bundle.getString("error.maxlength") + " 20"));			
-//		else if(nome.matches("^[a-zA-Z]*$")) {
-//			System.out.println("^[a-zA-Z]*$");
-//			lista.add(new ErroreValidazione("nome", "Il nome " + bundle.getString("error.nonumeri")));
-//			
-//		}
-		
+		else if(!nome.matches("[a-zA-Z]+")) {
+			System.out.println("^[a-zA-Z]*$");
+			lista.add(new ErroreValidazione("nome", "Il nome " + bundle.getString("error.nonumeri")));
+			
+		}
+		 System.out.println("dopo l'if");
+
 		String cognome = request.getParameter("cognome");
 		if(cognome == null || cognome.length() == 0)
 			lista.add(new ErroreValidazione("cognome", "cognome " + bundle.getString("error.required")));
 		else if(cognome.length() > 20)
 			lista.add(new ErroreValidazione("cognome", "cognome" + bundle.getString("error.maxlength") + " 20"));			
-//		else if(cognome.matches("^[a-zA-Z]*$")) {
-//			System.out.println("^[a-zA-Z]*$");
-//			lista.add(new ErroreValidazione("cognome", "Il cognome " + bundle.getString("error.nonumeri")));
-//			
-//		}
+		else if(!cognome.matches("[a-zA-Z]+")) {
+			System.out.println("^[a-zA-Z]*$");
+			lista.add(new ErroreValidazione("cognome", "Il cognome " + bundle.getString("error.nonumeri")));
+			
+		}
 		
 		//TODO: continuare con gli eventuali controlli di validità che si ritiene necessari
 		
