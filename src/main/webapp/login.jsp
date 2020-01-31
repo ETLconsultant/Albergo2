@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="js/gestioneForm.js"></script>
 <link rel="stylesheet" href="css/stile.css" type="text/css">
+<link rel="stylesheet" href="css/form.css" type="text/css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
@@ -45,9 +46,7 @@
 			</c:forEach>
 
 			<h3>Password</h3>
-			<input type="password" name="password" size="20 px"
-				data-toggle="popover" title="Attenzione"
-				data-content="Ricordati di inserire almeno un numero,un carattere speciale, una lettera maiuscola e una maiuscola">
+			<input type="password" name="password" size="20 px">
 			<br> <br>
 			<c:forEach items="${lista}" var="errore">
 				<c:if test="${errore.campoValidato=='password'}"> ${errore.descrizioneErrore}</c:if>
@@ -65,13 +64,7 @@
 		</h3>
 
 	</div>
-	<script> 
-$(document).ready(function(){ 
-    $('[data-toggle="popover"]').popover();    
-}); 
-</script>
 
-	
   	<%@include file="Footer.jsp"%>
   
 </body>

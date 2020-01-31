@@ -30,11 +30,12 @@ Data Check-in: <input id="datefield1" type="date" name="dataInizio" onclick="fie
 <br></br>
 Data Check-out: <input id="datefield2" type="date" name="dataFine" onclick="fieldValidationDate()">
 <br></br>
-Formula<select id="formula" name="formula" >
-  <option value="BB">BB
-  <option value="MEZZA_PENSIONE">mezza pensione
-  <option value="PENSIONE_COMPLETA">pensione completa
+Formula: <select id="formula" name="formula" >
+  <option value="BB">B&B
+  <option value="MEZZA_PENSIONE">MEZZA PENSIONE
+  <option value="PENSIONE_COMPLETA">PENSIONE COMPLETA
 </select>
+<br> <br> <br> <br>
 <input type="hidden" name="nspar" value= "${ns1}"></input>
 <input type="hidden" name="tspar" value= "${ts1}"></input>
 
