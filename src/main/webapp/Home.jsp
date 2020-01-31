@@ -2,13 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<meta charset="ISO-8859-1">
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/stile.css">
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <head>
 <%@include file="Header.jsp"%>
-<meta charset="utf-8">
+
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <title>Home</title>
 </head>
@@ -70,7 +71,7 @@ String msg1 = (String)request.getAttribute("msg1");%>
   <!-- Container (Javani Resort) -->
 <div class="container-fluid text-center bg-grey">
   <h2>Javani Resort e' il vostro paradiso</h2><br>
-  <h4>L incanto di un giardino privato a pochi passi dal vivace viavai di Milano.</h4>
+  <h4>L' incanto di un giardino privato a pochi passi dal vivace viavai di Milano.</h4>
   <div class="row text-center">
     <div class="col-sm-4">
       <div class="thumbnail">
