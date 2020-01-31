@@ -32,8 +32,8 @@ Data Check-out: <input id="datefield2" type="date" name="dataFine" min="2020-01-
 <select id="formula" name="formula" >
 <option value ="nothing">formula
   <option value="BB">BB
-  <option value="mezza_pensione">mezza pensione
-  <option value="pensione_completa">pensione completa
+  <option value="MEZZA_PENSIONE">mezza pensione
+  <option value="PENSIONE_COMPLETA">pensione completa
 </select>
 <input type="hidden" name="nspar" value= "${ns1}"></input>
 <input type="hidden" name="tspar" value= "${ts1}"></input>
