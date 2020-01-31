@@ -1,5 +1,5 @@
 input[type=text],input[type=password] {
-  width: 130px;
+  width: 200px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -13,12 +13,12 @@ input[type=text],input[type=password] {
 }
 
 input[type=text]:focus {
-  width: 70%;
+  width: 23%;
   background-color: lightblue;
 }
 
 input[type=password]:focus {
-  width: 70%;
+  width: 23%;
   background-color: lightblue;
 }
 
