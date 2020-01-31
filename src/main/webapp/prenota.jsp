@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<jsp:include page='intestazione.jsp' />
+<jsp:include page="intestazione.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Prenotazione</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -75,7 +75,7 @@ input[type=submit] {
 <h3>Inserisci i dati per la prenotazione:</h3><br>
 
 
-<h5>Stanza numero </h5> 
+<h5>Stanza numero numeroStanza</h5> 
 <br>
 	<form name="FormPrenota" action="Prenota" method="post">
 	
