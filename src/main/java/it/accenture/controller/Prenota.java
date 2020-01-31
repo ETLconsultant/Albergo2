@@ -81,9 +81,29 @@ public class Prenota extends HttpServlet {
 		
 		System.out.println("stampa da dopost: "+ns);
 				
-		
-		di= LocalDate.parse(req.getParameter("dataInizio"));
-		df= LocalDate.parse(req.getParameter("dataFine"));
+		try {
+			di= LocalDate.parse(req.getParameter("dataInizio"));
+			df= LocalDate.parse(req.getParameter("dataFine"));
+		}catch(DateTimeParseException e) {
+			req.setAttribute("ns1", ns);
+			req.setAttribute("ts1", ts);
+			ErroreValidazione erroreCheckIn = new ErroreValidazione("dataInizio", "Il formato della data non e' corretto");
+			ErroreValidazione erroreCheckOut = new ErroreValidazione("dataFine", "Il formato della data non e' corretto");
+			
+			List<ErroreValidazione> listaErroriDate = new ArrayList<ErroreValidazione>();
+			listaErroriDate.add(erroreCheckIn);
+			listaErroriDate.add(erroreCheckOut);
+			
+			req.setAttribute("listaErroriDate", listaErroriDate);
+
+//			List<ErroreValidazione> listaErroriDate = Validatore.validazionePrenota(req);
+			
+//			RequestDispatcher dis = req.getRequestDispatcher("prenota.jsp");
+//			dis.forward(req, resp);
+			
+			getServletContext().getRequestDispatcher("/prenota.jsp").include(req, resp);
+			return;
+		}
 
 		
 		System.out.println(req.getParameter("formula"));
